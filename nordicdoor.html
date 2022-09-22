@@ -7,31 +7,47 @@
     </head>
     <body>
         <h1>Nordic Door</h1>
-        <h2>Forslag</h2>
 
         <form>
+            <fieldset>
+                <legend>Forslag</legend>
             <div>
-                <label for="Navn">Navn</label>
-                <input type="text" name="Navn" id="Navn" placeholder="Navn Navnesen" required> 
+                <label for="navn">Navn</label>
+                <input type="text" name="navn" id="navn" placeholder="Navn Navnesen" required> 
             </div>
+
             <div>
-                <label for="Ansattnummer">Ansattnummer</label>
-                <input type="number" name="Ansattnummer" id="Ansattnummer" placeholder="Ansattnummer" required>
+                <label for="ansattnummer">Ansattnummer</label>
+                <input type="number" name="ansattnummer" id="ansattnummer" placeholder="12345" required min="1" max="9999" step="100">
             </div>
+
             <div>
-                <label for="E-post">E-post</label>
-                <input type="email" name="E-post" id="E-post" placeholder="navn@nordicdoor.no" required>
+                <label for="e-post">E-post</label>
+                <input type="email" name="e-post" id="e-post" placeholder="Navn@nordicdoor.no" required>
             </div>
+
             <div>
-                <label for="Tittel">Tittel</label>
-                <input type="text" name="Tittel" id="Tittel" placeholder="Tittel på ditt forslag">
+                <label for="emne">Emne</label>
+                <input type="text" name="emne" id="emne" placeholder="Emnetittel" required>
             </div>
+
             <div>
-                <label>Beskrivelse</label>
-                <input type="text" name="Beskrivelse" id="Beskrivelse" placeholder="Beskrivelse av forslaget" required>
+                <label for="beskrivelse">Beskrivelse</label>
+                <textarea id="beskrivelse" name="beskrivelse" required></textarea>
+            </div>  
+
+            <div>
+                <label for="fil">Fil</label>
+                <input id="fil" type="file" name="fil">
             </div>
+
+            <div>
+            <button type="submit">Send</button>    
             <button type="reset">Nullstill</button>
-            <button type="submit">Send</button>
+            </div>
+
+        </fieldset>
+        
         </form>
 
     </body>
