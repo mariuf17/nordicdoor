@@ -3,6 +3,7 @@
     <head>
         <title>Nordic Door</title>
         <link rel="stylesheet" href="nordicdoor.css">
+        <meta charset="UTF-8">
     </head>
     <body>
         <h1>Nordic Door</h1>
@@ -10,26 +11,27 @@
 
         <form>
             <div>
-                <label>Navn</label>
-                <input> 
+                <label for="Navn">Navn</label>
+                <input type="text" name="Navn" id="Navn" placeholder="Navn Navnesen" required> 
             </div>
             <div>
-                <label>Ansattnummer</label>
-                <input>
+                <label for="Ansattnummer">Ansattnummer</label>
+                <input type="number" name="Ansattnummer" id="Ansattnummer" placeholder="Ansattnummer" required>
             </div>
             <div>
-                <label>E-post</label>
-                <input>
+                <label for="E-post">E-post</label>
+                <input type="email" name="E-post" id="E-post" placeholder="navn@nordicdoor.no" required>
             </div>
             <div>
-                <label>Tittel</label>
-                <input>
+                <label for="Tittel">Tittel</label>
+                <input type="text" name="Tittel" id="Tittel" placeholder="Tittel på ditt forslag">
             </div>
             <div>
                 <label>Beskrivelse</label>
-                <input>
+                <input type="text" name="Beskrivelse" id="Beskrivelse" placeholder="Beskrivelse av forslaget" required>
             </div>
-            <button>Send</button>
+            <button type="reset">Nullstill</button>
+            <button type="submit">Send</button>
         </form>
 
     </body>
