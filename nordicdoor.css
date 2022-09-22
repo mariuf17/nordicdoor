@@ -1,0 +1,9 @@
+body{
+    background-color: blanchedalmond;
+
+table, th {
+    border: 1px solid;
+    border-collapse: collapse;
+    color: solid black;
+}
+
