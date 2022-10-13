@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 25.0.1703.7
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NordicDoor", "NordicDoor\NordicDoor.csproj", "{D1AF834E-0740-4CF0-AB2A-335D75F27B7A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NordicDoor", "NordicDoor\NordicDoor.csproj", "{903AD6FA-B2FB-4900-A90C-603347A0E930}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D1AF834E-0740-4CF0-AB2A-335D75F27B7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D1AF834E-0740-4CF0-AB2A-335D75F27B7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D1AF834E-0740-4CF0-AB2A-335D75F27B7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D1AF834E-0740-4CF0-AB2A-335D75F27B7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{903AD6FA-B2FB-4900-A90C-603347A0E930}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{903AD6FA-B2FB-4900-A90C-603347A0E930}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{903AD6FA-B2FB-4900-A90C-603347A0E930}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{903AD6FA-B2FB-4900-A90C-603347A0E930}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {B0C940EC-9380-451E-83EC-C8C3CD89D9C9}
+		SolutionGuid = {A7E89322-0EA5-4408-A734-6BCA9C2404A0}
 	EndGlobalSection
 EndGlobal
