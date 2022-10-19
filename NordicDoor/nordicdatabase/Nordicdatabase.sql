@@ -86,7 +86,7 @@ CREATE OR REPLACE TABLE Bruker_Status (
     PRIMARY KEY (Bruker_Status_ID)
 );
 
-ALTER TABLE Bruker_Status (
+ALTER TABLE Bruker_Status
     ADD FOREIGN KEY (Ansatt_ID) REFERENCES Bruker(Ansatt_ID,);
 
 ALTER TABLE Forslag
