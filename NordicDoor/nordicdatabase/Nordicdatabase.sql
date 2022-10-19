@@ -116,4 +116,7 @@ VALUES (123,'4700','Jacob Klepp','kleppos@uia.no',97321586);
 INSERT INTO Bruker_Status (Bruker_Status_ID, Ansatt_ID, Ansatt_Status)
 Values (1,123,1);
 
+INSERT INTO Roller (Rolle_ID, Ansatt_ID, Ansvar)
+Values (1,123,'Kødde');
+
 
