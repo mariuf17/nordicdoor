@@ -91,4 +91,10 @@ ADD FOREIGN KEY (Forslag_Status_ID) REFERENCES Forslag_Status(Forslag_Status_ID)
 ALTER TABLE Forslag
 ADD FOREIGN KEY (Kategori_ID) REFERENCES Kategori(Kategori_ID);
 
+ALTER TABLE Forslag_Status
+ADD FOREIGN KEY (Forslag_ID) REFERENCES Forslag(Forslag_ID);
+
+ALTER TABLE Kategori
+ADD FOREIGN KEY (Forslag_ID) REFERENCES Forslag(Forslag_ID);
+
 
