@@ -20,6 +20,8 @@ CREATE TABLE Post (
 ALTER TABLE Bruker
 ADD FOREIGN KEY (Postnummer) REFERENCES Post(Postnummer);
 
+USE first;
+
 CREATE TABLE Avdeling (
     Avdeling_ID int,
     Avdeling varchar(100),
@@ -34,9 +36,18 @@ CREATE TABLE Team (
     FOREIGN KEY (Avdeling_ID) REFERENCES Avdeling(Avdeling_ID)
 );
 
+
 CREATE TABLE Team_Medlemmer (
     Team_ID int,
     Ansatt_ID int,
     FOREIGN KEY (Team_ID) REFERENCES Team(Team_ID),
     FOREIGN KEY (Ansatt_ID) REFERENCES Avdeling(Avdeling_ID)
+);
+
+CREATE TABLE Roller (
+    Rolle_ID int,
+    Ansatt_ID int,
+    Ansvar varchar(100),
+    PRIMARY KEY (Rolle_ID),
+    FOREIGN KEY (Ansatt_ID) REFERENCES Bruker(Ansatt_ID)
 );
