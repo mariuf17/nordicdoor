@@ -11,3 +11,8 @@ CREATE TABLE Bruker (
     PRIMARY KEY (Ansatt_ID)
 );
 
+CREATE TABLE Post (
+    Postnummer varchar(4),
+    Adresse varchar (100),
+    PRIMARY KEY (Postnummer)
+);
