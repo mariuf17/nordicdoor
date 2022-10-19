@@ -16,3 +16,6 @@ CREATE TABLE Post (
     Adresse varchar (100),
     PRIMARY KEY (Postnummer)
 );
+
+ALTER TABLE Bruker
+ADD FOREIGN KEY (Postnummer) REFERENCES Post(Postnummer);
