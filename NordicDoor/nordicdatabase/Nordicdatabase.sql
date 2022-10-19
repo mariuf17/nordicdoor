@@ -108,11 +108,12 @@ ALTER TABLE Kategori
 ADD FOREIGN KEY (Forslag_ID) REFERENCES Forslag(Forslag_ID);
 
 INSERT INTO Post (Postnummer, Adresse)
-VALUES ('4700','Grimstunet')
+VALUES ('4700','Grimstunet');
 
 INSERT INTO Bruker (Ansatt_ID, Postnummer, Navn, Epost, Telefon)
-VALUES (123,'4700','Jacob Klepp','kleppos@uia.no',97321586)
+VALUES (123,'4700','Jacob Klepp','kleppos@uia.no',97321586);
 
-INSERT INTO Bruker_Status
+INSERT INTO Bruker_Status (Bruker_Status_ID, Ansatt_ID, Ansatt_Status)
+Values (1,123,1);
 
 
