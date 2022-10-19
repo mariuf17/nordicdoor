@@ -2,7 +2,7 @@ CREATE database if not exists first;
 
 USE first;
 
-CREATE TABLE Bruker (
+CREATE OR REPLACE TABLE Bruker (
     Ansatt_ID int,
     Postnummer varchar(4),
     Navn varchar (100),
@@ -11,7 +11,7 @@ CREATE TABLE Bruker (
     PRIMARY KEY (Ansatt_ID)
 );
 
-CREATE TABLE Post (
+CREATE OR REPLACE TABLE Post (
     Postnummer varchar(4),
     Adresse varchar (100),
     PRIMARY KEY (Postnummer)
@@ -22,13 +22,13 @@ ADD FOREIGN KEY (Postnummer) REFERENCES Post(Postnummer);
 
 USE first;
 
-CREATE TABLE Avdeling (
+CREATE OR REPLACE TABLE Avdeling (
     Avdeling_ID int,
     Avdeling varchar(100),
     PRIMARY KEY (Avdeling_ID)
 );
 
-CREATE TABLE Team (
+CREATE OR REPLACE TABLE Team (
     Team_ID int,
     Avdeling_ID int,
     Teamnavn varchar(100),
@@ -37,14 +37,14 @@ CREATE TABLE Team (
 );
 
 
-CREATE TABLE Team_Medlemmer (
+CREATE OR REPLACE TABLE Team_Medlemmer (
     Team_ID int,
     Ansatt_ID int,
     FOREIGN KEY (Team_ID) REFERENCES Team(Team_ID),
     FOREIGN KEY (Ansatt_ID) REFERENCES Avdeling(Avdeling_ID)
 );
 
-CREATE TABLE Roller (
+CREATE OR REPLACE TABLE Roller (
     Rolle_ID int,
     Ansatt_ID int,
     Ansvar varchar(100),
@@ -52,7 +52,7 @@ CREATE TABLE Roller (
     FOREIGN KEY (Ansatt_ID) REFERENCES Bruker(Ansatt_ID)
 );
 
-CREATE TABLE Forslag (
+CREATE OR REPLACE TABLE Forslag (
     Forslag_ID int auto_increment,
     Ansatt_ID int,
     Team_ID int,
@@ -64,14 +64,14 @@ CREATE TABLE Forslag (
     PRIMARY KEY (Forslag_ID)
 );
 
-CREATE TABLE Kategori (
+CREATE OR REPLACE TABLE Kategori (
     Kategori_ID varchar(100),
     Forslag_ID int,
     Kategori varchar(100),
     PRIMARY KEY (Kategori_ID)
 );
 
-CREATE TABLE Forslag_Status (
+CREATE OR REPLACE TABLE Forslag_Status (
    Forslag_Status_ID int,
    Forslag_ID int,
    Innsendt_Dato timestamp,
@@ -96,5 +96,11 @@ ADD FOREIGN KEY (Forslag_ID) REFERENCES Forslag(Forslag_ID);
 
 ALTER TABLE Kategori
 ADD FOREIGN KEY (Forslag_ID) REFERENCES Forslag(Forslag_ID);
+
+INSERT INTO Post (Postnummer, Adresse)
+VALUES ('4700','Grimstunet')
+
+INSERT INTO Bruker (Ansatt_ID, Postnummer, Navn, Epost, Telefon)
+VALUES (123,'4700','Jacob Klepp','kleppos@uia.no',97321586)
 
 
