@@ -79,6 +79,17 @@ CREATE OR REPLACE TABLE Forslag_Status (
    PRIMARY KEY (Forslag_Status_ID)
 );
 
+CREATE OR REPLACE TABLE Bruker_Status (
+    Bruker_Status_ID int,
+    Ansatt_ID int,
+    Ansatt_Status int,
+    PRIMARY KEY (Bruker_Status_ID)
+);
+
+ALTER TABLE Bruker_Status (
+    ADD FOREIGN KEY (Ansatt_ID) REFERENCES Bruker(Ansatt_ID,)
+    )
+
 ALTER TABLE Forslag
 ADD FOREIGN KEY (Ansatt_ID) REFERENCES Bruker(Ansatt_ID);
 
