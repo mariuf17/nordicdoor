@@ -33,3 +33,10 @@ CREATE TABLE Team (
     PRIMARY KEY (Team_ID),
     FOREIGN KEY (Avdeling_ID) REFERENCES Avdeling(Avdeling_ID)
 );
+
+CREATE TABLE Team_Medlemmer (
+    Team_ID int,
+    Ansatt_ID int,
+    FOREIGN KEY (Team_ID) REFERENCES Team(Team_ID),
+    FOREIGN KEY (Ansatt_ID) REFERENCES Avdeling(Avdeling_ID)
+);
