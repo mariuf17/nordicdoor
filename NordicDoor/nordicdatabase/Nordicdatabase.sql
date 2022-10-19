@@ -19,3 +19,17 @@ CREATE TABLE Post (
 
 ALTER TABLE Bruker
 ADD FOREIGN KEY (Postnummer) REFERENCES Post(Postnummer);
+
+CREATE TABLE Avdeling (
+    Avdeling_ID int,
+    Avdeling varchar(100),
+    PRIMARY KEY (Avdeling_ID)
+);
+
+CREATE TABLE Team (
+    Team_ID int,
+    Avdeling_ID int,
+    Teamnavn varchar(100),
+    PRIMARY KEY (Team_ID),
+    FOREIGN KEY (Avdeling_ID) REFERENCES Avdeling(Avdeling_ID)
+);
