@@ -87,8 +87,7 @@ CREATE OR REPLACE TABLE Bruker_Status (
 );
 
 ALTER TABLE Bruker_Status (
-    ADD FOREIGN KEY (Ansatt_ID) REFERENCES Bruker(Ansatt_ID,)
-    )
+    ADD FOREIGN KEY (Ansatt_ID) REFERENCES Bruker(Ansatt_ID,);
 
 ALTER TABLE Forslag
 ADD FOREIGN KEY (Ansatt_ID) REFERENCES Bruker(Ansatt_ID);
@@ -113,5 +112,7 @@ VALUES ('4700','Grimstunet')
 
 INSERT INTO Bruker (Ansatt_ID, Postnummer, Navn, Epost, Telefon)
 VALUES (123,'4700','Jacob Klepp','kleppos@uia.no',97321586)
+
+INSERT INTO Bruker_Status
 
 
