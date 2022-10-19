@@ -79,6 +79,7 @@ CREATE OR REPLACE TABLE Forslag_Status (
    PRIMARY KEY (Forslag_Status_ID)
 );
 
+
 CREATE OR REPLACE TABLE Bruker_Status (
     Bruker_Status_ID int,
     Ansatt_ID int,
