@@ -119,4 +119,9 @@ Values (1,123,1);
 INSERT INTO Roller (Rolle_ID, Ansatt_ID, Ansvar)
 Values (1,123,'Kødde');
 
+INSERT INTO Post (Postnummer, Adresse)
+VALUES ('4724', 'Iveland'), ('0010', 'Oslo'), ('3710', 'Skien'), ('5514', 'Haugesund');
+
+INSERT INTO Bruker (Ansatt_ID, Postnummer, Navn, Epost, Telefon)
+VALUES (111,'0010','Thomas Tvedten','Tvedten@uia.no',54312786),(112,'4724','Marius Fjermeros','fjermeros@uia.no',98456231),(113,'3710','Truls Dyrkolbotn','dyrkolbotn@uia.no',11189765),(114,'5514','Stian Steinsland','Steinsland@uia.no',34599231),(115,'5514','Sindre Kristiansen','Kristiansen@uia.no',98567235);
 
