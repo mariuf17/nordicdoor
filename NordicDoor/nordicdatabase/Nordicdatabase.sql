@@ -117,7 +117,11 @@ INSERT INTO Bruker_Status (Bruker_Status_ID, Ansatt_ID, Ansatt_Status)
 Values (1,123,1);
 
 INSERT INTO Roller (Rolle_ID, Ansatt_ID, Ansvar)
-Values (1,123,'Kødde');
+Values (1,123,'Kødde'),
+       (1,124,'angrep'),
+       (1,125, 'midtbane'),
+       (1,126, 'forsvar'),
+       (1,127, 'keeper');
 
 INSERT INTO Post (Postnummer, Adresse)
 VALUES ('4724', 'Iveland'), ('0010', 'Oslo'), ('3710', 'Skien'), ('5514', 'Haugesund');
