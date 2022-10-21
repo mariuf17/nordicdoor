@@ -41,7 +41,7 @@ CREATE OR REPLACE TABLE Team_Medlemmer (
     Team_ID int,
     Ansatt_ID int,
     FOREIGN KEY (Team_ID) REFERENCES Team(Team_ID),
-    FOREIGN KEY (Ansatt_ID) REFERENCES Avdeling(Avdeling_ID)
+    FOREIGN KEY (Ansatt_ID) REFERENCES Bruker(Ansatt_ID)
 );
 
 CREATE OR REPLACE TABLE Roller (
@@ -123,5 +123,23 @@ INSERT INTO Post (Postnummer, Adresse)
 VALUES ('4724', 'Iveland'), ('0010', 'Oslo'), ('3710', 'Skien'), ('5514', 'Haugesund');
 
 INSERT INTO Bruker (Ansatt_ID, Postnummer, Navn, Epost, Telefon)
-VALUES (111,'0010','Thomas Tvedten','Tvedten@uia.no',54312786),(112,'4724','Marius Fjermeros','fjermeros@uia.no',98456231),(113,'3710','Truls Dyrkolbotn','dyrkolbotn@uia.no',11189765),(114,'5514','Stian Steinsland','Steinsland@uia.no',34599231),(115,'5514','Sindre Kristiansen','Kristiansen@uia.no',98567235);
+VALUES (111,'0010','Thomas Tvedten','Tvedten@uia.no',54312786),
+       (112,'4724','Marius Fjermeros','fjermeros@uia.no',98456231),
+       (113,'3710','Truls Dyrkolbotn','dyrkolbotn@uia.no',11189765),
+       (114,'5514','Stian Steinsland','Steinsland@uia.no',34599231),
+       (115,'5514','Sindre Kristiansen','Kristiansen@uia.no',98567235);
 
+INSERT INTO Team (Team_ID, Avdeling_ID, Teamnavn)
+VALUES (1, 1,'Produsenter'),
+       (2, 2,'Ledere'),
+       (3, 3,'Vaskere'),
+       (4, 4,'Selgere'),
+       (5, 5,'Service');
+
+INSERT INTO Team_Medlemmer (Team_ID, Ansatt_ID)
+VALUES (1, 112),
+       (2, 115),
+       (3, 111),
+       (4, 113),
+       (5, 114),
+       (3, 123);
