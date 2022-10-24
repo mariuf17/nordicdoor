@@ -11,7 +11,7 @@ build_property.RootNamespace = NordicDoor
 build_property.ProjectDir = /Users/mariusfjermeros/Documents/GitHub/nordicdoor/NordicDoor/NordicDoor/
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
-build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = true
 build_property.MSBuildProjectDirectory = /Users/mariusfjermeros/Documents/GitHub/nordicdoor/NordicDoor/NordicDoor
 build_property._RazorSourceGeneratorDebug = 
 
