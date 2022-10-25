@@ -107,9 +107,6 @@ ADD FOREIGN KEY (Forslag_ID) REFERENCES Forslag(Forslag_ID);
 ALTER TABLE Kategori
 ADD FOREIGN KEY (Forslag_ID) REFERENCES Forslag(Forslag_ID);
 
-INSERT INTO Bruker_Status (Bruker_Status_ID, Ansatt_ID, Ansatt_Status)
-Values (1,123,1);
-
 INSERT INTO Roller (Rolle_ID, Ansatt_ID, Ansvar)
 Values (1,114,'kødde'),
        (2,111,'angrep'),
@@ -205,3 +202,25 @@ VALUES (10,null,'2022-09-01','2022-09-03'),
        (90,null,'2022-09-10','2022-09-20'),
        (100,null,'2022-09-19','2022-09-23');
 
+INSERT INTO Kategori (Kategori_ID, Forslag_ID, Kategori)
+VALUES (5,10,'Bygg'),
+       (10,8,'Dør'),
+       (15,9,'Dør'),
+       (20,6,'Kunde'),
+       (25,7,'Dør'),
+       (30,4,'Kantine'),
+       (35,5,'Kantine'),
+       (40,2,'Kantine'),
+       (45,3,'Post'),
+       (50,1,'Bygg');
+
+INSERT INTO Bruker_Status (Bruker_Status_ID, Ansatt_ID, Ansatt_Status)
+Values (2,114,10),
+       (3,113,2),
+       (4,112,3),
+       (5,111,4),
+       (6,120,5),
+       (7,119,6),
+       (8,118,7),
+       (9,117,8),
+       (10,116,9);
