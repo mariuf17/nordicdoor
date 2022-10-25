@@ -58,8 +58,8 @@ CREATE OR REPLACE TABLE Forslag (
     Team_ID int,
     Forslag_Status_ID int,
     Kategori_ID varchar(100),
-    Start_Tid timestamp,
-    Frist timestamp,
+    Start_Tid date,
+    Frist date,
     Tittel varchar(100),
     PRIMARY KEY (Forslag_ID)
 );
@@ -74,8 +74,8 @@ CREATE OR REPLACE TABLE Kategori (
 CREATE OR REPLACE TABLE Forslag_Status (
    Forslag_Status_ID int,
    Forslag_ID int,
-   Innsendt_Dato timestamp,
-   Avsluttet_Dato timestamp,
+   Innsendt_Dato date,
+   Avsluttet_Dato date,
    PRIMARY KEY (Forslag_Status_ID)
 );
 
@@ -107,9 +107,6 @@ ADD FOREIGN KEY (Forslag_ID) REFERENCES Forslag(Forslag_ID);
 ALTER TABLE Kategori
 ADD FOREIGN KEY (Forslag_ID) REFERENCES Forslag(Forslag_ID);
 
-INSERT INTO Bruker (Ansatt_ID, Postnummer, Navn, Epost, Telefon)
-VALUES (123,'4700','Jacob Klepp','kleppos@uia.no',97321586);
-
 INSERT INTO Bruker_Status (Bruker_Status_ID, Ansatt_ID, Ansatt_Status)
 Values (1,123,1);
 
@@ -118,7 +115,12 @@ Values (1,114,'kødde'),
        (2,111,'angrep'),
        (3,112, 'midtbane'),
        (4,113, 'forsvar'),
-       (5,123, 'keeper');
+       (5,123, 'keeper'),
+       (6,115,'kødde'),
+       (7,116,'angrep'),
+       (8,117, 'midtbane'),
+       (9,118, 'forsvar'),
+       (10,120, 'keeper');
 
 INSERT INTO Post (Postnummer, Adresse)
 VALUES ('4700','Grimstunet'),
@@ -132,21 +134,39 @@ VALUES ('4700','Grimstunet'),
        ('9021','Tromsø'),
        ('6429','Molde');
 
-
+INSERT INTO Avdeling (Avdeling_ID, Avdeling)
+VALUES (6,'Opplæring'),
+       (7,'HMS'),
+       (8,'Elektriker'),
+       (9,'Bestilling'),
+       (10,'Post');
 
 INSERT INTO Bruker (Ansatt_ID, Postnummer, Navn, Epost, Telefon)
 VALUES (111,'0010','Thomas Tvedten','Tvedten@uia.no',54312786),
        (112,'4724','Marius Fjermeros','fjermeros@uia.no',98456231),
        (113,'3710','Truls Dyrkolbotn','dyrkolbotn@uia.no',11189765),
        (114,'5514','Stian Steinsland','Steinsland@uia.no',34599231),
-       (115,'5514','Sindre Kristiansen','Kristiansen@uia.no',98567235);
+       (115,'5514','Sindre Kristiansen','Kristiansen@uia.no',98567235),
+       (116,'5003','Kevin Lauren','Lauren@uia.no',95968542),
+       (117,'5514','Peter Hagen','Hagen@uia.no',98751425),
+       (118,'6429','Erling Håland','Braut@uia.no',45256312),
+       (119,'7010','Young Memmo','Memmo@uia.no',90236547),
+       (120,'9021','Vladimir Putin','VlaPu@uia.no',40256318),
+       (123,'4700','Jacob Klepp','kleppos@uia.no',97321586);
+
+
 
 INSERT INTO Team (Team_ID, Avdeling_ID, Teamnavn)
 VALUES (1, 1,'Produsenter'),
        (2, 2,'Ledere'),
        (3, 3,'Vaskere'),
        (4, 4,'Selgere'),
-       (5, 5,'Service');
+       (5, 5,'Service'),
+       (6,6,'Opplæring'),
+       (7,7,'Helse,Miljø,Sikkerhet'),
+       (8,8,'Trikkere'),
+       (9,9,'Bestillingene'),
+       (10,10,'Posterne');
 
 INSERT INTO Team_Medlemmer (Team_ID, Ansatt_ID)
 VALUES (1, 112),
@@ -154,4 +174,34 @@ VALUES (1, 112),
        (3, 111),
        (4, 113),
        (5, 114),
-       (3, 123);
+       (3, 123),
+       (6,120),
+       (7,119),
+       (8,118),
+       (9,117),
+       (10,116);
+
+INSERT INTO Forslag (Forslag_ID, Ansatt_ID, Team_ID, Forslag_Status_ID, Kategori_ID, Start_Tid, Frist, Tittel)
+VALUES (1,111,7,10,null,'2022-09-01','2002-09-03','Vask'),
+       (2,119,3,20,null,'2022-09-02','2002-09-04','Rydd'),
+       (3,118,2,30,null,'2022-09-02','2002-09-05','Post'),
+       (4,117,1,40,null,'2022-09-04','2002-09-06','Spis'),
+       (5,116,8,50,null,'2022-09-04','2002-09-08','Kantine'),
+       (6,115,5,60,null,'2022-09-07','2002-09-09','Service'),
+       (7,114,3,70,null,'2022-09-07','2002-09-13','Dør'),
+       (8,114,2,80,null,'2022-09-08','2002-09-15','Håndtak'),
+       (9,113,6,90,null,'2022-09-09','2002-09-16','Maling'),
+       (10,123,8,100,null,'2022-09-11','2002-09-18','Inngang');
+
+INSERT INTO Forslag_Status (Forslag_Status_ID, Forslag_ID, Innsendt_Dato, Avsluttet_Dato)
+VALUES (10,null,'2022-09-01','2022-09-03'),
+       (20,null,'2022-09-03','2022-09-05'),
+       (30,null,'2022-09-05','2022-09-07'),
+       (40,null,'2022-09-05','2022-09-07'),
+       (50,null,'2022-09-05','2022-09-08'),
+       (60,null,'2022-09-07','2022-09-10'),
+       (70,null,'2022-09-07','2022-09-11'),
+       (80,null,'2022-09-09','2022-09-19'),
+       (90,null,'2022-09-10','2022-09-20'),
+       (100,null,'2022-09-19','2022-09-23');
+
