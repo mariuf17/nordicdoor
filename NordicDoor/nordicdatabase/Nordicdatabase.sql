@@ -107,9 +107,6 @@ ADD FOREIGN KEY (Forslag_ID) REFERENCES Forslag(Forslag_ID);
 ALTER TABLE Kategori
 ADD FOREIGN KEY (Forslag_ID) REFERENCES Forslag(Forslag_ID);
 
-INSERT INTO Post (Postnummer, Adresse)
-VALUES ('4700','Grimstunet');
-
 INSERT INTO Bruker (Ansatt_ID, Postnummer, Navn, Epost, Telefon)
 VALUES (123,'4700','Jacob Klepp','kleppos@uia.no',97321586);
 
@@ -124,7 +121,18 @@ Values (1,114,'kødde'),
        (5,123, 'keeper');
 
 INSERT INTO Post (Postnummer, Adresse)
-VALUES ('4724', 'Iveland'), ('0010', 'Oslo'), ('3710', 'Skien'), ('5514', 'Haugesund');
+VALUES ('4700','Grimstunet'),
+       ('4724', 'Iveland'),
+       ('0010', 'Oslo'),
+       ('3710', 'Skien'),
+       ('5514', 'Haugesund'),
+       ('4614','Kristiansand S'),
+       ('5003','Bergen'),
+       ('7010','Trondheim'),
+       ('9021','Tromsø'),
+       ('6429','Molde');
+
+
 
 INSERT INTO Bruker (Ansatt_ID, Postnummer, Navn, Epost, Telefon)
 VALUES (111,'0010','Thomas Tvedten','Tvedten@uia.no',54312786),
