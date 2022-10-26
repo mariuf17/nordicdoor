@@ -1,4 +1,5 @@
-CREATE database if not exists first;
+drop database first;
+create database if not exists first;
 
 USE first;
 
@@ -19,8 +20,6 @@ CREATE OR REPLACE TABLE Post (
 
 ALTER TABLE Bruker
 ADD FOREIGN KEY (Postnummer) REFERENCES Post(Postnummer);
-
-USE first;
 
 CREATE OR REPLACE TABLE Avdeling (
     Avdeling_ID int,
@@ -66,7 +65,6 @@ CREATE OR REPLACE TABLE Forslag (
 
 CREATE OR REPLACE TABLE Kategori (
     Kategori_ID varchar(100),
-    Forslag_ID int,
     Kategori varchar(100),
     PRIMARY KEY (Kategori_ID)
 );
@@ -104,21 +102,6 @@ ADD FOREIGN KEY (Kategori_ID) REFERENCES Kategori(Kategori_ID);
 ALTER TABLE Forslag_Status
 ADD FOREIGN KEY (Forslag_ID) REFERENCES Forslag(Forslag_ID);
 
-ALTER TABLE Kategori
-ADD FOREIGN KEY (Forslag_ID) REFERENCES Forslag(Forslag_ID);
-
-INSERT INTO Roller (Rolle_ID, Ansatt_ID, Ansvar)
-Values (1,114,'kødde'),
-       (2,111,'angrep'),
-       (3,112, 'midtbane'),
-       (4,113, 'forsvar'),
-       (5,123, 'keeper'),
-       (6,115,'kødde'),
-       (7,116,'angrep'),
-       (8,117, 'midtbane'),
-       (9,118, 'forsvar'),
-       (10,120, 'keeper');
-
 INSERT INTO Post (Postnummer, Adresse)
 VALUES ('4700','Grimstunet'),
        ('4724', 'Iveland'),
@@ -130,13 +113,6 @@ VALUES ('4700','Grimstunet'),
        ('7010','Trondheim'),
        ('9021','Tromsø'),
        ('6429','Molde');
-
-INSERT INTO Avdeling (Avdeling_ID, Avdeling)
-VALUES (6,'Opplæring'),
-       (7,'HMS'),
-       (8,'Elektriker'),
-       (9,'Bestilling'),
-       (10,'Post');
 
 INSERT INTO Bruker (Ansatt_ID, Postnummer, Navn, Epost, Telefon)
 VALUES (111,'0010','Thomas Tvedten','Tvedten@uia.no',54312786),
@@ -151,7 +127,30 @@ VALUES (111,'0010','Thomas Tvedten','Tvedten@uia.no',54312786),
        (120,'9021','Vladimir Putin','VlaPu@uia.no',40256318),
        (123,'4700','Jacob Klepp','kleppos@uia.no',97321586);
 
+INSERT INTO Roller (Rolle_ID, Ansatt_ID, Ansvar)
+Values (1,114,'kødde'),
+       (2,111,'angrep'),
+       (3,112, 'midtbane'),
+       (4,113, 'forsvar'),
+       (5,123, 'keeper'),
+       (6,115,'kødde'),
+       (7,116,'angrep'),
+       (8,117, 'midtbane'),
+       (9,118, 'forsvar'),
+       (10,120, 'keeper');
 
+
+INSERT INTO Avdeling (Avdeling_ID, Avdeling)
+VALUES (1,'Produksjon'),
+       (2,'Administrasjon'),
+       (3,'Rengjøring'),
+       (4,'Salg'),
+       (5,'Kundeservice'),
+       (6,'Opplæring'),
+       (7,'HMS'),
+       (8,'Elektriker'),
+       (9,'Bestilling'),
+       (10,'Post');
 
 INSERT INTO Team (Team_ID, Avdeling_ID, Teamnavn)
 VALUES (1, 1,'Produsenter'),
@@ -178,18 +177,6 @@ VALUES (1, 112),
        (9,117),
        (10,116);
 
-INSERT INTO Forslag (Forslag_ID, Ansatt_ID, Team_ID, Forslag_Status_ID, Kategori_ID, Start_Tid, Frist, Tittel)
-VALUES (1,111,7,10,2,'2022-09-01','2002-09-03','Vask'),
-       (2,119,3,20,10,'2022-09-02','2002-09-04','Rydd'),
-       (3,118,2,30,15,'2022-09-02','2002-09-05','Post'),
-       (4,117,1,40,20,'2022-09-04','2002-09-06','Spis'),
-       (5,116,8,50,25,'2022-09-04','2002-09-08','Kantine'),
-       (6,115,5,60,30,'2022-09-07','2002-09-09','Service'),
-       (7,114,3,70,35,'2022-09-07','2002-09-13','Dør'),
-       (8,114,2,80,40,'2022-09-08','2002-09-15','Håndtak'),
-       (9,113,6,90,45,'2022-09-09','2002-09-16','Maling'),
-       (10,123,8,100,50,'2022-09-11','2002-09-18','Inngang');
-
 INSERT INTO Forslag_Status (Forslag_Status_ID, Innsendt_Dato, Avsluttet_Dato)
 VALUES (10,'2022-09-01','2022-09-03'),
        (20,'2022-09-03','2022-09-05'),
@@ -202,18 +189,6 @@ VALUES (10,'2022-09-01','2022-09-03'),
        (90,'2022-09-10','2022-09-20'),
        (100,'2022-09-19','2022-09-23');
 
-INSERT INTO Kategori (Kategori_ID, Forslag_ID, Kategori)
-VALUES (5,10,'Bygg'),
-       (10,8,'Dør'),
-       (15,9,'Dør'),
-       (20,6,'Kunde'),
-       (25,7,'Dør'),
-       (30,4,'Kantine'),
-       (35,5,'Kantine'),
-       (40,2,'Kantine'),
-       (45,3,'Post'),
-       (50,1,'Bygg');
-
 INSERT INTO Bruker_Status (Bruker_Status_ID, Ansatt_ID, Ansatt_Status)
 Values (2,114,10),
        (3,113,2),
@@ -224,3 +199,29 @@ Values (2,114,10),
        (8,118,7),
        (9,117,8),
        (10,116,9);
+
+INSERT INTO Kategori (Kategori_ID, Kategori)
+VALUES (5,'Bygg'),
+       (10,'Dør'),
+       (15,'Dør'),
+       (20,'Kunde'),
+       (25,'Dør'),
+       (30,'Kantine'),
+       (35,'Kantine'),
+       (40,'Kantine'),
+       (45,'Post'),
+       (50,'Bygg');
+
+INSERT INTO Forslag (Forslag_ID, Ansatt_ID, Team_ID, Forslag_Status_ID, Kategori_ID, Start_Tid, Frist, Tittel)
+VALUES (1,111,7,10,5,'2022-09-01','2002-09-03','Vask'),
+       (2,119,3,20,10,'2022-09-02','2002-09-04','Rydd'),
+       (3,118,2,30,15,'2022-09-02','2002-09-05','Post'),
+       (4,117,1,40,20,'2022-09-04','2002-09-06','Spis'),
+       (5,116,8,50,25,'2022-09-04','2002-09-08','Kantine'),
+       (6,115,5,60,30,'2022-09-07','2002-09-09','Service'),
+       (7,114,3,70,35,'2022-09-07','2002-09-13','Dør'),
+       (8,114,2,80,40,'2022-09-08','2002-09-15','Håndtak'),
+       (9,113,6,90,45,'2022-09-09','2002-09-16','Maling'),
+       (10,123,8,100,50,'2022-09-11','2002-09-18','Inngang');
+
+
