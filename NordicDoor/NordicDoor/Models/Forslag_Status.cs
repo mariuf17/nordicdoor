@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 namespace NordicDoor.Models{
 public class Forslag_Status
     {
-    [key]    
+    [Key]    
     public int Forslag_Status_ID { get; set; }
     [Required]
     public int Forslag_ID { get; set; }

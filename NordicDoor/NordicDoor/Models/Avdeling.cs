@@ -10,7 +10,7 @@ namespace NordicDoor.Models
         public int Avdeling_ID { get; set; }
         [Required]
 
-        public string Avdeling { get; set; }
+        public string Avdelinger { get; set; }
 
     }
 }
