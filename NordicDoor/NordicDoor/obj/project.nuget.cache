@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "F+Qn9jN6JzwulOY/LYpVs6fcLTXBL/W2trv/7piCF7steiu5xQ4Bf6bxb8CVc2z2P0ldgWj+E06lLx9JpoeNKw==",
+  "dgSpecHash": "UQwm+Pt5/aEpAet0zmmbDT28ZWXZ4KcwJRgWKoIG/D0xlF8+10Y6X8iU9Kgg6WYF7UmEbhqh7ZI9grqPuGH8Hg==",
   "success": true,
   "projectFilePath": "/Users/mariusfjermeros/Documents/GitHub/nordicdoor/NordicDoor/NordicDoor/NordicDoor.csproj",
   "expectedPackageFiles": [
+    "/Users/mariusfjermeros/.nuget/packages/humanizer.core/2.8.26/humanizer.core.2.8.26.nupkg.sha512",
     "/Users/mariusfjermeros/.nuget/packages/microsoft.aspnetcore.mvc.razor.extensions/6.0.10/microsoft.aspnetcore.mvc.razor.extensions.6.0.10.nupkg.sha512",
     "/Users/mariusfjermeros/.nuget/packages/microsoft.aspnetcore.mvc.razor.runtimecompilation/6.0.10/microsoft.aspnetcore.mvc.razor.runtimecompilation.6.0.10.nupkg.sha512",
     "/Users/mariusfjermeros/.nuget/packages/microsoft.aspnetcore.razor.language/6.0.10/microsoft.aspnetcore.razor.language.6.0.10.nupkg.sha512",
@@ -17,8 +18,10 @@
     "/Users/mariusfjermeros/.nuget/packages/microsoft.entityframeworkcore/6.0.10/microsoft.entityframeworkcore.6.0.10.nupkg.sha512",
     "/Users/mariusfjermeros/.nuget/packages/microsoft.entityframeworkcore.abstractions/6.0.10/microsoft.entityframeworkcore.abstractions.6.0.10.nupkg.sha512",
     "/Users/mariusfjermeros/.nuget/packages/microsoft.entityframeworkcore.analyzers/6.0.10/microsoft.entityframeworkcore.analyzers.6.0.10.nupkg.sha512",
+    "/Users/mariusfjermeros/.nuget/packages/microsoft.entityframeworkcore.design/6.0.10/microsoft.entityframeworkcore.design.6.0.10.nupkg.sha512",
     "/Users/mariusfjermeros/.nuget/packages/microsoft.entityframeworkcore.relational/6.0.10/microsoft.entityframeworkcore.relational.6.0.10.nupkg.sha512",
     "/Users/mariusfjermeros/.nuget/packages/microsoft.entityframeworkcore.sqlserver/6.0.10/microsoft.entityframeworkcore.sqlserver.6.0.10.nupkg.sha512",
+    "/Users/mariusfjermeros/.nuget/packages/microsoft.entityframeworkcore.tools/6.0.10/microsoft.entityframeworkcore.tools.6.0.10.nupkg.sha512",
     "/Users/mariusfjermeros/.nuget/packages/microsoft.extensions.caching.abstractions/6.0.0/microsoft.extensions.caching.abstractions.6.0.0.nupkg.sha512",
     "/Users/mariusfjermeros/.nuget/packages/microsoft.extensions.caching.memory/6.0.1/microsoft.extensions.caching.memory.6.0.1.nupkg.sha512",
     "/Users/mariusfjermeros/.nuget/packages/microsoft.extensions.configuration.abstractions/6.0.0/microsoft.extensions.configuration.abstractions.6.0.0.nupkg.sha512",

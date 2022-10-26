@@ -1,11 +1,22 @@
 ﻿using System;
-namespace NordicDoor.Controllers.Data
+using Microsoft.EntityFrameworkCore;
+using NordicDoor.Models;
+
+namespace NordicDoor.Controllers.Data;
+
+public class ApplicationDbContext : DbContext
 {
-    public class ApplicationDbContext
+    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
     {
-        public ApplicationDbContext()
-        {
-        }
     }
+
+    public DbSet<Bruker> Brukere { get; set; }
+
+
+
+
 }
+
+
+
 
