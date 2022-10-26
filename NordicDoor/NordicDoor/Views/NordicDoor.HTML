@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Nordic Door</title>
+        <link rel="stylesheet" href="nordicdoor.css">
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        
+
+        <form>
+            <fieldset>
+                <img src="NordicDoorLogo.png" width="500" height="237">
+
+                <legend>Forslag</legend>
+            <div>
+                <label for="navn">Navn</label>
+                <input type="text" name="navn" id="navn" placeholder="Navn Navnesen" required> 
+            </div>
+
+            <div>
+                <label for="ansattnummer">Ansattnummer</label>
+                <input type="number" name="ansattnummer" id="ansattnummer" placeholder="12345" required min="0" max="9999" step="100">
+            </div>
+
+            <div>
+                <label for="e-post">E-post</label>
+                <input type="email" name="e-post" id="e-post" placeholder="Navn@nordicdoor.no" required>
+            </div>
+
+            <div>
+                <label for="emne">Emne</label>
+                <input type="text" name="emne" id="emne" placeholder="Emnetittel" required>
+            </div>
+
+            <div>
+                <label for="beskrivelse">Beskrivelse</label>
+                <textarea id="beskrivelse" name="beskrivelse" required></textarea>
+            </div>  
+
+            <div>
+                <label for="fil">Fil</label>
+                <input id="fil" type="file" name="fil">
+            </div>
+
+            <div>
+            <button type="submit">Send</button>    
+            <button type="reset">Nullstill</button>
+            </div>
+
+        </fieldset>
+        
+        </form>
+
+    </body>
+</html>
