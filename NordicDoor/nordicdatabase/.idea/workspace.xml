@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="88c2f5dc-7638-4bb4-826f-10b5549a52f1" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../.vs/NordicDoor/xs/UserPrefs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.vs/NordicDoor/xs/UserPrefs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.vs/NordicDoor/xs/project-cache/NordicDoor-Debug.json" beforeDir="false" afterPath="$PROJECT_DIR$/../.vs/NordicDoor/xs/project-cache/NordicDoor-Debug.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NordicDoor/Controllers/Data/ApplicationDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../NordicDoor/Controllers/Data/ApplicationDbContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NordicDoor/Controllers/HelloWorldController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NordicDoor/Models/Avdeling.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../NordicDoor/Models/Avdeling.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NordicDoor/NordicDoor.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../NordicDoor/NordicDoor.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NordicDoor/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../NordicDoor/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NordicDoor/Views/NordicDoor.CSS" beforeDir="false" afterPath="$PROJECT_DIR$/../NordicDoor/Views/Shared/NordicDoor.CSS" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NordicDoor/Views/NordicDoor.HTML" beforeDir="false" afterPath="$PROJECT_DIR$/../NordicDoor/Views/Shared/NordicDoor.HTML" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NordicDoor/Views/NordicDoorLogo.png" beforeDir="false" afterPath="$PROJECT_DIR$/../NordicDoor/Views/Shared/NordicDoorLogo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NordicDoor/Views/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/../NordicDoor/Views/Shared/_Layout.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NordicDoor/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/../NordicDoor/appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NordicDoor/bin/Debug/net6.0/NordicDoor.deps.json" beforeDir="false" afterPath="$PROJECT_DIR$/../NordicDoor/bin/Debug/net6.0/NordicDoor.deps.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NordicDoor/bin/Debug/net6.0/NordicDoor.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../NordicDoor/bin/Debug/net6.0/NordicDoor.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NordicDoor/bin/Debug/net6.0/NordicDoor.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../NordicDoor/bin/Debug/net6.0/NordicDoor.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NordicDoor/bin/Debug/net6.0/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/../NordicDoor/bin/Debug/net6.0/appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NordicDoor/obj/Debug/net6.0/NordicDoor.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/../NordicDoor/obj/Debug/net6.0/NordicDoor.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NordicDoor/obj/Debug/net6.0/NordicDoor.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../NordicDoor/obj/Debug/net6.0/NordicDoor.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NordicDoor/obj/Debug/net6.0/NordicDoor.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../NordicDoor/obj/Debug/net6.0/NordicDoor.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NordicDoor/obj/Debug/net6.0/NordicDoor.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../NordicDoor/obj/Debug/net6.0/NordicDoor.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NordicDoor/obj/Debug/net6.0/NordicDoor.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../NordicDoor/obj/Debug/net6.0/NordicDoor.csproj.FileListAbsolute.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NordicDoor/obj/Debug/net6.0/NordicDoor.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../NordicDoor/obj/Debug/net6.0/NordicDoor.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NordicDoor/obj/Debug/net6.0/NordicDoor.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../NordicDoor/obj/Debug/net6.0/NordicDoor.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NordicDoor/obj/Debug/net6.0/ref/NordicDoor.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../NordicDoor/obj/Debug/net6.0/ref/NordicDoor.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NordicDoor/obj/Debug/net6.0/refint/NordicDoor.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../NordicDoor/obj/Debug/net6.0/refint/NordicDoor.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NordicDoor/obj/NordicDoor.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/../NordicDoor/obj/NordicDoor.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NordicDoor/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/../NordicDoor/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NordicDoor/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../NordicDoor/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NordicDoor/obj/staticwebassets.pack.sentinel" beforeDir="false" afterPath="$PROJECT_DIR$/../NordicDoor/obj/staticwebassets.pack.sentinel" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/nordicdatabase.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Nordicdatabase.sql" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="2GLfp4j3ewvMJiH2vu2FecBTU8l" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenDatabaseViewOnStart": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "/Users/mariusfjermeros/Documents/GitHub/nordicdoor/NordicDoor/nordicdatabase",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mariadb"
+    ]
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

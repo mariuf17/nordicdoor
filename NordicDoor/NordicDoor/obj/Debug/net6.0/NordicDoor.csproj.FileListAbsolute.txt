@@ -382,3 +382,8 @@
 /Users/mariusfjermeros/Documents/GitHub/nordicdoor/NordicDoor/NordicDoor/bin/Debug/net6.0/runtimes/win/lib/netcoreapp3.0/System.Windows.Extensions.dll
 /Users/mariusfjermeros/Documents/GitHub/nordicdoor/NordicDoor/NordicDoor/bin/Debug/net6.0/Humanizer.dll
 /Users/mariusfjermeros/Documents/GitHub/nordicdoor/NordicDoor/NordicDoor/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.Design.dll
+/Users/mariusfjermeros/Documents/GitHub/nordicdoor/NordicDoor/NordicDoor/bin/Debug/net6.0/MySqlConnector.dll
+/Users/mariusfjermeros/Documents/GitHub/nordicdoor/NordicDoor/NordicDoor/bin/Debug/net6.0/Microsoft.AspNetCore.Authorization.dll
+/Users/mariusfjermeros/Documents/GitHub/nordicdoor/NordicDoor/NordicDoor/bin/Debug/net6.0/Microsoft.AspNetCore.Metadata.dll
+/Users/mariusfjermeros/Documents/GitHub/nordicdoor/NordicDoor/NordicDoor/bin/Debug/net6.0/Microsoft.Extensions.Logging.Abstractions.dll
+/Users/mariusfjermeros/Documents/GitHub/nordicdoor/NordicDoor/NordicDoor/bin/Debug/net6.0/Pomelo.EntityFrameworkCore.MySql.dll
