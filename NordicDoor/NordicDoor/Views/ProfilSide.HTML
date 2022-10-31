@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"/>
+   <link rel="stylesheet" href="ProfilSide.CSS">
+   <script src="https://kit.fontawesome.com/1749da1642.js" crossorigin="anonymous"></script>
+   <title>Profilside</title>
+
+</head>
+
+<body class="nav-open">
+    <nav class="nav">
+        <button type="button" class="nav-close">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="nav-links-container">
+        <a href="#" class="nav-link">
+            <span class="nav-text">Oversikt over forslag</span>
+        </a>
+
+        <a href="#" class="nav-link">
+            <span class="nav-text">Profil</span>
+        </a>
+
+        <a href="#" class="nav-link">
+            <span class="nav-text">Legge til forslag</span>
+        </a>
+
+        <a href="#" class="nav-link">
+            <span class="nav-text">Logg ut</span>
+        </a>
+        </div>
+    </nav>
+    <main class="main">
+        <button type="button" onclick="toggleNav()"><i class="fa-solid fa-bars"></i></button>
+    </main>
+    <script>
+        function toggleNav() {
+            document.body.classList.toggle("nav-open");
+        }
+
+        document.querySelector(".nav-close").addEventListener("click", () => {
+            toggleNav();
+        });
+    </script>
+</body>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="content">
+                <div class="imgBx">
+                    <img src="./Man_Sindre.webp" alt="">
+                </div>
+                <div class="contentBx">
+                    <h4>Jens Jensen</h4>
+                    <h5>Medarbeider</h5>
+                    <h6>Medlem av Team 6</h6>
+                </div>
+                <div class="sci">
+                    <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                    <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                    <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+    
+        
+
+       
