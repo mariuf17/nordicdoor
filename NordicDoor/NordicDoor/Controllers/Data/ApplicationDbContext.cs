@@ -10,7 +10,7 @@ public class ApplicationDbContext : DbContext
     {
     }
 
-    public DbSet<Bruker> Brukere { get; set; }
+    public DbSet<Bruker> Bruker { get; set; }
 
 
 
