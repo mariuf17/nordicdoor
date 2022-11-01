@@ -8,7 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Views\HelloWorld\" />
     <None Remove="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" />
     <None Remove="Controllers\Data\" />
     <None Remove="Microsoft.EntityFrameworkCore" />
@@ -20,7 +19,6 @@
     <None Remove="Microsoft.AspNetCore.Authorization" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Views\HelloWorld\" />
     <Folder Include="Controllers\Data\" />
   </ItemGroup>
   <ItemGroup>
