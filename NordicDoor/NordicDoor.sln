@@ -5,6 +5,8 @@ VisualStudioVersion = 25.0.1703.7
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NordicDoor", "NordicDoor\NordicDoor.csproj", "{903AD6FA-B2FB-4900-A90C-603347A0E930}"
 EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{FE090D24-8C5B-4A59-9F47-262097E58093}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{903AD6FA-B2FB-4900-A90C-603347A0E930}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{903AD6FA-B2FB-4900-A90C-603347A0E930}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{903AD6FA-B2FB-4900-A90C-603347A0E930}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE090D24-8C5B-4A59-9F47-262097E58093}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE090D24-8C5B-4A59-9F47-262097E58093}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE090D24-8C5B-4A59-9F47-262097E58093}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE090D24-8C5B-4A59-9F47-262097E58093}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

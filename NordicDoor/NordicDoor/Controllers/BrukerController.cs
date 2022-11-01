@@ -17,9 +17,15 @@ namespace NordicDoor.Controllers
       
         public IActionResult Index()
         {
-            var objBrukerList = _first.Bruker.ToList();
+            try
+            {
+                var objBrukerList = _first.Bruker.ToList();
+            }
+            catch (Exception ex)
+            {
+                var s = ex.Message;
+            }
             return View();
         }
     }
 }
-

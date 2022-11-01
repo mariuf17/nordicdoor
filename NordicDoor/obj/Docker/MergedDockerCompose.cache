@@ -1,0 +1,18 @@
+name: dockercompose17960423954874255541
+services:
+  nordicdoor:
+    build:
+      context: /Users/mariusfjermeros/Documents/GitHub/nordicdoor/NordicDoor
+      dockerfile: NordicDoor/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    image: nordicdoor
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 80
+      protocol: tcp
+networks:
+  default:
+    name: dockercompose17960423954874255541_default
