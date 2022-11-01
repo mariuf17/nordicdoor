@@ -6,16 +6,27 @@
    font-family: 'Bellota Text', cursive;
 }
 
-body
+h1 { 
+   text-align: center;
+   justify-content: center;
+   align-items: center;
+   position: absolute;
+   top: 45px;
+     }
 
+body
 {
+   
    display: flex;
    justify-content: center;
    align-items: center;
    min-height: 100vh;
    width: 100%;
    background-color: blanchedalmond;
+
 }
+
+  
 .container
 {
    display: flex;
