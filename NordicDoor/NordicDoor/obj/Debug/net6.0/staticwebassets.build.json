@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "w3PNRYviXnFtk/xF3WmB4avtXV+W4YyAaZno1NTww8g=",
+  "Hash": "IjgRuMWYS82/7VuxE1zbBzihBgFzsAuAOa4aXkAsiPo=",
   "Source": "NordicDoor",
   "BasePath": "_content/NordicDoor",
   "Mode": "Default",
@@ -49,6 +49,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "/Users/mariusfjermeros/Documents/GitHub/nordicdoor/NordicDoor/NordicDoor/obj/Debug/net6.0/scopedcss/projectbundle/NordicDoor.bundle.scp.css"
+    },
+    {
+      "Identity": "/Users/mariusfjermeros/Documents/GitHub/nordicdoor/NordicDoor/NordicDoor/wwwroot/css/bootswatchtTheme.css",
+      "SourceId": "NordicDoor",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/mariusfjermeros/Documents/GitHub/nordicdoor/NordicDoor/NordicDoor/wwwroot/",
+      "BasePath": "_content/NordicDoor",
+      "RelativePath": "css/bootswatchtTheme.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/css/bootswatchtTheme.css"
     },
     {
       "Identity": "/Users/mariusfjermeros/Documents/GitHub/nordicdoor/NordicDoor/NordicDoor/wwwroot/css/site.css",

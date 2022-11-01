@@ -15,12 +15,8 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes = true
 build_property.MSBuildProjectDirectory = /Users/mariusfjermeros/Documents/GitHub/nordicdoor/NordicDoor/NordicDoor
 build_property._RazorSourceGeneratorDebug = 
 
-[/Users/mariusfjermeros/Documents/GitHub/nordicdoor/NordicDoor/NordicDoor/Views/Brukere/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQnJ1a2VyZS9JbmRleC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[/Users/mariusfjermeros/Documents/GitHub/nordicdoor/NordicDoor/NordicDoor/Views/HelloWorld/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSGVsbG9Xb3JsZC9JbmRleC5jc2h0bWw=
+[/Users/mariusfjermeros/Documents/GitHub/nordicdoor/NordicDoor/NordicDoor/Views/Bruker/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQnJ1a2VyL0luZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/mariusfjermeros/Documents/GitHub/nordicdoor/NordicDoor/NordicDoor/Views/Home/Index.cshtml]

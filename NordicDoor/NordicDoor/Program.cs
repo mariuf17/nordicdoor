@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using NordicDoor.Controllers.Data;
+using MySqlConnector;
 
 
 
@@ -14,6 +15,8 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 });
+
+builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 
 var app = builder.Build();
 

@@ -6,7 +6,7 @@ namespace NordicDoor.Models
     public class Bruker
     {
         [Key]
-        public int Bruker_ID { get; set; }
+        public int Ansatt_ID { get; set; }
         [Required]
 
         public string Postnummer { get; set; }

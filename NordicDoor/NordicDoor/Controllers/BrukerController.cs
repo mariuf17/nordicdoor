@@ -14,18 +14,11 @@ namespace NordicDoor.Controllers
         {
             _first = first;
         }
-      
+
         public IActionResult Index()
         {
-            try
-            {
-                var objBrukerList = _first.Bruker.ToList();
-            }
-            catch (Exception ex)
-            {
-                var s = ex.Message;
-            }
-            return View();
+            IEnumerable<Bruker> objBrukerList = _first.Bruker;
+            return View(objBrukerList);
         }
     }
 }

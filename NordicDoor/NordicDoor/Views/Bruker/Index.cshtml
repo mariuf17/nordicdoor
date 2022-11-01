@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Bruker>
+@{     ViewData["Title"] = "Index";
+
+}
+
+<h1>Index Bruker</h1>
+
+<table class="table table-bordered table-striped" style="width:100%">
+
+    <thead>
+        <tr>
+            <th>
+                Navn
+            </th>
+            <th>
+                Epost
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var obj in Model)
+            {
+                <tr>
+                    <td width:"50%">
+                        @obj.Navn
+                    </td>
+
+                    <td width:"30%">
+                        @obj.Epost
+                    </td>
+               
+                </tr>
+            }
+    </tbody>
+
+</table>
