@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using NordicDoor.Models;
+using NordicDoor.Controllers.Data;
 
 namespace NordicDoor.Controllers.Data;
 
