@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using NordicDoor.Controllers.Data;
+using MySqlConnector;
 
 
 
