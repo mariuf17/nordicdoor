@@ -32,8 +32,17 @@ public class BrukerController : Controller
     [ValidateAntiForgeryToken]
     public IActionResult Opprett(Bruker obj )
     {
-        _first.Bruker.Add(obj);
-        _first.SaveChanges();
-        return RedirectToAction("Index");
+        if(obj.Navn == obj.Ansatt_ID.ToString())
+        {
+            ModelState.AddModelError("CustomError", "Navn og Ansatt_ID kan ikke inneholde like verdier");
+        }
+     
+        if (ModelState.IsValid)
+        {
+            _first.Bruker.Add(obj);
+            _first.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        return View(obj);
     }
 }
