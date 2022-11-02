@@ -3,7 +3,7 @@
 
 }
 
-<h1>Index Bruker</h1>
+<h1>Brukere</h1>
 
 <table class="table table-bordered table-striped" style="width:100%">
 
@@ -13,7 +13,16 @@
                 Navn
             </th>
             <th>
+                Ansattnummer
+            </th>
+            <th>
                 Epost
+            </th>
+            <th>
+                Telefon
+            </th>
+            <th>
+                Postnummer
             </th>
         </tr>
     </thead>
@@ -26,9 +35,18 @@
                     </td>
 
                     <td width:"30%">
+                        @obj.Ansatt_ID
+                    </td>
+                    <td width:"30%">
                         @obj.Epost
                     </td>
-               
+                    <td width:"30%">
+                        @obj.Telefon
+                    </td>
+                    <td width:"30%">
+                        @obj.Postnummer
+                    </td>
+
                 </tr>
             }
     </tbody>
