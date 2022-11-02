@@ -22,11 +22,19 @@ ALTER TABLE Bruker
 ADD FOREIGN KEY (Postnummer) REFERENCES Post(Postnummer);
 
 ALTER TABLE Bruker
-ALTER COLUMN Ansatt_ID int NOT NULL;
+  MODIFY Ansatt_ID int NOT NULL;
 
 ALTER TABLE Bruker
-ALTER COLUMN Telefon int NOT NULL;
+  MODIFY Postnummer varchar(4) NOT NULL;
 
+ALTER TABLE Bruker
+  MODIFY Navn varchar(100) NOT NULL;
+
+ALTER TABLE Bruker
+  MODIFY Epost varchar(100) NOT NULL;
+
+ALTER TABLE Bruker
+  MODIFY Telefon int NOT NULL;
 
 CREATE OR REPLACE TABLE Avdeling (
     Avdeling_ID int,
