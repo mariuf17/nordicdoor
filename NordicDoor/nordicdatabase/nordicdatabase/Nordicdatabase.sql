@@ -21,6 +21,13 @@ CREATE OR REPLACE TABLE Post (
 ALTER TABLE Bruker
 ADD FOREIGN KEY (Postnummer) REFERENCES Post(Postnummer);
 
+ALTER TABLE Bruker
+ALTER COLUMN Ansatt_ID int NOT NULL;
+
+ALTER TABLE Bruker
+ALTER COLUMN Telefon int NOT NULL;
+
+
 CREATE OR REPLACE TABLE Avdeling (
     Avdeling_ID int,
     Avdeling varchar(100),
