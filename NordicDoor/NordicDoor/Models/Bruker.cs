@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace NordicDoor.Models
@@ -6,6 +7,7 @@ namespace NordicDoor.Models
     public class Bruker
     {
         [Key]
+        [DisplayName("Ansattnummer")]
         public int Ansatt_ID { get; set; }
         [Required]
 
@@ -13,6 +15,7 @@ namespace NordicDoor.Models
 
         public string Navn { get; set; }
 
+        [DisplayName("E-post")]
         public string Epost { get; set; }
 
         public int Telefon { get; set; }
