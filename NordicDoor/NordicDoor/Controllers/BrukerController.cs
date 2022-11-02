@@ -32,8 +32,12 @@ public class BrukerController : Controller
     [ValidateAntiForgeryToken]
     public IActionResult Opprett(Bruker obj )
     {
-        _first.Bruker.Add(obj);
-        _first.SaveChanges();
-        return RedirectToAction("Index");
+        if (ModelState.IsValid)
+        {
+            _first.Bruker.Add(obj);
+            _first.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        return View(obj);
     }
 }
