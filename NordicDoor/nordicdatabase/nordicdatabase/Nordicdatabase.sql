@@ -21,6 +21,7 @@ CREATE OR REPLACE TABLE Post (
 ALTER TABLE Bruker
 ADD FOREIGN KEY (Postnummer) REFERENCES Post(Postnummer);
 
+
 ALTER TABLE Bruker
   MODIFY Ansatt_ID int NOT NULL;
 
