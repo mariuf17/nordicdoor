@@ -3,31 +3,42 @@
 
 }
 
-<h1>Brukere</h1>
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">Brukere</h2>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-controller="Bruker" asp-action="Opprett" class="btn btn-primary">
+                <i class="bi bi-plus-square"></i> &nbsp; Opprett Bruker
+            </a>
+        </div>
+    </div>
+    <br /> 
 
-<table class="table table-bordered table-striped" style="width:100%">
+    <table class="table table-bordered table-striped" style="width:100%">
 
-    <thead>
-        <tr>
-            <th>
-                Navn
-            </th>
-            <th>
-                Ansattnummer
-            </th>
-            <th>
-                Epost
-            </th>
-            <th>
-                Telefon
-            </th>
-            <th>
-                Postnummer
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach(var obj in Model)
+        <thead>
+            <tr>
+                <th>
+                    Navn
+                </th>
+                <th>
+                    Ansattnummer
+                </th>
+                <th>
+                    Epost
+                </th>
+                <th>
+                    Telefon
+                </th>
+                <th>
+                    Postnummer
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var obj in Model)
             {
                 <tr>
                     <td width:"50%">
@@ -49,6 +60,8 @@
 
                 </tr>
             }
-    </tbody>
+        </tbody>
 
-</table>
+    </table>
+
+</div>
