@@ -1,0 +1,45 @@
+﻿@model Bruker
+
+<form method="post" asp-action="SlettPOST">
+    <input asp-for="Ansatt_ID" hidden />
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">Slett Bruker</h2>
+            <hr />
+        </div>
+        <div asp-validation-summary="All"></div>
+        <div class="mb-3">
+            <label asp-for="Navn"></label>
+            <input asp-for="Navn" disabled class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Ansatt_ID"></label>
+            <input asp-for="Ansatt_ID" disabled class="form-control" />
+        <div class="mb-3">
+            <label asp-for="Epost"></label>
+            <input asp-for="Epost" class="form-control" />
+            <span asp-validation-for="Epost" disabled class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Telefon"></label>
+            <input asp-for="Telefon" class="form-control" />
+            <span asp-validation-for="Telefon" disabled class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Postnummer"></label>
+            <input asp-for="Postnummer" class="form-control" />
+            <span asp-validation-for="Postnummer" disabled class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-danger" style="width:150px">Slett Bruker</button>
+        <a asp-controller="Bruker" asp-action="Index" class="btn btn-secondary" style="width:160px">
+            Tilbake til oversikt
+        </a>
+    </div>
+        </div>
+</form>
+
+@section Scripts{
+    @{
+         <partial name="_ValidationScriptsPartial" />
+     }
+}
