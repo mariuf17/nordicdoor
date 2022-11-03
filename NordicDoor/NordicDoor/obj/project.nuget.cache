@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "BiQQblRhfYSpcwaBx1YY0daol0uL9TvQhd4jnTtDvLg/fRf3yg8VQhDagx/rKspvOj9YkV21mD3SgUMaIIQWKg==",
+  "dgSpecHash": "FIoV4bC4AIQEwoVsJl0YTmOVu0R3PxGJH48jkqf7QEoNpqVsqwkENwc38vQfL1sKl5qJB4nMpKbPbzSAtkGBkg==",
   "success": true,
   "projectFilePath": "/Users/mariusfjermeros/Documents/GitHub/nordicdoor/NordicDoor/NordicDoor/NordicDoor.csproj",
   "expectedPackageFiles": [
@@ -10,7 +10,7 @@
     "/Users/mariusfjermeros/.nuget/packages/microsoft.aspnetcore.mvc.razor.extensions/6.0.10/microsoft.aspnetcore.mvc.razor.extensions.6.0.10.nupkg.sha512",
     "/Users/mariusfjermeros/.nuget/packages/microsoft.aspnetcore.mvc.razor.runtimecompilation/6.0.10/microsoft.aspnetcore.mvc.razor.runtimecompilation.6.0.10.nupkg.sha512",
     "/Users/mariusfjermeros/.nuget/packages/microsoft.aspnetcore.razor.language/6.0.10/microsoft.aspnetcore.razor.language.6.0.10.nupkg.sha512",
-    "/Users/mariusfjermeros/.nuget/packages/microsoft.codeanalysis.analyzers/3.3.2/microsoft.codeanalysis.analyzers.3.3.2.nupkg.sha512",
+    "/Users/mariusfjermeros/.nuget/packages/microsoft.codeanalysis.analyzers/3.3.3/microsoft.codeanalysis.analyzers.3.3.3.nupkg.sha512",
     "/Users/mariusfjermeros/.nuget/packages/microsoft.codeanalysis.common/4.0.0/microsoft.codeanalysis.common.4.0.0.nupkg.sha512",
     "/Users/mariusfjermeros/.nuget/packages/microsoft.codeanalysis.csharp/4.0.0/microsoft.codeanalysis.csharp.4.0.0.nupkg.sha512",
     "/Users/mariusfjermeros/.nuget/packages/microsoft.codeanalysis.razor/6.0.10/microsoft.codeanalysis.razor.6.0.10.nupkg.sha512",
