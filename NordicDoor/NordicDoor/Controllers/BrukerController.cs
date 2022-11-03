@@ -79,7 +79,7 @@ public class BrukerController : Controller
 
         if (ModelState.IsValid)
         {
-            _first.Bruker.Add(obj);
+            _first.Bruker.Update(obj);
             _first.SaveChanges();
             return RedirectToAction("Index");
         }
