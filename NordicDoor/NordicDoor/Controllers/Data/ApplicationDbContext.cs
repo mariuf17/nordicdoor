@@ -13,7 +13,7 @@ public class ApplicationDbContext : DbContext
 
     public DbSet<Bruker> Bruker { get; set; }
 
-
+    public DbSet<Team> Team { get; set; }
 
 
 }

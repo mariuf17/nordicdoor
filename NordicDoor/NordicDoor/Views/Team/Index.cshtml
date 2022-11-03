@@ -1,0 +1,34 @@
+﻿@model IEnumerable<Team>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Teams</h1>
+
+<table class="table table-bordered table-striped" style="width:100%">
+        <thead>
+            <tr>
+                <th>
+                    TeamNavn
+                </th>
+                <th>
+                    TeamID
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var obj in Model)
+            {
+               <tr>
+                   <td width="50%">
+                       @obj.TeamNavn
+                   </td>
+                   <td width="30%">
+                       @obj.Team_ID
+                   </td>
+               </tr>
+            }
+
+        </tbody>
+
+</table>
