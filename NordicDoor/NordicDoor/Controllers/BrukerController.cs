@@ -41,6 +41,7 @@ public class BrukerController : Controller
         {
             _first.Bruker.Add(obj);
             _first.SaveChanges();
+            TempData["suksess"] = "Opprettingen av brukeren var vellykket";
             return RedirectToAction("Index");
         }
         return View(obj);
@@ -81,6 +82,7 @@ public class BrukerController : Controller
         {
             _first.Bruker.Update(obj);
             _first.SaveChanges();
+            TempData["suksess"] = "Oppdateringen av brukeren var vellykket";
             return RedirectToAction("Index");
         }
         return View(obj);
@@ -119,6 +121,7 @@ public class BrukerController : Controller
 
         _first.Bruker.Remove(obj);
         _first.SaveChanges();
+        TempData["suksess"] = "Slettingen av brukeren var vellykket";
         return RedirectToAction("Index");
     }
 }
