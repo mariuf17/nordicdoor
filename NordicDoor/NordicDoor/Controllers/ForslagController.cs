@@ -16,7 +16,6 @@ public class ForslagController : Controller
     }
     public IActionResult Index()
     {
-
         IEnumerable<Forslag> objForslagList = _first.Forslag;
         return View(objForslagList);
     }
