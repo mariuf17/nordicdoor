@@ -41,6 +41,7 @@ public class BrukerController : Controller
         {
             _first.Bruker.Add(obj);
             _first.SaveChanges();
+            TempData["suksess"] = "Opprettingen av brukeren var vellykket";
             return RedirectToAction("Index");
         }
         return View(obj);
@@ -81,8 +82,46 @@ public class BrukerController : Controller
         {
             _first.Bruker.Update(obj);
             _first.SaveChanges();
+            TempData["suksess"] = "Oppdateringen av brukeren var vellykket";
             return RedirectToAction("Index");
         }
         return View(obj);
+    }
+
+    //GET
+    public IActionResult Slett(int? Ansatt_ID)
+    {
+        {
+            if (Ansatt_ID == null || Ansatt_ID == 0)
+                return NotFound();
+        }
+        var brukerFromFirst = _first.Bruker.Find(Ansatt_ID);
+        //var brukerFromFirstFirst = _first.Bruker.FirstOrDefault(u => u.id == id);
+        //var brukerFromFirstSingle = _first.Bruker.SingleOrDefault(u => u.id == id);
+
+        if (brukerFromFirst == null)
+        {
+            return NotFound();
+        }
+
+        return View(brukerFromFirst);
+    }
+
+    //POST
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+
+    public IActionResult SlettPOST(int? Ansatt_ID)
+    {
+        var obj = _first.Bruker.Find(Ansatt_ID);
+        if (obj == null)
+        {
+            return NotFound();
+        }
+
+        _first.Bruker.Remove(obj);
+        _first.SaveChanges();
+        TempData["suksess"] = "Slettingen av brukeren var vellykket";
+        return RedirectToAction("Index");
     }
 }
