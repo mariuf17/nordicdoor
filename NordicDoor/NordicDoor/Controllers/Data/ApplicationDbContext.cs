@@ -13,7 +13,7 @@ public class ApplicationDbContext : DbContext
 
     public DbSet<Bruker> Bruker { get; set; }
 
-
+    public DbSet<Forslag> Forslag { get; set; }
 
 
 }
