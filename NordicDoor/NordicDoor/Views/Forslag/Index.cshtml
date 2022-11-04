@@ -1,0 +1,75 @@
+@model IEnumerable<Forslag>
+
+@{ ViewData["Title"] = "Index";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Forslag</h1>
+
+    <table class="table table-bordered table-striped" style="width:100%">
+          
+        <thead>
+            <tr>
+                <th>
+                    Forslag_ID
+                </th>
+                <th>
+                    Bruker_ID
+                </th>
+                <th>
+                    Team_ID
+                </th>
+                <th>
+                    Forslag_Status_ID
+                </th>
+                <th>
+                    Kategori_ID
+                </th>
+                <th>
+                    Start_Tid
+                </th>
+                <th>
+                    Frist
+                </th>
+                <th>
+                    Tittel
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var obj in Model)
+                {
+            <tr>
+                <td width:"50%">
+                    @obj.Forslag_ID
+                </td>
+
+                <td width:"30%">
+                    @obj.Ansatt_ID
+                </td>
+                <td width:"30%">
+                    @obj.Team_ID
+                </td>
+                <td width:"30%">
+                    @obj.Forslag_Status_ID
+                </td>
+                <td width:"30%">
+                    @obj.Kategori_ID
+                </td>
+                <td width:"30%">
+                    @obj.Start_Tid
+                </td>
+                <td width:"30%">
+                    @obj.Frist
+                </td>
+                <td width:"30%">
+                    @obj.Tittel
+                </td>
+                
+            </tr>
+                }
+        </tbody>
+
+    </table>
+</div>
+
