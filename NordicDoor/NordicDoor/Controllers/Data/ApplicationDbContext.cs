@@ -18,6 +18,8 @@ public class ApplicationDbContext : DbContext
 
     public DbSet<Team> Team { get; set; }
 
+    public DbSet<Team_Medlemmer> Team_Medlemmer { get; set; }
+
 }
 
 

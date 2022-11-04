@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Team>
+﻿@model IEnumerable<Team_Medlemmer>
 @{ ViewData["Title"] = "Index";
 
 }
@@ -25,12 +25,10 @@
                     TeamID
                 </th>
                 <th>
-                    AvdelingID
+                    AnsattID
                 </th>
-                <th>
-                    Teamnavn
-                </th>
-               
+                
+
                 <th>
                 </th>
             </tr>
@@ -44,13 +42,11 @@
                     </td>
 
                     <td width:"30%">
-                        @obj.Avdeling_ID
+                        @obj.Ansatt_ID
                     </td>
-                    <td width:"30%">
-                        @obj.TeamNavn
-                    </td>
-                    
-                  
+                   
+
+
 
                 </tr>
             }
@@ -59,4 +55,3 @@
     </table>
 
 </div>
-
