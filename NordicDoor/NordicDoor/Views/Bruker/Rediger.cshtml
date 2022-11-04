@@ -1,9 +1,9 @@
 ﻿@model Bruker
 
-<form method="post">
+<form method="post" asp-action="Rediger">
     <div class="border p-3 mt-4">
         <div class="row pb-2">
-            <h2 class="text-primary">Opprett Bruker</h2>
+            <h2 class="text-primary">Rediger Bruker</h2>
             <hr />
         </div>
         <div asp-validation-summary="All"></div>
@@ -32,7 +32,7 @@
             <input asp-for="Postnummer" class="form-control" />
             <span asp-validation-for="Postnummer" class="text-danger"></span>
         </div>
-        <button type="submit" class="btn btn-primary" style="width:150px">Opprett Bruker</button>
+        <button type="submit" class="btn btn-primary" style="width:150px">Oppdater Bruker</button>
         <a asp-controller="Bruker" asp-action="Index" class="btn btn-secondary" style="width:160px">
             Tilbake til oversikt
         </a>

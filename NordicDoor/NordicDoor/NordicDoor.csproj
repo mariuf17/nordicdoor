@@ -17,6 +17,7 @@
     <None Remove="Pomelo.EntityFrameworkCore.MySql" />
     <None Remove="Microsoft.EntityFrameworkCore.Design" />
     <None Remove="Microsoft.AspNetCore.Authorization" />
+    <None Remove="Microsoft.CodeAnalysis.Analyzers" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\Data\" />
@@ -36,5 +37,12 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.AspNetCore.Authorization" Version="6.0.10" />
+    <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.3.3">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="Views\Bruker\Opprett %28copy%29.cshtml" />
   </ItemGroup>
 </Project>
