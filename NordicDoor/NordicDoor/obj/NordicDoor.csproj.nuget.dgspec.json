@@ -1,25 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "/Users/mariusfjermeros/Documents/GitHub/nordicdoor/NordicDoor/NordicDoor/NordicDoor.csproj": {}
+    "/Users/stiansteinsland/Desktop/ny vs/nordicdoor/NordicDoor/NordicDoor/NordicDoor.csproj": {}
   },
   "projects": {
-    "/Users/mariusfjermeros/Documents/GitHub/nordicdoor/NordicDoor/NordicDoor/NordicDoor.csproj": {
+    "/Users/stiansteinsland/Desktop/ny vs/nordicdoor/NordicDoor/NordicDoor/NordicDoor.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/mariusfjermeros/Documents/GitHub/nordicdoor/NordicDoor/NordicDoor/NordicDoor.csproj",
+        "projectUniqueName": "/Users/stiansteinsland/Desktop/ny vs/nordicdoor/NordicDoor/NordicDoor/NordicDoor.csproj",
         "projectName": "NordicDoor",
-        "projectPath": "/Users/mariusfjermeros/Documents/GitHub/nordicdoor/NordicDoor/NordicDoor/NordicDoor.csproj",
-        "packagesPath": "/Users/mariusfjermeros/.nuget/packages/",
-        "outputPath": "/Users/mariusfjermeros/Documents/GitHub/nordicdoor/NordicDoor/NordicDoor/obj/",
+        "projectPath": "/Users/stiansteinsland/Desktop/ny vs/nordicdoor/NordicDoor/NordicDoor/NordicDoor.csproj",
+        "packagesPath": "/Users/stiansteinsland/.nuget/packages/",
+        "outputPath": "/Users/stiansteinsland/Desktop/ny vs/nordicdoor/NordicDoor/NordicDoor/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/mariusfjermeros/.nuget/NuGet/NuGet.Config"
+          "/Users/stiansteinsland/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "/usr/local/share/dotnet/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

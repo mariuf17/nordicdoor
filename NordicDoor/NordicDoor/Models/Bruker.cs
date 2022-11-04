@@ -21,5 +21,4 @@ namespace NordicDoor.Models
         public int Telefon { get; set; }
 
     }
-}
 
