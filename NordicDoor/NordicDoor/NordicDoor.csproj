@@ -19,10 +19,12 @@
     <None Remove="Microsoft.AspNetCore.Authorization" />
     <None Remove="Microsoft.CodeAnalysis.Analyzers" />
     <None Remove="Views\Shared\HTML og CSS\" />
+    <None Remove="Views\Team\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\Data\" />
     <Folder Include="Views\Shared\HTML og CSS\" />
+    <Folder Include="Views\Team\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="6.0.10" />

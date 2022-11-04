@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Team>
+@{ ViewData["Title"] = "Index";
+
+}
+
+<partial name="_Notification" />
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">Brukere</h2>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-controller="Team" asp-action="Opprett" class="btn btn-primary">
+                <i class="bi bi-plus-square"></i> &nbsp; Opprett Team
+            </a>
+        </div>
+    </div>
+    <br />
+
+    <table class="table table-bordered table-striped" style="width:100%">
+
+        <thead>
+            <tr>
+                <th>
+                    TeamID
+                </th>
+                <th>
+                    AvdelingID
+                </th>
+                <th>
+                    Teamnavn
+                </th>
+               
+                <th>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var obj in Model)
+            {
+                <tr>
+                    <td width:"50%">
+                        @obj.Team_ID
+                    </td>
+
+                    <td width:"30%">
+                        @obj.Avdeling_ID
+                    </td>
+                    <td width:"30%">
+                        @obj.TeamNavn
+                    </td>
+                    
+                  
+
+                </tr>
+            }
+        </tbody>
+
+    </table>
+
+</div>
+
