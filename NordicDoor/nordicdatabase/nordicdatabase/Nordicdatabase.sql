@@ -246,5 +246,3 @@ WHERE Ansatt_Status = '1' OR (NOT (Ansatt_Status = '0'))
 
 
 
-
-
