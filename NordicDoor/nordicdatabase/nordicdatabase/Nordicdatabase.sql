@@ -244,3 +244,7 @@ SELECT COUNT(*) AS Antall_Ansatte
 FROM Bruker_Status
 WHERE Ansatt_Status = '1' OR (NOT (Ansatt_Status = '0'))
 
+CREATE OR REPLACE VIEW Bosted (Navn, Adresse, Postnummer) AS
+SELECT Navn, Adresse, Post.Postnummer
+FROM Bruker, Post
+WHERE Post.Postnummer = Bruker.Postnummer;
