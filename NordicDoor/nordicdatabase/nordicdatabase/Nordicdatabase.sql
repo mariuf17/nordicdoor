@@ -240,6 +240,7 @@ VALUES (1,111,7,10,5,'2022-09-01','2002-09-03','Vask'),
        (9,113,6,90,45,'2022-09-09','2002-09-16','Maling'),
        (10,123,8,100,50,'2022-09-11','2002-09-18','Inngang');
 
-
-
+SELECT COUNT(*) AS Antall_Ansatte
+FROM Bruker_Status
+WHERE Ansatt_Status = '1' OR (NOT (Ansatt_Status = '0'))
 
