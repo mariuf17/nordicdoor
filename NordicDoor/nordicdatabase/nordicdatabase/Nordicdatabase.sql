@@ -181,12 +181,12 @@ VALUES (1, 1,'Produsenter'),
        (10,10,'Posterne');
 
 INSERT INTO Team_Medlemmer (Team_ID, Ansatt_ID)
-VALUES (1, 112),
-       (2, 115),
-       (3, 111),
-       (4, 113),
-       (5, 114),
-       (3, 123),
+VALUES (1,112),
+       (2,115),
+       (3,111),
+       (4,113),
+       (5,114),
+       (3,123),
        (6,120),
        (7,119),
        (8,118),
@@ -203,7 +203,11 @@ VALUES (10,'2022-09-01','2022-09-03'),
        (70,'2022-09-07','2022-09-11'),
        (80,'2022-09-09','2022-09-19'),
        (90,'2022-09-10','2022-09-20'),
-       (100,'2022-09-19','2022-09-23');
+       (100,'2022-09-19','2022-09-23'),
+
+       (110,'2022-09-12','2022-11-11'),
+       (120,'2022-10-12','2022-12-12'),
+       (130,'2022-09-09','2022-11-11');
 
 INSERT INTO Bruker_Status (Bruker_Status_ID, Ansatt_ID, Ansatt_Status)
 Values (2,114,1),
@@ -217,40 +221,56 @@ Values (2,114,1),
        (10,116,0);
 
 INSERT INTO Kategori (Kategori_ID, Kategori)
-VALUES (5,'Bygg'),
-       (10,'Dør'),
-       (15,'Dør'),
-       (20,'Kunde'),
-       (25,'Dør'),
-       (30,'Kantine'),
-       (35,'Kantine'),
-       (40,'Kantine'),
-       (45,'Post'),
-       (50,'Bygg');
+VALUES (5,'HMS'),
+       (10,'Kvalitet'),
+       (15,'Ledetid'),
+       (20,'Kostnader'),
+       (25,'Effektivisering'),
+       (30,'Kompetanse'),
+       (35,'Kommunikasjone'),
+       (40,'5S'),
+       (45,'Standarisering'),
+       (50,'Flyt'),
+       (55,'Visualisering'),
+       (60,'Energi'),
+       (65,'Bærekraft'),
+       (70,'Industri 4.0');
 
 INSERT INTO Forslag (Forslag_ID, Ansatt_ID, Team_ID, Forslag_Status_ID, Kategori_ID, Start_Tid, Frist, Tittel)
-VALUES (1,111,7,10,5,'2022-09-01','2002-09-03','Vask'),
-       (2,119,3,20,10,'2022-09-02','2002-09-04','Rydd'),
-       (3,118,2,30,15,'2022-09-02','2002-09-05','Post'),
-       (4,117,1,40,20,'2022-09-04','2002-09-06','Spis'),
-       (5,116,8,50,25,'2022-09-04','2002-09-08','Kantine'),
-       (6,115,5,60,30,'2022-09-07','2002-09-09','Service'),
-       (7,114,3,70,35,'2022-09-07','2002-09-13','Dør'),
-       (8,114,2,80,40,'2022-09-08','2002-09-15','Håndtak'),
-       (9,113,6,90,45,'2022-09-09','2002-09-16','Maling'),
-       (10,123,8,100,50,'2022-09-11','2002-09-18','Inngang'),
-       (11, 111,7,10,5,'2022-10-12','2022-12-12','Nytt verktøy'),
-       (12,111,7,10,5,'2022-11-12','2022-12-12','Bedre lønn');
+VALUES (1,112,1,10,5,'2022-09-01','2022-09-03','Vask'),
+       (2,115,2,20,10,'2022-09-02','2022-09-04','Rydd'),
+       (3,111,3,30,15,'2022-09-02','2022-09-05','Post'),
+       (4,113,4,40,20,'2022-09-04','2022-09-06','Spis'),
+       (5,114,5,50,25,'2022-09-04','2022-09-08','Kantine'),
+       (6,120,6,60,30,'2022-09-07','2022-09-09','Service'),
+       (7,119,7,70,35,'2022-09-07','2022-09-13','Dør'),
+       (8,118,8,80,40,'2022-09-08','2022-09-15','Håndtak'),
+       (9,117,9,90,45,'2022-09-09','2022-09-16','Maling'),
+       (10,116,10,100,50,'2022-09-11','2022-09-18','Inngang'),
 
+       (11,112,1,110,55,'2022-09-12','2022-11-11','regnskap'),
+       (12,112,1,120,60,'2022-10-12','2022-12-12','administrativt'),
+       (13,115,2,130,65,'2022-09-09','2022-11-11','pause');
 
 
 SELECT COUNT(*) AS Antall_Ansatte
 FROM Bruker_Status
 WHERE Ansatt_Status = '1' OR (NOT (Ansatt_Status = '0'))
 
+
+SELECT COUNT(*) AS Antall_Forslag_Alle_Teams
+FROM Forslag
+ORDER BY Team_ID DESC
+
+SELECT Team_ID, COUNT(*) AS AntallForslagPerTeam
+From Forslag
+GROUP BY Team_ID
+ORDER BY AntallForslagPerTeam DESC, Team_ID
+
 CREATE OR REPLACE VIEW Bosted (Navn, Adresse, Postnummer) AS
 SELECT Navn, Adresse, Post.Postnummer
 FROM Bruker, Post
+
 WHERE Post.Postnummer = Bruker.Postnummer;
 
 CREATE OR REPLACE VIEW InnsendteForslag (Navn, Ansatt_ID, Forslag_ID, Tittel) AS
@@ -265,4 +285,6 @@ GROUP BY Navn
 HAVING COUNT(*) > 0
 ORDER BY 'Antall Innsendte Forslag'
 LIMIT 3;
+
+WHERE Post.Postnummer = Bruker.Postnummer;
 
