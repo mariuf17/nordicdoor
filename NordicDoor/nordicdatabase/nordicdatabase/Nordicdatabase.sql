@@ -203,7 +203,11 @@ VALUES (10,'2022-09-01','2022-09-03'),
        (70,'2022-09-07','2022-09-11'),
        (80,'2022-09-09','2022-09-19'),
        (90,'2022-09-10','2022-09-20'),
-       (100,'2022-09-19','2022-09-23');
+       (100,'2022-09-19','2022-09-23'),
+
+       (110,'2022-09-12','2022-11-11'),
+       (120,'2022-10-12','2022-12-12'),
+       (130,'2022-09-09','2022-11-11');
 
 INSERT INTO Bruker_Status (Bruker_Status_ID, Ansatt_ID, Ansatt_Status)
 Values (2,114,1),
@@ -242,11 +246,25 @@ VALUES (1,112,1,10,5,'2022-09-01','2022-09-03','Vask'),
        (7,119,7,70,35,'2022-09-07','2022-09-13','Dør'),
        (8,118,8,80,40,'2022-09-08','2022-09-15','Håndtak'),
        (9,117,9,90,45,'2022-09-09','2022-09-16','Maling'),
-       (10,116,10,100,50,'2022-09-11','2022-09-18','Inngang');
+       (10,116,10,100,50,'2022-09-11','2022-09-18','Inngang'),
+
+       (11,112,1,110,55,'2022-09-12','2022-11-11','regnskap'),
+       (12,112,1,120,60,'2022-10-12','2022-12-12','administrativt'),
+       (13,115,2,130,65,'2022-09-09','2022-11-11','pause');
 
 SELECT COUNT(*) AS Antall_Ansatte
 FROM Bruker_Status
 WHERE Ansatt_Status = '1' OR (NOT (Ansatt_Status = '0'))
+
+
+SELECT COUNT(*) AS Antall_Forslag_Alle_Teams
+FROM Forslag
+ORDER BY Team_ID DESC
+
+SELECT Team_ID, COUNT(*) AS AntallForslagPerTeam
+From Forslag
+GROUP BY Team_ID
+ORDER BY AntallForslagPerTeam DESC, Team_ID
 
 CREATE OR REPLACE VIEW Bosted (Navn, Adresse, Postnummer) AS
 SELECT Navn, Adresse, Post.Postnummer
