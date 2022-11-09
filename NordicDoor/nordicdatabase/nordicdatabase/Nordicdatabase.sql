@@ -139,7 +139,7 @@ VALUES (111,'0010','Thomas Tvedten','Tvedten@uia.no',54312786),
        (116,'5003','Kevin Lauren','Lauren@uia.no',95968542),
        (117,'5514','Peter Hagen','Hagen@uia.no',98751425),
        (118,'6429','Erling Håland','Braut@uia.no',45256312),
-       (119,'7010','Young Memmo','Memmo@uia.no',90236547),
+       (119,'7010','Young Memo','Memo@uia.no',90236547),
        (120,'9021','Vladimir Putin','VlaPu@uia.no',40256318),
        (123,'4700','Jacob Klepp','kleppos@uia.no',97321586);
 
@@ -252,6 +252,7 @@ VALUES (1,112,1,10,5,'2022-09-01','2022-09-03','Vask'),
        (12,112,1,120,60,'2022-10-12','2022-12-12','administrativt'),
        (13,115,2,130,65,'2022-09-09','2022-11-11','pause');
 
+
 SELECT COUNT(*) AS Antall_Ansatte
 FROM Bruker_Status
 WHERE Ansatt_Status = '1' OR (NOT (Ansatt_Status = '0'))
@@ -269,4 +270,21 @@ ORDER BY AntallForslagPerTeam DESC, Team_ID
 CREATE OR REPLACE VIEW Bosted (Navn, Adresse, Postnummer) AS
 SELECT Navn, Adresse, Post.Postnummer
 FROM Bruker, Post
+
 WHERE Post.Postnummer = Bruker.Postnummer;
+
+CREATE OR REPLACE VIEW InnsendteForslag (Navn, Ansatt_ID, Forslag_ID, Tittel) AS
+SELECT Navn, Bruker.Ansatt_ID, Forslag_ID, Tittel
+FROM Bruker, Forslag
+WHERE Bruker.Ansatt_ID = Forslag.Ansatt_ID
+ORDER BY Ansatt_ID;
+
+SELECT InnsendteForslag.Navn, COUNT(*) AS 'Antall Innsendte Forslag'
+FROM InnsendteForslag
+GROUP BY Navn
+HAVING COUNT(*) > 0
+ORDER BY 'Antall Innsendte Forslag'
+LIMIT 3;
+
+WHERE Post.Postnummer = Bruker.Postnummer;
+
