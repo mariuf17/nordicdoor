@@ -776,3 +776,8 @@
 /Users/ThomasTvedten/Documents/nordicdoor/nordicdoor/NordicDoor/NordicDoor/obj/Debug/net6.0/NordicDoor.csproj.CopyComplete
 /Users/ThomasTvedten/Documents/nordicdoor/nordicdoor/NordicDoor/NordicDoor/obj/Debug/net6.0/NordicDoor.genruntimeconfig.cache
 /Users/ThomasTvedten/Documents/nordicdoor/nordicdoor/NordicDoor/NordicDoor/obj/Debug/net6.0/ref/NordicDoor.dll
+/Users/ThomasTvedten/Documents/nordicdoor/nordicdoor/NordicDoor/NordicDoor/obj/Debug/net6.0/staticwebassets/msbuild.NordicDoor.Microsoft.AspNetCore.StaticWebAssets.props
+/Users/ThomasTvedten/Documents/nordicdoor/nordicdoor/NordicDoor/NordicDoor/obj/Debug/net6.0/staticwebassets/msbuild.build.NordicDoor.props
+/Users/ThomasTvedten/Documents/nordicdoor/nordicdoor/NordicDoor/NordicDoor/obj/Debug/net6.0/staticwebassets/msbuild.buildMultiTargeting.NordicDoor.props
+/Users/ThomasTvedten/Documents/nordicdoor/nordicdoor/NordicDoor/NordicDoor/obj/Debug/net6.0/staticwebassets/msbuild.buildTransitive.NordicDoor.props
+/Users/ThomasTvedten/Documents/nordicdoor/nordicdoor/NordicDoor/NordicDoor/obj/Debug/net6.0/staticwebassets.pack.json
