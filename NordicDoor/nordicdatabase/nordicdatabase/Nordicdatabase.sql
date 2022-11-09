@@ -256,6 +256,7 @@ SELECT COUNT(*) AS Antall_Ansatte
 FROM Bruker_Status
 WHERE Ansatt_Status = '1' OR (NOT (Ansatt_Status = '0'))
 
+
 SELECT COUNT(*) AS Antall_Forslag_Alle_Teams
 FROM Forslag
 ORDER BY Team_ID DESC
@@ -265,3 +266,7 @@ From Forslag
 GROUP BY Team_ID
 ORDER BY AntallForslagPerTeam DESC, Team_ID
 
+CREATE OR REPLACE VIEW Bosted (Navn, Adresse, Postnummer) AS
+SELECT Navn, Adresse, Post.Postnummer
+FROM Bruker, Post
+WHERE Post.Postnummer = Bruker.Postnummer;
