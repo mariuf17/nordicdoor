@@ -139,7 +139,7 @@ VALUES (111,'0010','Thomas Tvedten','Tvedten@uia.no',54312786),
        (116,'5003','Kevin Lauren','Lauren@uia.no',95968542),
        (117,'5514','Peter Hagen','Hagen@uia.no',98751425),
        (118,'6429','Erling Håland','Braut@uia.no',45256312),
-       (119,'7010','Young Memmo','Memmo@uia.no',90236547),
+       (119,'7010','Young Memo','Memo@uia.no',90236547),
        (120,'9021','Vladimir Putin','VlaPu@uia.no',40256318),
        (123,'4700','Jacob Klepp','kleppos@uia.no',97321586);
 
@@ -238,7 +238,11 @@ VALUES (1,111,7,10,5,'2022-09-01','2002-09-03','Vask'),
        (7,114,3,70,35,'2022-09-07','2002-09-13','Dør'),
        (8,114,2,80,40,'2022-09-08','2002-09-15','Håndtak'),
        (9,113,6,90,45,'2022-09-09','2002-09-16','Maling'),
-       (10,123,8,100,50,'2022-09-11','2002-09-18','Inngang');
+       (10,123,8,100,50,'2022-09-11','2002-09-18','Inngang'),
+       (11, 111,7,10,5,'2022-10-12','2022-12-12','Nytt verktøy'),
+       (12,111,7,10,5,'2022-11-12','2022-12-12','Bedre lønn');
+
+
 
 SELECT COUNT(*) AS Antall_Ansatte
 FROM Bruker_Status
@@ -248,3 +252,17 @@ CREATE OR REPLACE VIEW Bosted (Navn, Adresse, Postnummer) AS
 SELECT Navn, Adresse, Post.Postnummer
 FROM Bruker, Post
 WHERE Post.Postnummer = Bruker.Postnummer;
+
+CREATE OR REPLACE VIEW InnsendteForslag (Navn, Ansatt_ID, Forslag_ID, Tittel) AS
+SELECT Navn, Bruker.Ansatt_ID, Forslag_ID, Tittel
+FROM Bruker, Forslag
+WHERE Bruker.Ansatt_ID = Forslag.Ansatt_ID
+ORDER BY Ansatt_ID;
+
+SELECT InnsendteForslag.Navn, COUNT(*) AS 'Antall Innsendte Forslag'
+FROM InnsendteForslag
+GROUP BY Navn
+HAVING COUNT(*) > 0
+ORDER BY 'Antall Innsendte Forslag'
+LIMIT 3;
+
