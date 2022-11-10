@@ -20,5 +20,30 @@ public class ForslagController : Controller
         return View(objForslagList);
     }
 
+    //GET
+    public IActionResult Opprett()
+    {
+        return View();
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public IActionResult Opprett(Bruker obj)
+    {
+        if (obj.Navn == obj.Ansatt_ID.ToString())
+        {
+            ModelState.AddModelError("CustomError", "Navn og Ansatt_ID kan ikke inneholde like verdier");
+        }
+
+        if (ModelState.IsValid)
+        {
+            _first.Bruker.Add(obj);
+            _first.SaveChanges();
+            TempData["suksess"] = "Opprettingen av brukeren var vellykket";
+            return RedirectToAction("Index");
+        }
+        return View(obj);
+    }
+
 }
 
