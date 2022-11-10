@@ -1,5 +1,5 @@
-﻿@model IEnumerable<Bruker>
-@{     ViewData["Title"] = "Index";
+﻿@model IEnumerable<Roller>
+@{ ViewData["Title"] = "Index";
 
 }
 
@@ -7,34 +7,30 @@
 <div class="container p-3">
     <div class="row pt-4">
         <div class="col-6">
-            <h2 class="text-primary">Brukere</h2>
+            <h2 class="text-primary">Roller</h2>
         </div>
         <div class="col-6 text-end">
-            <a asp-controller="Bruker" asp-action="Opprett" class="btn btn-primary">
-                <i class="bi bi-plus-square"></i> &nbsp; Opprett Bruker
+            <a asp-controller="Roller" asp-action="Opprett" class="btn btn-primary">
+                <i class="bi bi-plus-square"></i> &nbsp; Opprett Rolle
             </a>
         </div>
     </div>
-    <br /> 
+    <br />
 
     <table class="table table-bordered table-striped" style="width:100%">
 
         <thead>
             <tr>
                 <th>
-                    Navn
+                    Rollenummer
                 </th>
                 <th>
                     Ansattnummer
                 </th>
                 <th>
-                    Epost
+                    Ansvar
                 </th>
                 <th>
-                    Telefon
-                </th>
-                <th>
-                    Postnummer
                 </th>
             </tr>
         </thead>
@@ -43,25 +39,20 @@
             {
                 <tr>
                     <td width:"50%">
-                        @obj.Navn
+                        @obj.Rolle_ID
                     </td>
+
                     <td width:"30%">
                         @obj.Ansatt_ID
                     </td>
                     <td width:"30%">
-                        @obj.Epost
-                    </td>
-                    <td width:"30%">
-                        @obj.Telefon
-                    </td>
-                    <td width:"30%">
-                        @obj.Postnummer
+                        @obj.Ansvar
                     </td>
                     <td>
                         <div class="w-75 btn-group" role="group">
-                            <a asp-controller="Bruker" asp-action="Rediger" asp-route-Ansatt_ID="@obj.Ansatt_ID"
+                            <a asp-controller="Roller" asp-action="Rediger" asp-route-Ansatt_ID="@obj.Ansatt_ID"
                                class="btn btn-primary mx-2"> <i class="bi bi-pencil-square"></i> Rediger</a>
-                            <a asp-controller="Bruker" asp-action="Slett" asp-route-Ansatt_ID="@obj.Ansatt_ID"
+                            <a asp-controller="Roller" asp-action="Slett" asp-route-Ansatt_ID="@obj.Ansatt_ID"
                                class="btn btn-danger mx-2"> <i class="bi bi-trash3-fill"></i> Slett</a>
 
                         </div>

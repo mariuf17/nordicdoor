@@ -1,0 +1,36 @@
+﻿@model Roller
+
+<form method="post" asp-action="Rediger">
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">Rediger Rolle</h2>
+            <hr />
+        </div>
+        <div asp-validation-summary="All"></div>
+        <div class="mb-3">
+            <label asp-for="Rolle_ID"></label>
+            <input asp-for="Rolle_ID" class="form-control" />
+            <span asp-validation-for="Rolle_ID" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Ansatt_ID"></label>
+            <input asp-for="Ansatt_ID" class="form-control" />
+            <span asp-validation-for="Ansatt_ID" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Ansvar"></label>
+            <input asp-for="Ansvar" class="form-control" />
+            <span asp-validation-for="Ansvar" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:150px">Oppdater Rolle</button>
+        <a asp-controller="Roller" asp-action="Index" class="btn btn-secondary" style="width:160px">
+            Tilbake til oversikt
+        </a>
+    </div>
+</form>
+
+@section Scripts{
+    @{
+         <partial name="_ValidationScriptsPartial" />
+     }
+}

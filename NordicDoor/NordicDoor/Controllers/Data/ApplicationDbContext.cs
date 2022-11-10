@@ -14,6 +14,8 @@ public class ApplicationDbContext : DbContext
 
     public DbSet<Bruker> Bruker { get; set; }
 
+    public DbSet<Roller> Roller { get; set; }
+
     public DbSet<Forslag> Forslag { get; set; }
 
     public DbSet<Team_Medlemmer> Team_Medlemmer { get; set; }
