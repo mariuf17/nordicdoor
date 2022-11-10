@@ -79,6 +79,12 @@ CREATE OR REPLACE TABLE Forslag (
     PRIMARY KEY (Forslag_ID)
 );
 
+ALTER TABLE Forslag
+ADD Ansvarlig varchar(100);
+
+
+
+
 CREATE OR REPLACE TABLE Kategori (
     Kategori_ID varchar(100),
     Kategori varchar(100),
@@ -287,4 +293,6 @@ ORDER BY 'Antall Innsendte Forslag'
 LIMIT 3;
 
 WHERE Post.Postnummer = Bruker.Postnummer;
+
+
 

@@ -1,0 +1,57 @@
+﻿@model Forslag
+
+<form method="post">
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">Opprett Forslag</h2>
+            <hr />
+        </div>
+        <div asp-validation-summary="All"></div>
+        <div class="mb-3">
+            <label asp-for="Forslag_ID"></label>
+            <input asp-for="Forslag_ID" class="form-control" />
+            <span asp-validation-for="Forslag_ID" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Ansatt_ID"></label>
+            <input asp-for="Ansatt_ID" class="form-control" />
+            <span asp-validation-for="Ansatt_ID" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Team_ID"></label>
+            <input asp-for="Team_ID" class="form-control" />
+            <span asp-validation-for="Team_ID" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Forslag_Status_ID"></label>
+            <input asp-for="Forslag_Status_ID" class="form-control" />
+            <span asp-validation-for="Forslag_Status_ID" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Kategori_ID"></label>
+            <input asp-for="Kategori_ID" class="form-control" />
+            <span asp-validation-for="Kategori_ID" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Start_Tid"></label>
+            <input asp-for="Start_Tid" class="form-control" />
+            <span asp-validation-for="Start_Tid" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Frist"></label>
+            <input asp-for="Frist" class="form-control" />
+            <span asp-validation-for="Frist" class="text-danger"></span>
+        </div>
+       
+        <button type="submit" class="btn btn-primary" style="width:150px">Opprett Forslag</button>
+        <a asp-controller="Forslag" asp-action="Index" class="btn btn-secondary" style="width:160px">
+            Tilbake til oversikt
+        </a>
+    </div>
+</form>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
