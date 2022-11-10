@@ -23,6 +23,7 @@ namespace NordicDoor.Models
 
         public string Tittel { get; set; }
 
+        public string Ansvarlig { get; set; }
     }
 }
 
