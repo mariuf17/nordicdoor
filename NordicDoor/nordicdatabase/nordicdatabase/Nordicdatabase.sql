@@ -83,8 +83,6 @@ ALTER TABLE Forslag
 ADD Ansvarlig varchar(100);
 
 
-
-
 CREATE OR REPLACE TABLE Kategori (
     Kategori_ID varchar(100),
     Kategori varchar(100),
@@ -242,21 +240,21 @@ VALUES (5,'HMS'),
        (65,'Bærekraft'),
        (70,'Industri 4.0');
 
-INSERT INTO Forslag (Forslag_ID, Ansatt_ID, Team_ID, Forslag_Status_ID, Kategori_ID, Start_Tid, Frist, Tittel)
-VALUES (1,112,1,10,5,'2022-09-01','2022-09-03','Vask'),
-       (2,115,2,20,10,'2022-09-02','2022-09-04','Rydd'),
-       (3,111,3,30,15,'2022-09-02','2022-09-05','Post'),
-       (4,113,4,40,20,'2022-09-04','2022-09-06','Spis'),
-       (5,114,5,50,25,'2022-09-04','2022-09-08','Kantine'),
-       (6,120,6,60,30,'2022-09-07','2022-09-09','Service'),
-       (7,119,7,70,35,'2022-09-07','2022-09-13','Dør'),
-       (8,118,8,80,40,'2022-09-08','2022-09-15','Håndtak'),
-       (9,117,9,90,45,'2022-09-09','2022-09-16','Maling'),
-       (10,116,10,100,50,'2022-09-11','2022-09-18','Inngang'),
+INSERT INTO Forslag (Forslag_ID, Ansatt_ID, Team_ID, Forslag_Status_ID, Kategori_ID, Start_Tid, Frist, Tittel, Ansvarlig)
+VALUES (1,112,1,10,5,'2022-09-01','2022-09-03','Vask','Thomas Tvedten'),
+       (2,115,2,20,10,'2022-09-02','2022-09-04','Rydd','Marius Fjermeros'),
+       (3,111,3,30,15,'2022-09-02','2022-09-05','Post','Truls Dyrkolbotn'),
+       (4,113,4,40,20,'2022-09-04','2022-09-06','Spis','Truls Dyrkolbotn'),
+       (5,114,5,50,25,'2022-09-04','2022-09-08','Kantine','Stian Steinsland'),
+       (6,120,6,60,30,'2022-09-07','2022-09-09','Service','Vladimir Putin'),
+       (7,119,7,70,35,'2022-09-07','2022-09-13','Dør','Thomas Tvedten'),
+       (8,118,8,80,40,'2022-09-08','2022-09-15','Håndtak','Thomas Tvedten'),
+       (9,117,9,90,45,'2022-09-09','2022-09-16','Maling','Thomas Tvedten'),
+       (10,116,10,100,50,'2022-09-11','2022-09-18','Inngang','Thomas Tvedten'),
 
-       (11,112,1,110,55,'2022-09-12','2022-11-11','regnskap'),
-       (12,112,1,120,60,'2022-10-12','2022-12-12','administrativt'),
-       (13,115,2,130,65,'2022-09-09','2022-11-11','pause');
+       (11,112,1,110,55,'2022-09-12','2022-11-11','regnskap','Thomas Tvedten'),
+       (12,112,1,120,60,'2022-10-12','2022-12-12','administrativt','Thomas Tvedten'),
+       (13,115,2,130,65,'2022-09-09','2022-11-11','pause','Thomas Tvedten');
 
 
 SELECT COUNT(*) AS Antall_Ansatte
