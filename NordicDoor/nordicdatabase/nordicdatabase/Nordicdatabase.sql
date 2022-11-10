@@ -148,16 +148,16 @@ VALUES (111,'0010','Thomas Tvedten','Tvedten@uia.no',54312786),
        (123,'4700','Jacob Klepp','kleppos@uia.no',97321586);
 
 INSERT INTO Roller (Rolle_ID, Ansatt_ID, Ansvar)
-Values (1,114,'kødde'),
-       (2,111,'angrep'),
-       (3,112, 'midtbane'),
-       (4,113, 'forsvar'),
-       (5,123, 'keeper'),
-       (6,115,'kødde'),
-       (7,116,'angrep'),
-       (8,117, 'midtbane'),
-       (9,118, 'forsvar'),
-       (10,120, 'keeper');
+Values (1,114,'Bruker'),
+       (2,111,'Administrator'),
+       (3,112, 'Teamleder'),
+       (4,113, 'Bruker'),
+       (5,123, 'Administrator'),
+       (6,115,'Teamleder'),
+       (7,116,'Bruker'),
+       (8,117, 'Administrator'),
+       (9,118, 'Teamleder'),
+       (10,120, 'Bruker');
 
 
 INSERT INTO Avdeling (Avdeling_ID, Avdeling)
@@ -251,7 +251,6 @@ VALUES (1,112,1,10,5,'2022-09-01','2022-09-03','Vask','Thomas Tvedten'),
        (8,118,8,80,40,'2022-09-08','2022-09-15','Håndtak','Thomas Tvedten'),
        (9,117,9,90,45,'2022-09-09','2022-09-16','Maling','Thomas Tvedten'),
        (10,116,10,100,50,'2022-09-11','2022-09-18','Inngang','Thomas Tvedten'),
-
        (11,112,1,110,55,'2022-09-12','2022-11-11','regnskap','Thomas Tvedten'),
        (12,112,1,120,60,'2022-10-12','2022-12-12','administrativt','Thomas Tvedten'),
        (13,115,2,130,65,'2022-09-09','2022-11-11','pause','Thomas Tvedten');
@@ -291,6 +290,3 @@ ORDER BY 'Antall Innsendte Forslag'
 LIMIT 3;
 
 WHERE Post.Postnummer = Bruker.Postnummer;
-
-
-
