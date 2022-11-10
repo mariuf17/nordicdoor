@@ -42,7 +42,11 @@
             <input asp-for="Frist" class="form-control" />
             <span asp-validation-for="Frist" class="text-danger"></span>
         </div>
-       
+        <div class="mb-3">
+            <label asp-for="Ansvarlig"></label>
+            <input asp-for="Ansvarlig" class="form-control" />
+            <span asp-validation-for="Ansvarlig" class="text-danger"></span>
+        </div>
         <button type="submit" class="btn btn-primary" style="width:150px">Opprett Forslag</button>
         <a asp-controller="Forslag" asp-action="Index" class="btn btn-secondary" style="width:160px">
             Tilbake til oversikt
