@@ -27,5 +27,82 @@ public class TeamController : Controller
         return View();
     }
 
+    //GET
+    public IActionResult Rediger(int? Ansatt_ID)
+    {
+        {
+            if (Ansatt_ID == null || Ansatt_ID == 0)
+                return NotFound();
+        }
+        var teamFromFirst = _first.Team.Find(Ansatt_ID);
+        //var teamFromFirstFirst = _first.Team.FirstOrDefault(u => u.id == id);
+        //var teamFromFirstSingle = _first.Team.SingleOrDefault(u => u.id == id);
+
+        if (teamFromFirst == null)
+        {
+            return NotFound();
+        }
+
+
+        return View(teamFromFirst);
+    }
+
+    //POST
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public IActionResult Rediger(Team obj)
+    {
+        if (obj.Teamnavn == obj.Team_ID.ToString())
+        {
+            ModelState.AddModelError("CustomError", "Teamnavn og Team_ID kan ikke inneholde like verdier");
+        }
+
+        if (ModelState.IsValid)
+        {
+            _first.Team.Update(obj);
+            _first.SaveChanges();
+            TempData["suksess"] = "Oppdateringen av brukeren var vellykket";
+            return RedirectToAction("Index");
+        }
+        return View(obj);
+    }
+
+    //GET
+    public IActionResult Slett(int? Ansatt_ID)
+    {
+        {
+            if (Ansatt_ID == null || Ansatt_ID == 0)
+                return NotFound();
+        }
+        var teamFromFirst = _first.Team.Find(Ansatt_ID);
+        //var teamFromFirstFirst = _first.Team.FirstOrDefault(u => u.id == id);
+        //var teamFromFirstSingle = _first.Team.SingleOrDefault(u => u.id == id);
+
+        if (teamFromFirst == null)
+        {
+            return NotFound();
+        }
+
+        return View(teamFromFirst);
+    }
+
+    //POST
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+
+    public IActionResult SlettPOST(int? Ansatt_ID)
+    {
+        var obj = _first.Team.Find(Ansatt_ID);
+        if (obj == null)
+        {
+            return NotFound();
+        }
+
+        _first.Team.Remove(obj);
+        _first.SaveChanges();
+        TempData["suksess"] = "Slettingen av brukeren var vellykket";
+        return RedirectToAction("Index");
+    }
+
 }
 

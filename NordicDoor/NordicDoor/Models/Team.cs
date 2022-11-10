@@ -12,7 +12,7 @@ namespace NordicDoor.Models
 
         public int Avdeling_ID { get; set; }
 
-        public string TeamNavn { get; set; }
+        public string Teamnavn { get; set; }
 
     }
 }

@@ -1,0 +1,38 @@
+﻿@model Team
+
+<form method="post">
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">Opprett Team</h2>
+            <hr />
+        </div>
+        <div asp-validation-summary="All"></div>
+        <div class="mb-3">
+            <label asp-for="Team_ID"></label>
+            <input asp-for="Team_ID" class="form-control" />
+            <span asp-validation-for="Team_ID" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Avdeling_ID"></label>
+            <input asp-for="Avdeling_ID" class="form-control" />
+            <span asp-validation-for="Avdeling_ID" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Teamnavn"></label>
+            <input asp-for="Teamnavn" class="form-control" />
+            <span asp-validation-for="Teamnavn" class="text-danger"></span>
+        </div>
+
+
+        <button type="submit" class="btn btn-primary" style="width:150px">Opprett Forslag</button>
+        <a asp-controller="Team" asp-action="Index" class="btn btn-secondary" style="width:160px">
+            Tilbake til oversikt
+        </a>
+    </div>
+</form>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
