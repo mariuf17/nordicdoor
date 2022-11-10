@@ -1,0 +1,35 @@
+﻿@model Roller
+
+<form method="post" asp-action="SlettPOST">
+    <input asp-for="Ansatt_ID" hidden />
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">Slett Rolle</h2>
+            <hr />
+        </div>
+        <div asp-validation-summary="All"></div>
+        <div class="mb-3">
+            <label asp-for="Rolle_ID"></label>
+            <input asp-for="Rolle_ID" disabled class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Ansatt_ID"></label>
+            <input asp-for="Ansatt_ID" disabled class="form-control" />
+        <div class="mb-3">
+            <label asp-for="Ansvar"></label>
+            <input asp-for="Ansvar" class="form-control" />
+            <span asp-validation-for="Ansvar" disabled class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-danger" style="width:150px">Slett Rolle</button>
+        <a asp-controller="Roller" asp-action="Index" class="btn btn-secondary" style="width:160px">
+            Tilbake til oversikt
+        </a>
+    </div>
+        </div>
+</form>
+
+@section Scripts{
+    @{
+         <partial name="_ValidationScriptsPartial" />
+     }
+}
