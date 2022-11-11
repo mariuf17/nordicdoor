@@ -291,6 +291,16 @@ HAVING COUNT(*) > 0
 ORDER BY 'Antall Innsendte Forslag'
 LIMIT 3;
 
+SELECT Bruker_Status.Ansatt_ID, Bruker_Status.Ansatt_Status, Bruker.Navn
+AS InnaktiveBrukere FROM Bruker_Status
+LEFT JOIN Bruker ON Bruker_Status.Ansatt_ID = Bruker.Ansatt_ID
+WHERE Ansatt_Status < 1;
+
+SELECT Bruker_Status.Ansatt_ID, Bruker_Status.Ansatt_Status, Bruker.Navn
+AS InnaktiveBrukere FROM Bruker_Status
+LEFT JOIN Bruker ON Bruker_Status.Ansatt_ID = Bruker.Ansatt_ID
+WHERE Ansatt_Status = 1;
+
 /*Spørring som ekskluderer Rolle_ID fra Roller-tabellen */
 
 SELECT Bruker.Navn, Roller.Ansatt_ID AS Ansattnr, Roller.Rolle
