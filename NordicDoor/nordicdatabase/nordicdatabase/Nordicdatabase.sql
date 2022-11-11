@@ -248,26 +248,33 @@ VALUES (1,112,1,10,5,'2022-09-01','2022-09-03','Vask','Thomas Tvedten'),
        (12,112,1,120,60,'2022-10-12','2022-12-12','administrativt','Thomas Tvedten'),
        (13,115,2,130,65,'2022-09-09','2022-11-11','pause','Thomas Tvedten');
 
+/* Spørring som teller antall ansatte i bedriften */
 
-SELECT COUNT(*) AS Antall_Ansatte
+SELECT COUNT(*) AS 'Antall ansatte'
 FROM Bruker_Status
 WHERE Ansatt_Status = '1' OR (NOT (Ansatt_Status = '0'))
 
+/* Spørring som teller totalt antall forslag fra alle teamene i bedriften */
 
-SELECT COUNT(*) AS Antall_Forslag_Alle_Teams
+SELECT COUNT(*) AS 'Totalt antall forslag'
 FROM Forslag
 ORDER BY Team_ID DESC
 
-SELECT Team_ID, COUNT(*) AS AntallForslagPerTeam
+/* Spørring som teller forslag per team, sortert etter flest forslag */
+
+SELECT Team_ID, COUNT(*) AS 'Antall forslag per team'
 From Forslag
 GROUP BY Team_ID
-ORDER BY AntallForslagPerTeam DESC, Team_ID
+ORDER BY 'Antall forslag per team' DESC, Team_ID
+
+/*View som viser de ansattes adresser*/
 
 CREATE OR REPLACE VIEW Bosted (Navn, Adresse, Postnummer) AS
 SELECT Navn, Adresse, Post.Postnummer
 FROM Bruker, Post
-
 WHERE Post.Postnummer = Bruker.Postnummer;
+
+/* View som viser alle innsendte forslag */
 
 CREATE OR REPLACE VIEW InnsendteForslag (Navn, Ansatt_ID, Forslag_ID, Tittel) AS
 SELECT Navn, Bruker.Ansatt_ID, Forslag_ID, Tittel
@@ -275,9 +282,18 @@ FROM Bruker, Forslag
 WHERE Bruker.Ansatt_ID = Forslag.Ansatt_ID
 ORDER BY Ansatt_ID;
 
+/* Spørring som teller forslag per ansatt, sortert etter flest forslag */
+
 SELECT InnsendteForslag.Navn, COUNT(*) AS 'Antall Innsendte Forslag'
 FROM InnsendteForslag
 GROUP BY Navn
 HAVING COUNT(*) > 0
 ORDER BY 'Antall Innsendte Forslag'
 LIMIT 3;
+
+/*Spørring som ekskluderer Rolle_ID fra Roller-tabellen */
+
+SELECT Bruker.Navn, Roller.Ansatt_ID AS Ansattnr, Roller.Rolle
+FROM Roller
+INNER JOIN Bruker
+ON Roller.Ansatt_ID = Bruker.Ansatt_ID
