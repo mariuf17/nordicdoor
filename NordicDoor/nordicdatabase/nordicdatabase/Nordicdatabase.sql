@@ -62,7 +62,7 @@ CREATE OR REPLACE TABLE Team_Medlemmer (
 CREATE OR REPLACE TABLE Roller (
     Rolle_ID int,
     Ansatt_ID int,
-    Ansvar varchar(100),
+    Rolle varchar(100),
     PRIMARY KEY (Rolle_ID),
     FOREIGN KEY (Ansatt_ID) REFERENCES Bruker(Ansatt_ID)
 );
@@ -147,17 +147,10 @@ VALUES (111,'0010','Thomas Tvedten','Tvedten@uia.no',54312786),
        (120,'9021','Vladimir Putin','VlaPu@uia.no',40256318),
        (123,'4700','Jacob Klepp','kleppos@uia.no',97321586);
 
-INSERT INTO Roller (Rolle_ID, Ansatt_ID, Ansvar)
+INSERT INTO Roller (Rolle_ID, Ansatt_ID, Rolle)
 Values (1,114,'Bruker'),
        (2,111,'Administrator'),
-       (3,112, 'Teamleder'),
-       (4,113, 'Bruker'),
-       (5,123, 'Administrator'),
-       (6,115,'Teamleder'),
-       (7,116,'Bruker'),
-       (8,117, 'Administrator'),
-       (9,118, 'Teamleder'),
-       (10,120, 'Bruker');
+       (3,112, 'Teamleder');
 
 
 INSERT INTO Avdeling (Avdeling_ID, Avdeling)
@@ -288,5 +281,3 @@ GROUP BY Navn
 HAVING COUNT(*) > 0
 ORDER BY 'Antall Innsendte Forslag'
 LIMIT 3;
-
-WHERE Post.Postnummer = Bruker.Postnummer;
