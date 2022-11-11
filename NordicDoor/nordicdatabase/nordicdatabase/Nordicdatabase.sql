@@ -291,6 +291,8 @@ HAVING COUNT(*) > 0
 ORDER BY 'Antall Innsendte Forslag'
 LIMIT 3;
 
+/* Spørring for ansatt status, 1 = ansatt, 0 = ikke aktiv ansatt */
+
 SELECT Bruker_Status.Ansatt_ID, Bruker_Status.Ansatt_Status, Bruker.Navn
 AS InnaktiveBrukere FROM Bruker_Status
 LEFT JOIN Bruker ON Bruker_Status.Ansatt_ID = Bruker.Ansatt_ID
