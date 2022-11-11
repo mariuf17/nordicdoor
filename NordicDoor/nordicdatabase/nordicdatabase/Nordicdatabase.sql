@@ -321,6 +321,7 @@ INNER JOIN Bruker_Status
 ON Bruker.Ansatt_ID = Bruker_Status.Ansatt_ID;
 
 SELECT Bruker.Navn, Bruker.Ansatt_ID AS Ansattnr, Forslag.Forslag_ID AS Forslagnr, Kategori.Kategori, Forslag_Status.FStatus
+FROM Forslag_Status
 JOIN Bruker, Forslag, Kategori
 ON Bruker.Ansatt_ID = Forslag.Ansatt_ID
 WHERE Fstatus LIKE 'godkjent%';
