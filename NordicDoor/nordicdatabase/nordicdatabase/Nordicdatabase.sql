@@ -94,6 +94,8 @@ CREATE OR REPLACE TABLE Forslag_Status (
    Forslag_ID int,
    Innsendt_Dato date,
    Avsluttet_Dato date,
+   FStatus varchar(100),
+   Fase varchar(100),
    PRIMARY KEY (Forslag_Status_ID)
 );
 
@@ -190,21 +192,20 @@ VALUES (1,112),
        (9,117),
        (10,116);
 
-INSERT INTO Forslag_Status (Forslag_Status_ID, Innsendt_Dato, Avsluttet_Dato)
-VALUES (10,'2022-09-01','2022-09-03'),
-       (20,'2022-09-03','2022-09-05'),
-       (30,'2022-09-05','2022-09-07'),
-       (40,'2022-09-05','2022-09-07'),
-       (50,'2022-09-05','2022-09-08'),
-       (60,'2022-09-07','2022-09-10'),
-       (70,'2022-09-07','2022-09-11'),
-       (80,'2022-09-09','2022-09-19'),
-       (90,'2022-09-10','2022-09-20'),
-       (100,'2022-09-19','2022-09-23'),
-
-       (110,'2022-09-12','2022-11-11'),
-       (120,'2022-10-12','2022-12-12'),
-       (130,'2022-09-09','2022-11-11');
+INSERT INTO Forslag_Status (Forslag_Status_ID, Innsendt_Dato, Avsluttet_Dato, FStatus, Fase)
+VALUES (10,'2022-09-01','2022-09-03','Godkjent','Plan'),
+       (20,'2022-09-03','2022-09-05','Fullført','N/A'),
+       (30,'2022-09-05','2022-09-07','Avvist','N/A'),
+       (40,'2022-09-05','2022-09-07','Avvist','N/A'),
+       (50,'2022-09-05','2022-09-08','Godkjent','Do'),
+       (60,'2022-09-07','2022-09-10','Godkjent','Study'),
+       (70,'2022-09-07','2022-09-11','Fullført','N/A'),
+       (80,'2022-09-09','2022-09-19','Venter','N/A'),
+       (90,'2022-09-10','2022-09-20','Fullført','N/A'),
+       (100,'2022-09-19','2022-09-23','Avvist','N/A'),
+       (110,'2022-09-12','2022-11-11','Godkjent','Act'),
+       (120,'2022-10-12','2022-12-12','Fullført','N/A'),
+       (130,'2022-09-09','2022-11-11','Venter','N/A');
 
 INSERT INTO Bruker_Status (Bruker_Status_ID, Ansatt_ID, Ansatt_Status)
 Values (2,114,1),
@@ -318,6 +319,18 @@ END AS Status
 FROM Bruker
 INNER JOIN Bruker_Status
 ON Bruker.Ansatt_ID = Bruker_Status.Ansatt_ID;
+
+SELECT Bruker.Navn, Bruker.Ansatt_ID AS Ansattnr, Forslag.Forslag_ID AS Forslagnr, Kategori.Kategori, Forslag_Status.FStatus
+JOIN Bruker, Forslag, Kategori
+ON Bruker.Ansatt_ID = Forslag.Ansatt_ID
+WHERE Fstatus LIKE 'godkjent%';
+
+
+
+
+
+
+
 
 
 
