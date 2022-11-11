@@ -306,4 +306,18 @@ WHERE Ansatt_Status = 1;
 SELECT Bruker.Navn, Roller.Ansatt_ID AS Ansattnr, Roller.Rolle
 FROM Roller
 INNER JOIN Bruker
-ON Roller.Ansatt_ID = Bruker.Ansatt_ID
+ON Roller.Ansatt_ID = Bruker.Ansatt_ID;
+
+/* Spørring som viser status til bruker i form av tekst (aktiv/deaktivert) */
+
+SELECT Bruker.Navn, Bruker.Ansatt_ID AS Ansattnr,
+CASE
+    WHEN Ansatt_Status > 0 THEN 'Aktiv'
+    ELSE 'Deaktivert'
+END AS Status
+FROM Bruker
+INNER JOIN Bruker_Status
+ON Bruker.Ansatt_ID = Bruker_Status.Ansatt_ID;
+
+
+
