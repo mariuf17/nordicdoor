@@ -13,6 +13,7 @@ build_property.PlatformNeutralAssembly =
 build_property.PlatformNeutralAssembly = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.EnforceExtendedAnalyzerRules = 
 build_property.RootNamespace = NordicDoor
 build_property.RootNamespace = NordicDoor
 build_property.ProjectDir = /Users/mariusfjermeros/Documents/GitHub/nordicdoor/NordicDoor/NordicDoor/
@@ -42,12 +43,32 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRm9yc2xhZy9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/mariusfjermeros/Documents/GitHub/nordicdoor/NordicDoor/NordicDoor/Views/Forslag/Opprett.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRm9yc2xhZy9PcHByZXR0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/mariusfjermeros/Documents/GitHub/nordicdoor/NordicDoor/NordicDoor/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/mariusfjermeros/Documents/GitHub/nordicdoor/NordicDoor/NordicDoor/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Qcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/mariusfjermeros/Documents/GitHub/nordicdoor/NordicDoor/NordicDoor/Views/Roller/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUm9sbGVyL0luZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/mariusfjermeros/Documents/GitHub/nordicdoor/NordicDoor/NordicDoor/Views/Roller/Opprett.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUm9sbGVyL09wcHJldHQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/mariusfjermeros/Documents/GitHub/nordicdoor/NordicDoor/NordicDoor/Views/Roller/Rediger.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUm9sbGVyL1JlZGlnZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/mariusfjermeros/Documents/GitHub/nordicdoor/NordicDoor/NordicDoor/Views/Roller/Slett.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUm9sbGVyL1NsZXR0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/mariusfjermeros/Documents/GitHub/nordicdoor/NordicDoor/NordicDoor/Views/Shared/Error.cshtml]
@@ -60,6 +81,38 @@ build_metadata.AdditionalFiles.CssScope =
 
 [/Users/mariusfjermeros/Documents/GitHub/nordicdoor/NordicDoor/NordicDoor/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/mariusfjermeros/Documents/GitHub/nordicdoor/NordicDoor/NordicDoor/Views/Team/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVGVhbS9JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/mariusfjermeros/Documents/GitHub/nordicdoor/NordicDoor/NordicDoor/Views/Team/Opprett.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVGVhbS9PcHByZXR0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/mariusfjermeros/Documents/GitHub/nordicdoor/NordicDoor/NordicDoor/Views/Team/Rediger.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVGVhbS9SZWRpZ2VyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/mariusfjermeros/Documents/GitHub/nordicdoor/NordicDoor/NordicDoor/Views/Team/Slett.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVGVhbS9TbGV0dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/mariusfjermeros/Documents/GitHub/nordicdoor/NordicDoor/NordicDoor/Views/Team_Medlemmer/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVGVhbV9NZWRsZW1tZXIvSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/mariusfjermeros/Documents/GitHub/nordicdoor/NordicDoor/NordicDoor/Views/Team_Medlemmer/Opprett.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVGVhbV9NZWRsZW1tZXIvT3BwcmV0dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/mariusfjermeros/Documents/GitHub/nordicdoor/NordicDoor/NordicDoor/Views/Team_Medlemmer/Rediger.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVGVhbV9NZWRsZW1tZXIvUmVkaWdlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/mariusfjermeros/Documents/GitHub/nordicdoor/NordicDoor/NordicDoor/Views/Team_Medlemmer/Slett.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVGVhbV9NZWRsZW1tZXIvU2xldHQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/mariusfjermeros/Documents/GitHub/nordicdoor/NordicDoor/NordicDoor/Views/_ViewImports.cshtml]

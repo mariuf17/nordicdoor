@@ -5,3 +5,5 @@
 *.icloud
 *.dll
 *.dll
+*.cache
+NordicDoor/NordicDoor/obj/Debug/net6.0/apphost

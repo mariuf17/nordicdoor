@@ -192,20 +192,6 @@ VALUES (1,112),
        (9,117),
        (10,116);
 
-INSERT INTO Forslag_Status (Forslag_Status_ID, Innsendt_Dato, Avsluttet_Dato, FStatus, Fase)
-VALUES (10,'2022-09-01','2022-09-03','Godkjent','Plan'),
-       (20,'2022-09-03','2022-09-05','Fullført','N/A'),
-       (30,'2022-09-05','2022-09-07','Avvist','N/A'),
-       (40,'2022-09-05','2022-09-07','Avvist','N/A'),
-       (50,'2022-09-05','2022-09-08','Godkjent','Do'),
-       (60,'2022-09-07','2022-09-10','Godkjent','Study'),
-       (70,'2022-09-07','2022-09-11','Fullført','N/A'),
-       (80,'2022-09-09','2022-09-19','Venter','N/A'),
-       (90,'2022-09-10','2022-09-20','Fullført','N/A'),
-       (100,'2022-09-19','2022-09-23','Avvist','N/A'),
-       (110,'2022-09-12','2022-11-11','Godkjent','Act'),
-       (120,'2022-10-12','2022-12-12','Fullført','N/A'),
-       (130,'2022-09-09','2022-11-11','Venter','N/A');
 
 INSERT INTO Bruker_Status (Bruker_Status_ID, Ansatt_ID, Ansatt_Status)
 Values (2,114,1),
@@ -234,6 +220,22 @@ VALUES (5,'HMS'),
        (65,'Bærekraft'),
        (70,'Industri 4.0');
 
+
+INSERT INTO Forslag_Status (Forslag_Status_ID, Innsendt_Dato, Avsluttet_Dato, FStatus, Fase)
+VALUES (10,'2022-09-01','2022-09-03','Godkjent','Plan'),
+       (20,'2022-09-03','2022-09-05','Fullført','N/A'),
+       (30,'2022-09-05','2022-09-07','Avvist','N/A'),
+       (40,'2022-09-05','2022-09-07','Avvist','N/A'),
+       (50,'2022-09-05','2022-09-08','Godkjent','Do'),
+       (60,'2022-09-07','2022-09-10','Godkjent','Study'),
+       (70,'2022-09-07','2022-09-11','Fullført','N/A'),
+       (80,'2022-09-09','2022-09-19','Venter','N/A'),
+       (90,'2022-09-10','2022-09-20','Fullført','N/A'),
+       (100,'2022-09-19','2022-09-23','Avvist','N/A'),
+       (110,'2022-09-12','2022-11-11','Godkjent','Act'),
+       (120,'2022-10-12','2022-12-12','Fullført','N/A'),
+       (130,'2022-09-09','2022-11-11','Venter','N/A');
+
 INSERT INTO Forslag (Forslag_ID, Ansatt_ID, Team_ID, Forslag_Status_ID, Kategori_ID, Start_Tid, Frist, Tittel, Ansvarlig)
 VALUES (1,112,1,10,5,'2022-09-01','2022-09-03','Vask','Thomas Tvedten'),
        (2,115,2,20,10,'2022-09-02','2022-09-04','Rydd','Marius Fjermeros'),
@@ -248,6 +250,7 @@ VALUES (1,112,1,10,5,'2022-09-01','2022-09-03','Vask','Thomas Tvedten'),
        (11,112,1,110,55,'2022-09-12','2022-11-11','regnskap','Thomas Tvedten'),
        (12,112,1,120,60,'2022-10-12','2022-12-12','administrativt','Thomas Tvedten'),
        (13,115,2,130,65,'2022-09-09','2022-11-11','pause','Thomas Tvedten');
+
 
 /* Spørring som teller antall ansatte i bedriften */
 
@@ -292,13 +295,17 @@ HAVING COUNT(*) > 0
 ORDER BY 'Antall Innsendte Forslag'
 LIMIT 3;
 
+/* Spørring som viser alle ansatte med deaktiverte kontoer */
+
 SELECT Bruker_Status.Ansatt_ID, Bruker_Status.Ansatt_Status, Bruker.Navn
-AS InnaktiveBrukere FROM Bruker_Status
+AS 'Deaktiverte Brukere' FROM Bruker_Status
 LEFT JOIN Bruker ON Bruker_Status.Ansatt_ID = Bruker.Ansatt_ID
 WHERE Ansatt_Status < 1;
 
+/* Spørring som viser alle ansatte med aktive kontoer */
+
 SELECT Bruker_Status.Ansatt_ID, Bruker_Status.Ansatt_Status, Bruker.Navn
-AS InnaktiveBrukere FROM Bruker_Status
+AS 'Aktive Brukere' FROM Bruker_Status
 LEFT JOIN Bruker ON Bruker_Status.Ansatt_ID = Bruker.Ansatt_ID
 WHERE Ansatt_Status = 1;
 
@@ -320,12 +327,61 @@ FROM Bruker
 INNER JOIN Bruker_Status
 ON Bruker.Ansatt_ID = Bruker_Status.Ansatt_ID;
 
-SELECT Bruker.Navn, Bruker.Ansatt_ID AS Ansattnr, Forslag.Forslag_ID AS Forslagnr, Kategori.Kategori, Forslag_Status.FStatus
-FROM Forslag_Status
-JOIN Bruker, Forslag, Kategori
-ON Bruker.Ansatt_ID = Forslag.Ansatt_ID
-WHERE Fstatus LIKE 'godkjent%';
+/* Spørring som viser alle forslag med status "Godkjent" */
+SELECT DISTINCT
+Bruker.Navn,
+Bruker.Ansatt_ID AS Ansattnr,
+Forslag.Forslag_ID AS Forslagnr,
+Kategori.Kategori,
+Forslag_Status.FStatus
 
+FROM Bruker
+INNER JOIN Forslag ON Bruker.Ansatt_ID = Forslag.Ansatt_ID
+INNER JOIN Kategori ON Kategori.Kategori_ID = Forslag.Kategori_ID
+INNER JOIN Forslag_Status ON Forslag.Forslag_Status_ID = Forslag_Status.Forslag_Status_ID
+WHERE Fstatus = 'Godkjent';
+
+/* Spørring som viser alle forslag med status "Venter" */
+SELECT DISTINCT
+Bruker.Navn,
+Bruker.Ansatt_ID AS Ansattnr,
+Forslag.Forslag_ID AS Forslagnr,
+Kategori.Kategori,
+Forslag_Status.FStatus
+
+FROM Bruker
+INNER JOIN Forslag ON Bruker.Ansatt_ID = Forslag.Ansatt_ID
+INNER JOIN Kategori ON Kategori.Kategori_ID = Forslag.Kategori_ID
+INNER JOIN Forslag_Status ON Forslag.Forslag_Status_ID = Forslag_Status.Forslag_Status_ID
+WHERE Fstatus = 'Venter';
+
+/* Spørring som viser alle forslag med status "Fullført" */
+SELECT DISTINCT
+Bruker.Navn,
+Bruker.Ansatt_ID AS Ansattnr,
+Forslag.Forslag_ID AS Forslagnr,
+Kategori.Kategori,
+Forslag_Status.FStatus
+
+FROM Bruker
+INNER JOIN Forslag ON Bruker.Ansatt_ID = Forslag.Ansatt_ID
+INNER JOIN Kategori ON Kategori.Kategori_ID = Forslag.Kategori_ID
+INNER JOIN Forslag_Status ON Forslag.Forslag_Status_ID = Forslag_Status.Forslag_Status_ID
+WHERE Fstatus = 'Fullført';
+
+/* Spørring som viser alle forslag med status "Avvist" */
+SELECT DISTINCT
+Bruker.Navn,
+Bruker.Ansatt_ID AS Ansattnr,
+Forslag.Forslag_ID AS Forslagnr,
+Kategori.Kategori,
+Forslag_Status.FStatus
+
+FROM Bruker
+INNER JOIN Forslag ON Bruker.Ansatt_ID = Forslag.Ansatt_ID
+INNER JOIN Kategori ON Kategori.Kategori_ID = Forslag.Kategori_ID
+INNER JOIN Forslag_Status ON Forslag.Forslag_Status_ID = Forslag_Status.Forslag_Status_ID
+WHERE Fstatus = 'Avvist';
 
 
 
