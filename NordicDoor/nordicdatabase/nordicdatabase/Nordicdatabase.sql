@@ -251,20 +251,20 @@ VALUES (10,1,'2022-09-01','2022-09-03','Godkjent','Plan'),
 
 SELECT COUNT(*) AS 'Antall ansatte'
 FROM Bruker_Status
-WHERE Ansatt_Status = '1' OR (NOT (Ansatt_Status = '0'))
+WHERE Ansatt_Status = '1' OR (NOT (Ansatt_Status = '0'));
 
 /* Spørring som teller totalt antall forslag fra alle teamene i bedriften */
 
 SELECT COUNT(*) AS 'Totalt antall forslag'
 FROM Forslag
-ORDER BY Team_ID DESC
+ORDER BY Team_ID DESC;
 
 /* Spørring som teller forslag per team, sortert etter flest forslag */
 
 SELECT Team_ID, COUNT(*) AS 'Antall forslag per team'
 From Forslag
 GROUP BY Team_ID
-ORDER BY 'Antall forslag per team' DESC, Team_ID
+ORDER BY 'Antall forslag per team' DESC, Team_ID;
 
 /*View som viser de ansattes adresser*/
 
@@ -392,7 +392,6 @@ INNER JOIN forslag ON bruker.Ansatt_ID = forslag.Ansatt_ID
 INNER JOIN Forslag_Status ON forslag.Forslag_ID = forslag_status.Forslag_ID
 WHERE Avsluttet_Dato > current_date;
 
-alle_team_medlemmer
 /* Liste over alle teams og deres medlemmer */
 SELECT Team_Medlemmer.Team_ID, Team_Medlemmer.Ansatt_ID, Bruker.Navn AS TeamMedlemmer
 FROM Team_Medlemmer
@@ -404,9 +403,8 @@ UNION
 SELECT 'Teamledere' AS Team_ID, COUNT(*) FROM Team
 UNION
 SELECT 'Admin' AS Rolle_ID, COUNT(*) FROM Roller
-WHERE Rolle_ID = '2'
+WHERE Rolle_ID = '2';
 
-=======
 /* Spørring med Aktive forslag */
 SELECT DISTINCT
 Bruker.Navn,
