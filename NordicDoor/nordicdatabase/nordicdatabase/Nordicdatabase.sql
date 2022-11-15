@@ -71,7 +71,6 @@ CREATE OR REPLACE TABLE Forslag (
     Forslag_ID int auto_increment,
     Ansatt_ID int,
     Team_ID int,
-    Forslag_Status_ID int,
     Kategori_ID varchar(100),
     Start_Tid date,
     Frist date,
@@ -114,9 +113,6 @@ ADD FOREIGN KEY (Ansatt_ID) REFERENCES Bruker(Ansatt_ID);
 
 ALTER TABLE Forslag
 ADD FOREIGN KEY (Team_ID) REFERENCES Team(Team_ID);
-
-ALTER TABLE Forslag
-ADD FOREIGN KEY (Forslag_Status_ID) REFERENCES Forslag_Status(Forslag_Status_ID);
 
 ALTER TABLE Forslag
 ADD FOREIGN KEY (Kategori_ID) REFERENCES Kategori(Kategori_ID);
@@ -220,6 +216,20 @@ VALUES (5,'HMS'),
        (65,'Bærekraft'),
        (70,'Industri 4.0');
 
+INSERT INTO Forslag (Forslag_ID, Ansatt_ID, Team_ID, Kategori_ID, Start_Tid, Frist, Tittel, Ansvarlig)
+VALUES (1,112,1,5,'2022-09-01','2022-09-03','Vask','Thomas Tvedten'),
+       (2,115,2,10,'2022-09-02','2022-09-04','Rydd','Marius Fjermeros'),
+       (3,111,3,15,'2022-09-02','2022-09-05','Post','Truls Dyrkolbotn'),
+       (4,113,4,20,'2022-09-04','2022-09-06','Spis','Truls Dyrkolbotn'),
+       (5,114,5,25,'2022-09-04','2022-09-08','Kantine','Stian Steinsland'),
+       (6,120,6,30,'2022-09-07','2022-09-09','Service','Vladimir Putin'),
+       (7,119,7,35,'2022-09-07','2022-09-13','Dør','Thomas Tvedten'),
+       (8,118,8,40,'2022-09-08','2022-09-15','Håndtak','Thomas Tvedten'),
+       (9,117,9,45,'2022-09-09','2022-09-16','Maling','Thomas Tvedten'),
+       (10,116,10,50,'2022-09-11','2022-09-18','Inngang','Thomas Tvedten'),
+       (11,112,1,55,'2022-09-12','2022-11-11','regnskap','Thomas Tvedten'),
+       (12,112,1,60,'2022-10-12','2022-12-12','administrativt','Thomas Tvedten'),
+       (13,115,2,65,'2022-09-09','2022-11-11','pause','Thomas Tvedten');
 
 INSERT INTO Forslag_Status (Forslag_Status_ID, Forslag_ID, Innsendt_Dato, Avsluttet_Dato, FStatus, Fase)
 VALUES (10,1,'2022-09-01','2022-09-03','Godkjent','Plan'),
@@ -235,22 +245,6 @@ VALUES (10,1,'2022-09-01','2022-09-03','Godkjent','Plan'),
        (110,11,'2022-09-12','2022-11-11','Godkjent','Act'),
        (120,12,'2022-10-12','2022-12-12','Fullført','N/A'),
        (130,13,'2022-09-09','2022-11-11','Venter','N/A');
-
-INSERT INTO Forslag (Forslag_ID, Ansatt_ID, Team_ID, Forslag_Status_ID, Kategori_ID, Start_Tid, Frist, Tittel, Ansvarlig)
-VALUES (1,112,1,10,5,'2022-09-01','2022-09-03','Vask','Thomas Tvedten'),
-       (2,115,2,20,10,'2022-09-02','2022-09-04','Rydd','Marius Fjermeros'),
-       (3,111,3,30,15,'2022-09-02','2022-09-05','Post','Truls Dyrkolbotn'),
-       (4,113,4,40,20,'2022-09-04','2022-09-06','Spis','Truls Dyrkolbotn'),
-       (5,114,5,50,25,'2022-09-04','2022-09-08','Kantine','Stian Steinsland'),
-       (6,120,6,60,30,'2022-09-07','2022-09-09','Service','Vladimir Putin'),
-       (7,119,7,70,35,'2022-09-07','2022-09-13','Dør','Thomas Tvedten'),
-       (8,118,8,80,40,'2022-09-08','2022-09-15','Håndtak','Thomas Tvedten'),
-       (9,117,9,90,45,'2022-09-09','2022-09-16','Maling','Thomas Tvedten'),
-       (10,116,10,100,50,'2022-09-11','2022-09-18','Inngang','Thomas Tvedten'),
-       (11,112,1,110,55,'2022-09-12','2022-11-11','regnskap','Thomas Tvedten'),
-       (12,112,1,120,60,'2022-10-12','2022-12-12','administrativt','Thomas Tvedten'),
-       (13,115,2,130,65,'2022-09-09','2022-11-11','pause','Thomas Tvedten');
-
 
 /* Spørring som teller antall ansatte i bedriften */
 
@@ -338,7 +332,7 @@ Forslag_Status.FStatus
 FROM Bruker
 INNER JOIN Forslag ON Bruker.Ansatt_ID = Forslag.Ansatt_ID
 INNER JOIN Kategori ON Kategori.Kategori_ID = Forslag.Kategori_ID
-INNER JOIN Forslag_Status ON Forslag.Forslag_Status_ID = Forslag_Status.Forslag_Status_ID
+INNER JOIN Forslag_Status ON Forslag_status.Forslag_ID = Forslag.Forslag_ID
 WHERE Fstatus = 'Godkjent';
 
 /* Spørring som viser alle forslag med status "Venter" */
@@ -352,7 +346,7 @@ Forslag_Status.FStatus
 FROM Bruker
 INNER JOIN Forslag ON Bruker.Ansatt_ID = Forslag.Ansatt_ID
 INNER JOIN Kategori ON Kategori.Kategori_ID = Forslag.Kategori_ID
-INNER JOIN Forslag_Status ON Forslag.Forslag_Status_ID = Forslag_Status.Forslag_Status_ID
+INNER JOIN Forslag_Status ON Forslag_status.Forslag_ID = Forslag.Forslag_ID
 WHERE Fstatus = 'Venter';
 
 /* Spørring som viser alle forslag med status "Fullført" */
@@ -366,7 +360,7 @@ Forslag_Status.FStatus
 FROM Bruker
 INNER JOIN Forslag ON Bruker.Ansatt_ID = Forslag.Ansatt_ID
 INNER JOIN Kategori ON Kategori.Kategori_ID = Forslag.Kategori_ID
-INNER JOIN Forslag_Status ON Forslag.Forslag_Status_ID = Forslag_Status.Forslag_Status_ID
+INNER JOIN Forslag_Status ON Forslag_status.Forslag_ID = Forslag.Forslag_ID
 WHERE Fstatus = 'Fullført';
 
 /* Spørring som viser alle forslag med status "Avvist" */
@@ -380,14 +374,14 @@ Forslag_Status.FStatus
 FROM Bruker
 INNER JOIN Forslag ON Bruker.Ansatt_ID = Forslag.Ansatt_ID
 INNER JOIN Kategori ON Kategori.Kategori_ID = Forslag.Kategori_ID
-INNER JOIN Forslag_Status ON Forslag.Forslag_Status_ID = Forslag_Status.Forslag_Status_ID
+INNER JOIN Forslag_Status ON Forslag_status.Forslag_ID = Forslag.Forslag_ID
 WHERE Fstatus = 'Avvist';
 
 /* Her finner du lederen for teams */
 SELECT Bruker.Navn, Roller.Ansatt_ID AS Ansattnr, Roller.Rolle
 From Roller
 INNER JOIN Bruker ON Bruker.Ansatt_ID = Roller.Ansatt_ID
-WHERE Roller.Rolle = "Teamleder";
+WHERE Roller.Rolle = 'Teamleder';
 
 
 /* Her er oversikt over forslag som har gått over fristen */
@@ -397,16 +391,17 @@ INNER JOIN forslag ON bruker.Ansatt_ID = forslag.Ansatt_ID
 INNER JOIN Forslag_Status ON forslag.Forslag_ID = forslag_status.Forslag_ID
 WHERE Avsluttet_Dato > current_date;
 
+/* Spørring med Aktive forslag */
+SELECT DISTINCT
+Bruker.Navn,
+Bruker.Ansatt_ID AS Ansattnr,
+Forslag.Forslag_ID AS Forslagnr,
+Kategori.Kategori,
+Forslag_Status.FStatus
 
-
-
-
-
-
-
-
-
-
-
-
+FROM Bruker
+INNER JOIN Forslag ON Bruker.Ansatt_ID = Forslag.Ansatt_ID
+INNER JOIN Kategori ON Kategori.Kategori_ID = Forslag.Kategori_ID
+INNER JOIN Forslag_Status ON Forslag_status.Forslag_ID = Forslag.Forslag_ID
+WHERE Fstatus = 'Godkjent' OR Fstatus = 'Venter';
 
