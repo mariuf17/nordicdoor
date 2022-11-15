@@ -186,7 +186,8 @@ VALUES (1,112),
        (7,119),
        (8,118),
        (9,117),
-       (10,116);
+       (10,116),
+       (1,115);
 
 
 INSERT INTO Bruker_Status (Bruker_Status_ID, Ansatt_ID, Ansatt_Status)
@@ -391,6 +392,21 @@ INNER JOIN forslag ON bruker.Ansatt_ID = forslag.Ansatt_ID
 INNER JOIN Forslag_Status ON forslag.Forslag_ID = forslag_status.Forslag_ID
 WHERE Avsluttet_Dato > current_date;
 
+alle_team_medlemmer
+/* Liste over alle teams og deres medlemmer */
+SELECT Team_Medlemmer.Team_ID, Team_Medlemmer.Ansatt_ID, Bruker.Navn AS TeamMedlemmer
+FROM Team_Medlemmer
+LEFT JOIN Bruker ON Team_Medlemmer.Ansatt_ID = Bruker.Ansatt_ID
+ORDER BY Team_ID ASC;
+
+SELECT 'Ansatte' AS Ansatt_ID, COUNT(*) FROM Bruker
+UNION
+SELECT 'Teamledere' AS Team_ID, COUNT(*) FROM Team
+UNION
+SELECT 'Admin' AS Rolle_ID, COUNT(*) FROM Roller
+WHERE Rolle_ID = '2'
+
+=======
 /* Spørring med Aktive forslag */
 SELECT DISTINCT
 Bruker.Navn,
@@ -398,6 +414,7 @@ Bruker.Ansatt_ID AS Ansattnr,
 Forslag.Forslag_ID AS Forslagnr,
 Kategori.Kategori,
 Forslag_Status.FStatus
+main
 
 FROM Bruker
 INNER JOIN Forslag ON Bruker.Ansatt_ID = Forslag.Ansatt_ID
