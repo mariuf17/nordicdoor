@@ -221,20 +221,20 @@ VALUES (5,'HMS'),
        (70,'Industri 4.0');
 
 
-INSERT INTO Forslag_Status (Forslag_Status_ID, Innsendt_Dato, Avsluttet_Dato, FStatus, Fase)
-VALUES (10,'2022-09-01','2022-09-03','Godkjent','Plan'),
-       (20,'2022-09-03','2022-09-05','Fullført','N/A'),
-       (30,'2022-09-05','2022-09-07','Avvist','N/A'),
-       (40,'2022-09-05','2022-09-07','Avvist','N/A'),
-       (50,'2022-09-05','2022-09-08','Godkjent','Do'),
-       (60,'2022-09-07','2022-09-10','Godkjent','Study'),
-       (70,'2022-09-07','2022-09-11','Fullført','N/A'),
-       (80,'2022-09-09','2022-09-19','Venter','N/A'),
-       (90,'2022-09-10','2022-09-20','Fullført','N/A'),
-       (100,'2022-09-19','2022-09-23','Avvist','N/A'),
-       (110,'2022-09-12','2022-11-11','Godkjent','Act'),
-       (120,'2022-10-12','2022-12-12','Fullført','N/A'),
-       (130,'2022-09-09','2022-11-11','Venter','N/A');
+INSERT INTO Forslag_Status (Forslag_Status_ID, Forslag_ID, Innsendt_Dato, Avsluttet_Dato, FStatus, Fase)
+VALUES (10,1,'2022-09-01','2022-09-03','Godkjent','Plan'),
+       (20,2,'2022-09-03','2022-09-05','Fullført','N/A'),
+       (30,3,'2022-09-05','2022-09-07','Avvist','N/A'),
+       (40,4,'2022-09-05','2022-09-07','Avvist','N/A'),
+       (50,5,'2022-09-05','2022-09-08','Godkjent','Do'),
+       (60,6,'2022-09-07','2022-09-10','Godkjent','Study'),
+       (70,7,'2022-09-07','2022-09-11','Fullført','N/A'),
+       (80,8,'2022-09-09','2022-09-19','Venter','N/A'),
+       (90,9,'2022-09-10','2022-09-20','Fullført','N/A'),
+       (100,10,'2022-09-19','2022-09-23','Avvist','N/A'),
+       (110,11,'2022-09-12','2022-11-11','Godkjent','Act'),
+       (120,12,'2022-10-12','2022-12-12','Fullført','N/A'),
+       (130,13,'2022-09-09','2022-11-11','Venter','N/A');
 
 INSERT INTO Forslag (Forslag_ID, Ansatt_ID, Team_ID, Forslag_Status_ID, Kategori_ID, Start_Tid, Frist, Tittel, Ansvarlig)
 VALUES (1,112,1,10,5,'2022-09-01','2022-09-03','Vask','Thomas Tvedten'),
