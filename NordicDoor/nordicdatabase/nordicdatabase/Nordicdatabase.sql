@@ -405,3 +405,19 @@ INNER JOIN Kategori ON Kategori.Kategori_ID = Forslag.Kategori_ID
 INNER JOIN Forslag_Status ON Forslag_status.Forslag_ID = Forslag.Forslag_ID
 WHERE Fstatus = 'Godkjent' OR Fstatus = 'Venter';
 
+/* Hvor mange teams det finnes */
+SELECT COUNT(*) AntallTeams
+FROM Team;
+
+/* Teams med flest forslag */
+SELECT Team_ID, COUNT(*) `Antall forbedringer`
+FROM Forslag
+GROUP BY Team_ID
+HAVING COUNT(*) > 2
+ORDER BY `Antall forbedringer`
+LIMIT 1;
+
+/* Alle forslag gjennomført av et team*/
+SELECT Team_ID, Tittel
+FROM Forslag
+WHERE Team_ID LIKE 1;
