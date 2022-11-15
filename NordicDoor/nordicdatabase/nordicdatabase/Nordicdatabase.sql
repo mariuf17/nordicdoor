@@ -383,6 +383,25 @@ INNER JOIN Kategori ON Kategori.Kategori_ID = Forslag.Kategori_ID
 INNER JOIN Forslag_Status ON Forslag.Forslag_Status_ID = Forslag_Status.Forslag_Status_ID
 WHERE Fstatus = 'Avvist';
 
+/* Her finner du lederen for teams */
+SELECT Bruker.Navn, Roller.Ansatt_ID AS Ansattnr, Roller.Rolle
+From Roller
+INNER JOIN Bruker ON Bruker.Ansatt_ID = Roller.Ansatt_ID
+WHERE Roller.Rolle = "Teamleder";
+
+
+/* Her er oversikt over forslag som har gått over fristen */
+SELECT Bruker.Navn, Bruker.Ansatt_ID AS Ansattnummer
+FROM Bruker
+INNER JOIN forslag ON bruker.Ansatt_ID = forslag.Ansatt_ID
+INNER JOIN Forslag_Status ON forslag.Forslag_ID = forslag_status.Forslag_ID
+WHERE Avsluttet_Dato > current_date;
+
+
+
+
+
+
 
 
 
