@@ -398,6 +398,7 @@ INNER JOIN forslag ON bruker.Ansatt_ID = forslag.Ansatt_ID
 INNER JOIN Forslag_Status ON forslag.Forslag_ID = forslag_status.Forslag_ID
 WHERE Avsluttet_Dato > current_date;
 
+/* Liste over alle teams og deres medlemmer */
 SELECT Team_Medlemmer.Team_ID, Team_Medlemmer.Ansatt_ID, Bruker.Navn AS TeamMedlemmer
 FROM Team_Medlemmer
 LEFT JOIN Bruker ON Team_Medlemmer.Ansatt_ID = Bruker.Ansatt_ID
