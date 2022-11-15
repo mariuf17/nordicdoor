@@ -404,7 +404,12 @@ FROM Team_Medlemmer
 LEFT JOIN Bruker ON Team_Medlemmer.Ansatt_ID = Bruker.Ansatt_ID
 ORDER BY Team_ID ASC;
 
-
+SELECT 'Ansatte' AS Ansatt_ID, COUNT(*) FROM Bruker
+UNION
+SELECT 'Teamledere' AS Team_ID, COUNT(*) FROM Team
+UNION
+SELECT 'Admin' AS Rolle_ID, COUNT(*) FROM Roller
+WHERE Rolle_ID = '2'
 
 
 
