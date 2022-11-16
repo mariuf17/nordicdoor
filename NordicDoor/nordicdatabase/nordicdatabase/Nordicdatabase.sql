@@ -230,7 +230,8 @@ VALUES (1,112,1,5,'2022-09-01','2022-09-03','Vask','Thomas Tvedten'),
        (10,116,10,50,'2022-09-11','2022-09-18','Inngang','Thomas Tvedten'),
        (11,112,1,55,'2022-09-12','2022-11-11','regnskap','Thomas Tvedten'),
        (12,112,1,60,'2022-10-12','2022-12-12','administrativt','Thomas Tvedten'),
-       (13,115,2,65,'2022-09-09','2022-11-11','pause','Thomas Tvedten');
+       (13,115,2,65,'2022-09-09','2022-11-11','pause','Thomas Tvedten'),
+       (14,112,1,50,'2022-11-24','2022-11-30','Inngang','Marius Fjermeros');
 
 INSERT INTO Forslag_Status (Forslag_Status_ID, Forslag_ID, Innsendt_Dato, Avsluttet_Dato, FStatus, Fase)
 VALUES (10,1,'2022-09-01','2022-09-03','Godkjent','Plan'),
@@ -245,7 +246,8 @@ VALUES (10,1,'2022-09-01','2022-09-03','Godkjent','Plan'),
        (100,10,'2022-09-19','2022-09-23','Avvist','N/A'),
        (110,11,'2022-09-12','2022-11-11','Godkjent','Act'),
        (120,12,'2022-10-12','2022-12-12','Fullført','N/A'),
-       (130,13,'2022-09-09','2022-11-11','Venter','N/A');
+       (130,13,'2022-09-09','2022-11-11','Venter','N/A'),
+       (140,14,'2022-11-17','2022-11-23','Godkjent','Do');
 
 /* Spørring som teller antall ansatte i bedriften */
 
@@ -290,11 +292,9 @@ HAVING COUNT(*) > 0
 ORDER BY 'Antall Innsendte Forslag'
 LIMIT 3;
 
- kommentar-)
 /* Spørring for ansatt status, 1 = ansatt, 0 = ikke aktiv ansatt */
-=======
+
 /* Spørring som viser alle ansatte med deaktiverte kontoer */
-main
 
 SELECT Bruker_Status.Bruker_ID, Bruker_Status.Ansatt_Status, Bruker.Navn
 AS 'Deaktiverte Brukere' FROM Bruker_Status
@@ -440,3 +440,30 @@ LIMIT 1;
 SELECT Team_ID, Tittel
 FROM Forslag
 WHERE Team_ID LIKE 1;
+
+/*Utførte forbedringer per bruker*/
+SELECT DISTINCT
+B.Navn,
+B.Bruker_ID AS Ansattnr,
+Count(FStatus) AS 'Antall Fullførte Forbedringer'
+FROM Forslag_Status
+INNER JOIN Forslag F on Forslag_Status.Forslag_ID = F.Forslag_ID
+INNER JOIN Bruker B on F.Bruker_ID = B.Bruker_ID
+WHERE Fstatus = 'Godkjent'
+GROUP BY B.Navn
+ORDER BY COUNT(*);
+
+/*Utførte forbedringer per team*/
+SELECT DISTINCT
+Team_ID,
+Count(FStatus) AS 'Antall Fullførte Forbedringer'
+FROM Forslag_Status
+INNER JOIN Forslag F on Forslag_Status.Forslag_ID = F.Forslag_ID
+INNER JOIN Bruker B on F.Bruker_ID = B.Bruker_ID
+WHERE Fstatus = 'Godkjent'
+GROUP BY B.Navn
+ORDER BY COUNT(*);
+
+/* Status på forslag */
+Select Forslag_ID, FStatus
+From Forslag_Status
