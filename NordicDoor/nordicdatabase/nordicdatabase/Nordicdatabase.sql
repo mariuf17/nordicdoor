@@ -290,7 +290,11 @@ HAVING COUNT(*) > 0
 ORDER BY 'Antall Innsendte Forslag'
 LIMIT 3;
 
+ kommentar-)
+/* Spørring for ansatt status, 1 = ansatt, 0 = ikke aktiv ansatt */
+=======
 /* Spørring som viser alle ansatte med deaktiverte kontoer */
+main
 
 SELECT Bruker_Status.Ansatt_ID, Bruker_Status.Ansatt_Status, Bruker.Navn
 AS 'Deaktiverte Brukere' FROM Bruker_Status
