@@ -4,12 +4,12 @@ create database if not exists first;
 USE first;
 
 CREATE OR REPLACE TABLE Bruker (
-    Ansatt_ID int,
+    Bruker_ID int,
     Postnummer varchar(4),
     Navn varchar (100),
     Epost varchar(100),
     Telefon int,
-    PRIMARY KEY (Ansatt_ID)
+    PRIMARY KEY (Bruker_ID)
 );
 
 CREATE OR REPLACE TABLE Post (
@@ -23,7 +23,7 @@ ADD FOREIGN KEY (Postnummer) REFERENCES Post(Postnummer);
 
 
 ALTER TABLE Bruker
-  MODIFY Ansatt_ID int NOT NULL;
+  MODIFY Bruker_ID int NOT NULL;
 
 ALTER TABLE Bruker
   MODIFY Postnummer varchar(4) NOT NULL;
@@ -54,22 +54,22 @@ CREATE OR REPLACE TABLE Team (
 
 CREATE OR REPLACE TABLE Team_Medlemmer (
     Team_ID int,
-    Ansatt_ID int,
+    Bruker_ID int,
     FOREIGN KEY (Team_ID) REFERENCES Team(Team_ID),
-    FOREIGN KEY (Ansatt_ID) REFERENCES Bruker(Ansatt_ID)
+    FOREIGN KEY (Bruker_ID) REFERENCES Bruker(Bruker_ID)
 );
 
 CREATE OR REPLACE TABLE Roller (
     Rolle_ID int,
-    Ansatt_ID int,
+    Bruker_ID int,
     Rolle varchar(100),
     PRIMARY KEY (Rolle_ID),
-    FOREIGN KEY (Ansatt_ID) REFERENCES Bruker(Ansatt_ID)
+    FOREIGN KEY (Bruker_ID) REFERENCES Bruker(Bruker_ID)
 );
 
 CREATE OR REPLACE TABLE Forslag (
     Forslag_ID int auto_increment,
-    Ansatt_ID int,
+    Bruker_ID int,
     Team_ID int,
     Kategori_ID varchar(100),
     Start_Tid date,
@@ -100,16 +100,16 @@ CREATE OR REPLACE TABLE Forslag_Status (
 
 CREATE OR REPLACE TABLE Bruker_Status (
     Bruker_Status_ID int,
-    Ansatt_ID int,
+    Bruker_ID int,
     Ansatt_Status int,
     PRIMARY KEY (Bruker_Status_ID)
 );
 
 ALTER TABLE Bruker_Status
-ADD FOREIGN KEY (Ansatt_ID) REFERENCES Bruker(Ansatt_ID);
+ADD FOREIGN KEY (Bruker_ID) REFERENCES Bruker(Bruker_ID);
 
 ALTER TABLE Forslag
-ADD FOREIGN KEY (Ansatt_ID) REFERENCES Bruker(Ansatt_ID);
+ADD FOREIGN KEY (Bruker_ID) REFERENCES Bruker(Bruker_ID);
 
 ALTER TABLE Forslag
 ADD FOREIGN KEY (Team_ID) REFERENCES Team(Team_ID);
@@ -132,7 +132,7 @@ VALUES ('4700','Grimstunet'),
        ('9021','Tromsø'),
        ('6429','Molde');
 
-INSERT INTO Bruker (Ansatt_ID, Postnummer, Navn, Epost, Telefon)
+INSERT INTO Bruker (Bruker_ID, Postnummer, Navn, Epost, Telefon)
 VALUES (111,'0010','Thomas Tvedten','Tvedten@uia.no',54312786),
        (112,'4724','Marius Fjermeros','fjermeros@uia.no',98456231),
        (113,'3710','Truls Dyrkolbotn','dyrkolbotn@uia.no',11189765),
@@ -145,7 +145,7 @@ VALUES (111,'0010','Thomas Tvedten','Tvedten@uia.no',54312786),
        (120,'9021','Vladimir Putin','VlaPu@uia.no',40256318),
        (123,'4700','Jacob Klepp','kleppos@uia.no',97321586);
 
-INSERT INTO Roller (Rolle_ID, Ansatt_ID, Rolle)
+INSERT INTO Roller (Rolle_ID, Bruker_ID, Rolle)
 Values (1,114,'Bruker'),
        (2,111,'Administrator'),
        (3,112, 'Teamleder');
@@ -175,7 +175,7 @@ VALUES (1, 1,'Produsenter'),
        (9,9,'Bestillingene'),
        (10,10,'Posterne');
 
-INSERT INTO Team_Medlemmer (Team_ID, Ansatt_ID)
+INSERT INTO Team_Medlemmer (Team_ID, Bruker_ID)
 VALUES (1,112),
        (2,115),
        (3,111),
@@ -190,7 +190,7 @@ VALUES (1,112),
        (1,115);
 
 
-INSERT INTO Bruker_Status (Bruker_Status_ID, Ansatt_ID, Ansatt_Status)
+INSERT INTO Bruker_Status (Bruker_Status_ID, Bruker_ID, Ansatt_Status)
 Values (2,114,1),
        (3,113,1),
        (4,112,1),
@@ -217,7 +217,7 @@ VALUES (5,'HMS'),
        (65,'Bærekraft'),
        (70,'Industri 4.0');
 
-INSERT INTO Forslag (Forslag_ID, Ansatt_ID, Team_ID, Kategori_ID, Start_Tid, Frist, Tittel, Ansvarlig)
+INSERT INTO Forslag (Forslag_ID, Bruker_ID, Team_ID, Kategori_ID, Start_Tid, Frist, Tittel, Ansvarlig)
 VALUES (1,112,1,5,'2022-09-01','2022-09-03','Vask','Thomas Tvedten'),
        (2,115,2,10,'2022-09-02','2022-09-04','Rydd','Marius Fjermeros'),
        (3,111,3,15,'2022-09-02','2022-09-05','Post','Truls Dyrkolbotn'),
@@ -276,10 +276,10 @@ WHERE Post.Postnummer = Bruker.Postnummer;
 /* View som viser alle innsendte forslag */
 
 CREATE OR REPLACE VIEW InnsendteForslag (Navn, Ansatt_ID, Forslag_ID, Tittel) AS
-SELECT Navn, Bruker.Ansatt_ID, Forslag_ID, Tittel
+SELECT Navn, Bruker.Bruker_ID, Forslag_ID, Tittel
 FROM Bruker, Forslag
-WHERE Bruker.Ansatt_ID = Forslag.Ansatt_ID
-ORDER BY Ansatt_ID;
+WHERE Bruker.Bruker_ID = Forslag.Bruker_ID
+ORDER BY Bruker_ID;
 
 /* Spørring som teller forslag per ansatt, sortert etter flest forslag */
 
@@ -296,46 +296,46 @@ LIMIT 3;
 /* Spørring som viser alle ansatte med deaktiverte kontoer */
 main
 
-SELECT Bruker_Status.Ansatt_ID, Bruker_Status.Ansatt_Status, Bruker.Navn
+SELECT Bruker_Status.Bruker_ID, Bruker_Status.Ansatt_Status, Bruker.Navn
 AS 'Deaktiverte Brukere' FROM Bruker_Status
-LEFT JOIN Bruker ON Bruker_Status.Ansatt_ID = Bruker.Ansatt_ID
+LEFT JOIN Bruker ON Bruker_Status.Bruker_ID = Bruker.Bruker_ID
 WHERE Ansatt_Status < 1;
 
 /* Spørring som viser alle ansatte med aktive kontoer */
 
-SELECT Bruker_Status.Ansatt_ID, Bruker_Status.Ansatt_Status, Bruker.Navn
+SELECT Bruker_Status.Bruker_ID, Bruker_Status.Ansatt_Status, Bruker.Navn
 AS 'Aktive Brukere' FROM Bruker_Status
-LEFT JOIN Bruker ON Bruker_Status.Ansatt_ID = Bruker.Ansatt_ID
+LEFT JOIN Bruker ON Bruker_Status.Bruker_ID = Bruker.Bruker_ID
 WHERE Ansatt_Status = 1;
 
 /*Spørring som ekskluderer Rolle_ID fra Roller-tabellen */
 
-SELECT Bruker.Navn, Roller.Ansatt_ID AS Ansattnr, Roller.Rolle
+SELECT Bruker.Navn, Roller.Bruker_ID AS Ansattnr, Roller.Rolle
 FROM Roller
 INNER JOIN Bruker
-ON Roller.Ansatt_ID = Bruker.Ansatt_ID;
+ON Roller.Bruker_ID = Bruker.Bruker_ID;
 
 /* Spørring som viser status til bruker i form av tekst (aktiv/deaktivert) */
 
-SELECT Bruker.Navn, Bruker.Ansatt_ID AS Ansattnr,
+SELECT Bruker.Navn, Bruker.Bruker_ID AS Ansattnr,
 CASE
     WHEN Ansatt_Status > 0 THEN 'Aktiv'
     ELSE 'Deaktivert'
 END AS Status
 FROM Bruker
 INNER JOIN Bruker_Status
-ON Bruker.Ansatt_ID = Bruker_Status.Ansatt_ID;
+ON Bruker.Bruker_ID = Bruker_Status.Bruker_ID;
 
 /* Spørring som viser alle forslag med status "Godkjent" */
 SELECT DISTINCT
 Bruker.Navn,
-Bruker.Ansatt_ID AS Ansattnr,
+Bruker.Bruker_ID AS Ansattnr,
 Forslag.Forslag_ID AS Forslagnr,
 Kategori.Kategori,
 Forslag_Status.FStatus
 
 FROM Bruker
-INNER JOIN Forslag ON Bruker.Ansatt_ID = Forslag.Ansatt_ID
+INNER JOIN Forslag ON Bruker.Bruker_ID = Forslag.Bruker_ID
 INNER JOIN Kategori ON Kategori.Kategori_ID = Forslag.Kategori_ID
 INNER JOIN Forslag_Status ON Forslag_status.Forslag_ID = Forslag.Forslag_ID
 WHERE Fstatus = 'Godkjent';
@@ -343,13 +343,13 @@ WHERE Fstatus = 'Godkjent';
 /* Spørring som viser alle forslag med status "Venter" */
 SELECT DISTINCT
 Bruker.Navn,
-Bruker.Ansatt_ID AS Ansattnr,
+Bruker.Bruker_ID AS Ansattnr,
 Forslag.Forslag_ID AS Forslagnr,
 Kategori.Kategori,
 Forslag_Status.FStatus
 
 FROM Bruker
-INNER JOIN Forslag ON Bruker.Ansatt_ID = Forslag.Ansatt_ID
+INNER JOIN Forslag ON Bruker.Bruker_ID = Forslag.Bruker_ID
 INNER JOIN Kategori ON Kategori.Kategori_ID = Forslag.Kategori_ID
 INNER JOIN Forslag_Status ON Forslag_status.Forslag_ID = Forslag.Forslag_ID
 WHERE Fstatus = 'Venter';
@@ -357,13 +357,13 @@ WHERE Fstatus = 'Venter';
 /* Spørring som viser alle forslag med status "Fullført" */
 SELECT DISTINCT
 Bruker.Navn,
-Bruker.Ansatt_ID AS Ansattnr,
+Bruker.Bruker_ID AS Ansattnr,
 Forslag.Forslag_ID AS Forslagnr,
 Kategori.Kategori,
 Forslag_Status.FStatus
 
 FROM Bruker
-INNER JOIN Forslag ON Bruker.Ansatt_ID = Forslag.Ansatt_ID
+INNER JOIN Forslag ON Bruker.Bruker_ID = Forslag.Bruker_ID
 INNER JOIN Kategori ON Kategori.Kategori_ID = Forslag.Kategori_ID
 INNER JOIN Forslag_Status ON Forslag_status.Forslag_ID = Forslag.Forslag_ID
 WHERE Fstatus = 'Fullført';
@@ -371,35 +371,35 @@ WHERE Fstatus = 'Fullført';
 /* Spørring som viser alle forslag med status "Avvist" */
 SELECT DISTINCT
 Bruker.Navn,
-Bruker.Ansatt_ID AS Ansattnr,
+Bruker.Bruker_ID AS Ansattnr,
 Forslag.Forslag_ID AS Forslagnr,
 Kategori.Kategori,
 Forslag_Status.FStatus
 
 FROM Bruker
-INNER JOIN Forslag ON Bruker.Ansatt_ID = Forslag.Ansatt_ID
+INNER JOIN Forslag ON Bruker.Bruker_ID = Forslag.Bruker_ID
 INNER JOIN Kategori ON Kategori.Kategori_ID = Forslag.Kategori_ID
 INNER JOIN Forslag_Status ON Forslag_status.Forslag_ID = Forslag.Forslag_ID
 WHERE Fstatus = 'Avvist';
 
 /* Her finner du lederen for teams */
-SELECT Bruker.Navn, Roller.Ansatt_ID AS Ansattnr, Roller.Rolle
+SELECT Bruker.Navn, Roller.Bruker_ID AS Ansattnr, Roller.Rolle
 From Roller
-INNER JOIN Bruker ON Bruker.Ansatt_ID = Roller.Ansatt_ID
+INNER JOIN Bruker ON Bruker.Bruker_ID = Roller.Bruker_ID
 WHERE Roller.Rolle = 'Teamleder';
 
 
 /* Her er oversikt over forslag som har gått over fristen */
-SELECT Bruker.Navn, Bruker.Ansatt_ID AS Ansattnummer
+SELECT Bruker.Navn, Bruker.Bruker_ID AS Ansattnummer
 FROM Bruker
-INNER JOIN forslag ON bruker.Ansatt_ID = forslag.Ansatt_ID
+INNER JOIN forslag ON bruker.Bruker_ID = forslag.Bruker_ID
 INNER JOIN Forslag_Status ON forslag.Forslag_ID = forslag_status.Forslag_ID
 WHERE Avsluttet_Dato > current_date;
 
 /* Liste over alle teams og deres medlemmer */
-SELECT Team_Medlemmer.Team_ID, Team_Medlemmer.Ansatt_ID, Bruker.Navn AS TeamMedlemmer
+SELECT Team_Medlemmer.Team_ID, Team_Medlemmer.Bruker_ID, Bruker.Navn AS TeamMedlemmer
 FROM Team_Medlemmer
-LEFT JOIN Bruker ON Team_Medlemmer.Ansatt_ID = Bruker.Ansatt_ID
+LEFT JOIN Bruker ON Team_Medlemmer.Bruker_ID = Bruker.Bruker_ID
 ORDER BY Team_ID ASC;
 
 SELECT 'Ansatte' AS Ansatt_ID, COUNT(*) FROM Bruker
@@ -412,14 +412,14 @@ WHERE Rolle_ID = '2';
 /* Spørring med Aktive forslag */
 SELECT DISTINCT
 Bruker.Navn,
-Bruker.Ansatt_ID AS Ansattnr,
+Bruker.Bruker_ID AS Ansattnr,
 Forslag.Forslag_ID AS Forslagnr,
 Kategori.Kategori,
 Forslag_Status.FStatus
 main
 
 FROM Bruker
-INNER JOIN Forslag ON Bruker.Ansatt_ID = Forslag.Ansatt_ID
+INNER JOIN Forslag ON Bruker.Bruker_ID = Forslag.Bruker_ID
 INNER JOIN Kategori ON Kategori.Kategori_ID = Forslag.Kategori_ID
 INNER JOIN Forslag_Status ON Forslag_status.Forslag_ID = Forslag.Forslag_ID
 WHERE Fstatus = 'Godkjent' OR Fstatus = 'Venter';
