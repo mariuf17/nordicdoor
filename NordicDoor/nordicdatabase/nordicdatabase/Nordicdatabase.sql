@@ -392,7 +392,7 @@ INNER JOIN forslag ON bruker.Ansatt_ID = forslag.Ansatt_ID
 INNER JOIN Forslag_Status ON forslag.Forslag_ID = forslag_status.Forslag_ID
 WHERE Avsluttet_Dato > current_date;
 
-alle_team_medlemmer
+
 /* Liste over alle teams og deres medlemmer */
 SELECT Team_Medlemmer.Team_ID, Team_Medlemmer.Ansatt_ID, Bruker.Navn AS TeamMedlemmer
 FROM Team_Medlemmer
@@ -404,9 +404,8 @@ UNION
 SELECT 'Teamledere' AS Team_ID, COUNT(*) FROM Team
 UNION
 SELECT 'Admin' AS Rolle_ID, COUNT(*) FROM Roller
-WHERE Rolle_ID = '2'
+WHERE Rolle_ID = '2';
 
-=======
 /* Spørring med Aktive forslag */
 SELECT DISTINCT
 Bruker.Navn,
