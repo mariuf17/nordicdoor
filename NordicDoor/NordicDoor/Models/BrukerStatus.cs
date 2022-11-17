@@ -7,7 +7,7 @@ namespace NordicDoor.Models
     public class BrukerStatus
     {
         [Key]
-        public int BrukerStatus_ID { get; set; }
+        public int Bruker_Status_ID { get; set; }
         [Required]
 
         public int Bruker_ID { get; set; }
