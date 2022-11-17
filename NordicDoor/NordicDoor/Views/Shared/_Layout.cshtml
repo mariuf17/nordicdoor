@@ -24,7 +24,6 @@
                             <a class="nav-link" asp-controller="Home" asp-action="Index">Hjem</a>
 
                             <span class="visually-hidden">(current)</span>
-                            </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" asp-controller="Bruker" asp-action="Index">Bruker</a>
@@ -40,6 +39,15 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" asp-controller="Team" asp-action="Index">Team</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Users" asp-action="Index">Users</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Suggestions" asp-action="Index">Suggestions (Administrator required)</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="LogOff">Sign out</a>
                         </li>
 
                         @*@<li class="nav-item dropdown">
