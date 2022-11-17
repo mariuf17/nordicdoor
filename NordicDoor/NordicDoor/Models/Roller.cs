@@ -8,7 +8,7 @@ namespace NordicDoor.Models
         [Key]
         public int Rolle_ID { get; set; }
         [Required]
-        public int Ansatt_ID { get; set; }
+        public int Bruker_ID { get; set; }
 
         public string Ansvar { get; set; }
 

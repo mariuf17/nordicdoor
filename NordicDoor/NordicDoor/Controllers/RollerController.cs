@@ -30,7 +30,7 @@ public class RollerController : Controller
     [ValidateAntiForgeryToken]
     public IActionResult Opprett(Roller obj)
     {
-        if (obj.Ansvar == obj.Ansatt_ID.ToString())
+        if (obj.Ansvar == obj.Bruker_ID.ToString())
         {
             ModelState.AddModelError("CustomError", "Ansvar og Ansattnummer kan ikke inneholde like verdier");
         }
