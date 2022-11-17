@@ -1,7 +1,7 @@
 ﻿@model Bruker
 
 <form method="post" asp-action="SlettPOST">
-    <input asp-for="Ansatt_ID" hidden />
+    <input asp-for="Bruker_ID" hidden />
     <div class="border p-3 mt-4">
         <div class="row pb-2">
             <h2 class="text-primary">Slett Bruker</h2>
@@ -13,8 +13,8 @@
             <input asp-for="Navn" disabled class="form-control" />
         </div>
         <div class="mb-3">
-            <label asp-for="Ansatt_ID"></label>
-            <input asp-for="Ansatt_ID" disabled class="form-control" />
+            <label asp-for="Bruker_ID"></label>
+            <input asp-for="Bruker_ID" disabled class="form-control" />
         <div class="mb-3">
             <label asp-for="Epost"></label>
             <input asp-for="Epost" class="form-control" />

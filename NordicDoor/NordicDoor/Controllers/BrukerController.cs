@@ -32,7 +32,7 @@ public class BrukerController : Controller
     [ValidateAntiForgeryToken]
     public IActionResult Opprett(Bruker obj)
     {
-        if (obj.Navn == obj.Ansatt_ID.ToString())
+        if (obj.Navn == obj.Bruker_ID.ToString())
         {
             ModelState.AddModelError("CustomError", "Navn og Ansatt_ID kan ikke inneholde like verdier");
         }
@@ -49,13 +49,13 @@ public class BrukerController : Controller
 
 
     //GET
-    public IActionResult Rediger(int? Ansatt_ID)
+    public IActionResult Rediger(int? Bruker_ID)
     {
         {
-            if (Ansatt_ID==null || Ansatt_ID==0)
+            if (Bruker_ID==null || Bruker_ID==0)
                 return NotFound();
         }
-        var brukerFromFirst = _first.Bruker.Find(Ansatt_ID);
+        var brukerFromFirst = _first.Bruker.Find(Bruker_ID);
         //var brukerFromFirstFirst = _first.Bruker.FirstOrDefault(u => u.id == id);
         //var brukerFromFirstSingle = _first.Bruker.SingleOrDefault(u => u.id == id);
 
@@ -73,7 +73,7 @@ public class BrukerController : Controller
     [ValidateAntiForgeryToken]
     public IActionResult Rediger(Bruker obj)
     {
-        if (obj.Navn == obj.Ansatt_ID.ToString())
+        if (obj.Navn == obj.Bruker_ID.ToString())
         {
             ModelState.AddModelError("CustomError", "Navn og Ansatt_ID kan ikke inneholde like verdier");
         }
@@ -89,13 +89,13 @@ public class BrukerController : Controller
     }
 
     //GET
-    public IActionResult Slett(int? Ansatt_ID)
+    public IActionResult Slett(int? Bruker_ID)
     {
         {
-            if (Ansatt_ID == null || Ansatt_ID == 0)
+            if (Bruker_ID == null || Bruker_ID == 0)
                 return NotFound();
         }
-        var brukerFromFirst = _first.Bruker.Find(Ansatt_ID);
+        var brukerFromFirst = _first.Bruker.Find(Bruker_ID);
         //var brukerFromFirstFirst = _first.Bruker.FirstOrDefault(u => u.id == id);
         //var brukerFromFirstSingle = _first.Bruker.SingleOrDefault(u => u.id == id);
 
@@ -111,9 +111,9 @@ public class BrukerController : Controller
     [HttpPost]
     [ValidateAntiForgeryToken]
 
-    public IActionResult SlettPOST(int? Ansatt_ID)
+    public IActionResult SlettPOST(int? Bruker_ID)
     {
-        var obj = _first.Bruker.Find(Ansatt_ID);
+        var obj = _first.Bruker.Find(Bruker_ID);
         if (obj == null)
         {
             return NotFound();

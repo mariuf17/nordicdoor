@@ -9,7 +9,7 @@ namespace NordicDoor.Models
         public int Forslag_ID { get; set; }
         [Required]
 
-        public int Ansatt_ID { get; set; }
+        public int Bruker_ID { get; set; }
 
         public int Team_ID { get; set; }
 

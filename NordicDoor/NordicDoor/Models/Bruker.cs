@@ -8,7 +8,7 @@ namespace NordicDoor.Models
     {
         [Key]
         [DisplayName("Ansattnummer")]
-        public int Ansatt_ID { get; set; }
+        public int Bruker_ID { get; set; }
         [Required]
 
         public string Postnummer { get; set; }

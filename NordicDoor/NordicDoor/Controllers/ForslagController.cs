@@ -30,7 +30,7 @@ public class ForslagController : Controller
     [ValidateAntiForgeryToken]
     public IActionResult Opprett(Bruker obj)
     {
-        if (obj.Navn == obj.Ansatt_ID.ToString())
+        if (obj.Navn == obj.Bruker_ID.ToString())
         {
             ModelState.AddModelError("CustomError", "Navn og Ansatt_ID kan ikke inneholde like verdier");
         }
