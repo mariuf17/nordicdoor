@@ -23,9 +23,9 @@
         <table class="table table-bordered table-striped" style="width:100%">
 
             <thead>
-                <tr>
+                <tr style="background-color:#2B476C">
                     <th>
-                        Forslagnummer
+                        Nr
                     </th>
                     <th>
                         Ansattnummer
@@ -44,6 +44,9 @@
                     </th>
                     <th>
                         Tittel
+                    </th>
+                    <th>
+                        Beskrivelse
                     </th>
                     <th>
                         Ansvarlig Teamleder
@@ -77,9 +80,11 @@
                             @obj.Tittel
                         </td>
                         <td width:"30%">
+                            @obj.Beskrivelse
+                        </td>
+                        <td width:"30%">
                             @obj.Ansvarlig
                         </td>
-
                     </tr>
                 }
             </tbody>

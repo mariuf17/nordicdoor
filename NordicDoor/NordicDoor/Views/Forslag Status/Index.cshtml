@@ -1,0 +1,68 @@
+﻿@model IEnumerable<Forslag_Status>
+
+@{ ViewData["Title"] = "Index";
+}
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">Status for forslag</h2>
+        </div>
+    </div>
+    <br />
+
+    <div class="text-center">
+        <h1 class="display-4">Status for forslag</h1>
+
+        <table class="table table-bordered table-striped" style="width:100%">
+
+            <thead>
+                <tr style="background-color:#2B476C">
+                    <th>
+                        ID
+                    </th>
+                    <th>
+                        Forslagnummer
+                    </th>
+                    <th>
+                        Innsendt Dato
+                    </th>
+                    <th>
+                        Avsluttet Dato
+                    </th>
+                    <th>
+                        Status
+                    </th>
+                    <th>
+                        Fase
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var obj in Model)
+                {
+                    <tr>
+                        <td width:"50%">
+                            @obj.Forslag_Status_ID
+                        </td>
+                        <td width:"30%">
+                            @obj.Forslag_ID
+                        </td>
+                        <td width:"30%">
+                            @obj.Innsendt_Dato
+                        </td>
+                        <td width:"30%">
+                            @obj.Avsluttet_Dato
+                        </td>
+                        <td width:"30%">
+                            @obj.FStatus
+                        </td>
+                        <td width:"30%">
+                            @obj.Fase
+                        </td>
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+    </div>

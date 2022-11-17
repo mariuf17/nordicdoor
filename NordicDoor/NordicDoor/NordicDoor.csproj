@@ -19,7 +19,6 @@
     <None Remove="Microsoft.AspNetCore.Authorization" />
     <None Remove="Microsoft.CodeAnalysis.Analyzers" />
     <None Remove="Views\Shared\HTML og CSS\" />
-    <None Remove="Views\ForslagStatus\" />
     <None Remove="Microsoft.Extensions.Identity.Stores" />
     <None Remove="Repositories\" />
     <None Remove="Entities\" />
@@ -32,14 +31,15 @@
     <None Remove="Microsoft.EntityFrameworkCore.Relational" />
     <None Remove="Microsoft.Extensions.Logging" />
     <None Remove="Microsoft.AspNetCore.Identity.EntityFrameworkCore" />
+    <None Remove="Views\Forslag Status\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\Data\" />
     <Folder Include="Views\Shared\HTML og CSS\" />
-    <Folder Include="Views\ForslagStatus\" />
     <Folder Include="Repositories\" />
     <Folder Include="Entities\" />
     <Folder Include="Models\Users\" />
+    <Folder Include="Views\Forslag Status\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="MySqlConnector" Version="2.2.0" />
