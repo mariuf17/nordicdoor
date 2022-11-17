@@ -124,4 +124,6 @@ public class BrukerController : Controller
         TempData["suksess"] = "Slettingen av brukeren var vellykket";
         return RedirectToAction("Index");
     }
+
+  
 }
