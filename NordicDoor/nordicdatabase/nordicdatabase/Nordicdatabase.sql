@@ -75,6 +75,7 @@ CREATE OR REPLACE TABLE Forslag (
     Start_Tid date,
     Frist date,
     Tittel varchar(100),
+    Beskrivelse varchar (500),
     PRIMARY KEY (Forslag_ID)
 );
 
@@ -217,21 +218,21 @@ VALUES (5,'HMS'),
        (65,'Bærekraft'),
        (70,'Industri 4.0');
 
-INSERT INTO Forslag (Forslag_ID, Bruker_ID, Team_ID, Kategori_ID, Start_Tid, Frist, Tittel, Ansvarlig)
-VALUES (1,112,1,5,'2022-09-01','2022-09-03','Vask','Thomas Tvedten'),
-       (2,115,2,10,'2022-09-02','2022-09-04','Rydd','Marius Fjermeros'),
-       (3,111,3,15,'2022-09-02','2022-09-05','Post','Truls Dyrkolbotn'),
-       (4,113,4,20,'2022-09-04','2022-09-06','Spis','Truls Dyrkolbotn'),
-       (5,114,5,25,'2022-09-04','2022-09-08','Kantine','Stian Steinsland'),
-       (6,120,6,30,'2022-09-07','2022-09-09','Service','Vladimir Putin'),
-       (7,119,7,35,'2022-09-07','2022-09-13','Dør','Thomas Tvedten'),
-       (8,118,8,40,'2022-09-08','2022-09-15','Håndtak','Thomas Tvedten'),
-       (9,117,9,45,'2022-09-09','2022-09-16','Maling','Thomas Tvedten'),
-       (10,116,10,50,'2022-09-11','2022-09-18','Inngang','Thomas Tvedten'),
-       (11,112,1,55,'2022-09-12','2022-11-11','regnskap','Thomas Tvedten'),
-       (12,112,1,60,'2022-10-12','2022-12-12','administrativt','Thomas Tvedten'),
-       (13,115,2,65,'2022-09-09','2022-11-11','pause','Thomas Tvedten'),
-       (14,112,1,50,'2022-11-24','2022-11-30','Inngang','Marius Fjermeros');
+INSERT INTO Forslag (Forslag_ID, Bruker_ID, Team_ID, Kategori_ID, Start_Tid, Frist, Tittel, Beskrivelse, Ansvarlig)
+VALUES (1,112,1,5,'2022-09-01','2022-09-03','Vask','Det er alt for skittent i gangene','Thomas Tvedten'),
+       (2,115,2,10,'2022-09-02','2022-09-04','Rydd','Det er altfor rotete på kontoret','Marius Fjermeros'),
+       (3,111,3,15,'2022-09-02','2022-09-05','Post','Det er ingen system på posten','Truls Dyrkolbotn'),
+       (4,113,4,20,'2022-09-04','2022-09-06','Spis','Thomas spiser alt for mye, det blir ikke noe igjen til oss andre','Truls Dyrkolbotn'),
+       (5,114,5,25,'2022-09-04','2022-09-08','Kantine','Jeg liker ingenting av det som serveres i kantinen','Stian Steinsland'),
+       (6,120,6,30,'2022-09-07','2022-09-09','Service','Jeg synes Truls er for frekk når han skal yte service til kundene','Vladimir Putin'),
+       (7,119,7,35,'2022-09-07','2022-09-13','Dør','Inngangsdøren er utslitt','Thomas Tvedten'),
+       (8,118,8,40,'2022-09-08','2022-09-15','Håndtak','Fargen på håndtaket er falmet','Thomas Tvedten'),
+       (9,117,9,45,'2022-09-09','2022-09-16','Maling','Malingen flasser av på framsiden av bygget','Thomas Tvedten'),
+       (10,116,10,50,'2022-09-11','2022-09-18','Inngang','Inngangen er for smal, Jacob sliter med å få plass','Thomas Tvedten'),
+       (11,112,1,55,'2022-09-12','2022-11-11','regnskap','Regnskapet går for sent, vi trenger flere ansatte for å få litt fortgang','Thomas Tvedten'),
+       (12,112,1,60,'2022-10-12','2022-12-12','administrativt','Det er for mange ledd vi må gjennom for å få gjennom ting, det bør simplifiseres','Thomas Tvedten'),
+       (13,115,2,65,'2022-09-09','2022-11-11','pause','Jeg blir så sykt sliten, trenger flere pauser','Thomas Tvedten'),
+       (14,112,1,50,'2022-11-24','2022-11-30','Inngang','Inngange bør oppgraderes til moderne standard','Marius Fjermeros');
 
 INSERT INTO Forslag_Status (Forslag_Status_ID, Forslag_ID, Innsendt_Dato, Avsluttet_Dato, FStatus, Fase)
 VALUES (10,1,'2022-09-01','2022-09-03','Godkjent','Plan'),

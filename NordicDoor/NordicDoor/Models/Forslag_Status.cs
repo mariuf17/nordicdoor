@@ -1,6 +1,5 @@
 using System;
 using System.ComponentModel.DataAnnotations;
-using Google.Protobuf.WellKnownTypes;
 
 namespace NordicDoor.Models
 {
@@ -13,9 +12,13 @@ public class Forslag_Status
     public int Forslag_ID { get; set; }
 
     [Required]
-    public Timestamp Innsendt_Dato { get; set; }
+    public DateTime Innsendt_Dato { get; set; }
 
     public DateTime Avsluttet_Dato { get; set; }
+
+    public string FStatus { get; set; }
+
+    public string Fase { get; set; }
 
     }
 }
