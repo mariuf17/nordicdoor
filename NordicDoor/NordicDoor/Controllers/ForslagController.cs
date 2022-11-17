@@ -14,10 +14,28 @@ public class ForslagController : Controller
     {
         _first = first;
     }
-    public IActionResult Index()
+    public ActionResult Index(string sortOrder)
     {
-        IEnumerable<Forslag> objForslagList = _first.Forslag;
-        return View(objForslagList);
+        ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "Team_ID_desc" : "";
+        ViewBag.DateSortParm = sortOrder == "Frist" ? "frist_desc" : "Frist";
+        var Forslag = from s in _first.Forslag
+                      select s;
+        switch (sortOrder)
+        {
+            case "Team_ID_desc":
+                Forslag = Forslag.OrderByDescending(s => s.Team_ID);
+                break;
+            case "Frist":
+                Forslag = Forslag.OrderBy(s => s.Frist);
+                break;
+            case "frist_desc":
+                Forslag = Forslag.OrderByDescending(s => s.Frist);
+                break;
+            default:
+                Forslag = Forslag.OrderBy(s => s.Team_ID);
+                break;
+        }
+        return View(Forslag.ToList());
     }
 
     //GET
@@ -44,6 +62,8 @@ public class ForslagController : Controller
         }
         return View(obj);
     }
+
+    
 
 }
 

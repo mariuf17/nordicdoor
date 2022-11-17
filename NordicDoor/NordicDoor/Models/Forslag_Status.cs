@@ -12,9 +12,9 @@ public class Forslag_Status
     public int Forslag_ID { get; set; }
 
     [Required]
-    public DateTime Innsendt_Dato { get; set; }
+    public DateOnly Innsendt_Dato { get; set; }
 
-    public DateTime Avsluttet_Dato { get; set; }
+    public DateOnly Avsluttet_Dato { get; set; }
 
     public string FStatus { get; set; }
 

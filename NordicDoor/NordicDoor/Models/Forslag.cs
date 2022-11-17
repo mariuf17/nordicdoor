@@ -15,9 +15,9 @@ namespace NordicDoor.Models
 
         public string Kategori_ID { get; set; }
 
-        public DateTime Start_Tid { get; set; } 
+        public DateOnly Start_Tid { get; set; } 
 
-        public DateTime Frist { get; set; }
+        public DateOnly Frist { get; set; }
 
         public string Tittel { get; set; }
 

@@ -31,7 +31,7 @@
                         Ansattnummer
                     </th>
                     <th>
-                        Teamnummer
+                        @Html.ActionLink("Team_ID","Index", new {sortOrder = ViewBag.NameSortParm})
                     </th>
                     <th>
                         Kategorinummer
@@ -40,7 +40,7 @@
                         Startdato
                     </th>
                     <th>
-                        Frist
+                        @Html.ActionLink("Frist", "Index", new { sortOrder = ViewBag.DateSortParm})
                     </th>
                     <th>
                         Tittel
