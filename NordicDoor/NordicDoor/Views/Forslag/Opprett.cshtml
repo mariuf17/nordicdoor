@@ -38,6 +38,11 @@
             <span asp-validation-for="Frist" class="text-danger"></span>
         </div>
         <div class="mb-3">
+            <label asp-for="Beskrivelse"></label>
+            <span asp-validation-for="Beskrivelse" class="text-danger"></span>
+            <textarea asp-for="Beskrivelse" class="form-control" placeholder="Legg ved en beskrivelse av forslaget ditt"></textarea>
+        </div>
+        <div class="mb-3">
             <label asp-for="Ansvarlig"></label>
             <input asp-for="Ansvarlig" class="form-control" />
             <span asp-validation-for="Ansvarlig" class="text-danger"></span>
