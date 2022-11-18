@@ -155,6 +155,14 @@ VALUES (111,'0010','Thomas Tvedten','Tvedten@uia.no',54312786),
        (120,'9021','Vladimir Putin','VlaPu@uia.no',40256318),
        (123,'4700','Jacob Klepp','kleppos@uia.no',97321586);
 
+INSERT INTO Login (Brukernavn, Bruker_ID, Epost, Passord)
+VALUES ('Tommy',111,'Tvedten@uia.no','Lacrosse'),
+       ('Kosegutten',112,'fjermeros@uia.no','Liverpool'),
+       ('Beast',113,'dyrkolbotn@uia.no','Maskin'),
+       ('Stein',114,'Steinsland@uia.no','Haugesund'),
+       ('Sindremann',115,'Kristiansen@uia.no','Passord'),
+       ('Lauren',116,'Lauren@uia.no','Sag');
+
 INSERT INTO Roller (Rolle_ID, Bruker_ID, Rolle)
 Values (1,114,'Bruker'),
        (2,111,'Administrator'),
