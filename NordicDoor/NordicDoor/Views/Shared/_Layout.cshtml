@@ -14,15 +14,13 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">NordicDoor</a>
+                <a class="navbar-brand" asp-controller="Home" asp-action="Index"><i class="bi bi-house-fill">&nbsp Nordic Door</i></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarColor01">
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link" asp-controller="Home" asp-action="Index">Hjem</a>
-
                             <span class="visually-hidden">(current)</span>
                         </li>
                         <li class="nav-item">
@@ -50,7 +48,7 @@
                             <a class="nav-link" asp-area="" asp-controller="Suggestions" asp-action="Index">Suggestions (Administrator required)</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Account" asp-action="LogOff">Sign out</a>
+                            <a class="nav-link" asp-area="" asp-controller="Account" asp-action="LogOff"><i class="bi bi-box-arrow-right"></i></a>
                         </li>
 
                         @*@<li class="nav-item dropdown">
@@ -81,7 +79,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2022 - NordicDoor - <a asp-area="" asp-controller="Home" asp-action="Privacy">Personvern</a>
+            &copy; 2022 - NordicDoor - <a asp-area="" asp-controller="Home" asp-action="Privacy">Om Oss</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
