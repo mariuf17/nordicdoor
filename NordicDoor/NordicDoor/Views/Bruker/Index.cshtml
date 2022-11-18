@@ -22,19 +22,19 @@
         <thead>
             <tr style="background-color:#2B476C">
                 <th>
-                    Navn
+                    @Html.ActionLink("Navn", "Index", new { sortOrder = ViewBag.NameSortParm })
                 </th>
                 <th>
-                    Ansattnummer
+                    @Html.ActionLink("Bruker_ID", "Index", new { sortOrder = ViewBag.EmployeeSortParm })
                 </th>
                 <th>
-                    Epost
+                    @Html.ActionLink("Epost", "Index", new { sortOrder = ViewBag.EmailSortParm })
                 </th>
                 <th>
-                    Telefon
+                    @Html.ActionLink("Telefon", "Index", new { sortOrder = ViewBag.PhoneSortParm })
                 </th>
                 <th>
-                    Postnummer
+                    @Html.ActionLink("Postnummer", "Index", new { sortOrder = ViewBag.PostSortParm })
                 </th>
                 <th>
                 </th>
