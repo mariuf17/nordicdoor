@@ -15,10 +15,59 @@ public class BrukerController : Controller
         _first = first;
     }
 
-    public IActionResult Index()
+    public ActionResult Index(string sortOrder)
     {
-        IEnumerable<Bruker> objBrukerList = _first.Bruker;
-        return View(objBrukerList);
+        ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "navn_desc" : "";
+        ViewBag.EmployeeSortParm = sortOrder == "Bruker_ID" ? "Bruker_ID_desc" : "Bruker_ID";
+        ViewBag.EmailSortParm = sortOrder == "Epost" ? "epost_desc" : "Epost";
+        ViewBag.PhoneSortParm = sortOrder == "Telefon" ? "telefon_desc" : "Telefon";
+        ViewBag.PostSortParm = sortOrder == "Postnummer" ? "postnummer_desc" : "Postnummer";
+
+        var Bruker = from s in _first.Bruker
+                      select s;
+        switch (sortOrder)
+        {
+            case "navn_desc":
+                Bruker = Bruker.OrderByDescending(s => s.Navn);
+                break;
+
+            case "Bruker_ID":
+                Bruker = Bruker.OrderBy(s => s.Bruker_ID);
+                break;
+
+            case "Epost":
+            Bruker = Bruker.OrderBy(s => s.Epost);
+                break;
+
+            case "Telefon":
+            Bruker = Bruker.OrderBy(s => s.Telefon);
+                break;
+
+            case "Postnummer":
+            Bruker = Bruker.OrderBy(s => s.Postnummer);
+                break;
+
+            case "Bruker_ID_desc":
+                Bruker = Bruker.OrderByDescending(s => s.Bruker_ID);
+                break;
+
+            case "epost_desc":
+                Bruker = Bruker.OrderByDescending(s => s.Epost);
+                break;
+
+            case "telefon_desc":
+                Bruker = Bruker.OrderByDescending(s => s.Telefon);
+                break;
+
+            case "postnummer_desc":
+                Bruker = Bruker.OrderByDescending(s => s.Postnummer);
+                break;
+
+            default:
+                Bruker = Bruker.OrderBy(s => s.Navn);
+                break;
+        }
+        return View(Bruker.ToList());
     }
 
     //GET
