@@ -18,6 +18,15 @@ CREATE OR REPLACE TABLE Post (
     PRIMARY KEY (Postnummer)
 );
 
+CREATE OR REPLACE TABLE Login (
+    Brukernavn varchar(20) NOT NULL ,
+    Bruker_ID int NOT NULL,
+    Epost varchar (100) NOT NULL,
+    Passord varchar(50) NOT NULL,
+    PRIMARY KEY (Brukernavn),
+    Foreign Key (Bruker_ID) REFERENCES Bruker (Bruker_ID)
+);
+
 ALTER TABLE Bruker
 ADD FOREIGN KEY (Postnummer) REFERENCES Post(Postnummer);
 
