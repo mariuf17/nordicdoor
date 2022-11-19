@@ -99,24 +99,103 @@ public class ForslagController : Controller
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public IActionResult Opprett(Bruker obj)
+    public IActionResult Opprett(Forslag obj)
     {
-        if (obj.Navn == obj.Bruker_ID.ToString())
+        if (obj.Ansvarlig == obj.Forslag_ID.ToString())
+        {
+            ModelState.AddModelError("CustomError", "Forslag_ID og Ansvarlig kan ikke inneholde like verdier");
+        }
+
+        if (ModelState.IsValid)
+        {
+            _first.Forslag.Add(obj);
+            _first.SaveChanges();
+            TempData["suksess"] = "Opprettingen av forslaget var vellykket";
+            return RedirectToAction("Index");
+        }
+        return View(obj);
+    }
+
+
+    //GET
+     public IActionResult Rediger(int? Forslag_ID)
+    {
+        {
+            if (Forslag_ID == null || Forslag_ID == 0)
+                return NotFound();
+        }
+        var forslagFromFirst = _first.Forslag.Find(Forslag_ID);
+        //var brukerFromFirstFirst = _first.Bruker.FirstOrDefault(u => u.id == id);
+        //var brukerFromFirstSingle = _first.Bruker.SingleOrDefault(u => u.id == id);
+
+        if (forslagFromFirst == null)
+        {
+            return NotFound();
+        }
+
+
+        return View(forslagFromFirst);
+    }
+
+    //POST
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public IActionResult Rediger(Forslag obj)
+    {
+        if (obj.Ansvarlig == obj.Forslag_ID.ToString())
         {
             ModelState.AddModelError("CustomError", "Navn og Ansatt_ID kan ikke inneholde like verdier");
         }
 
         if (ModelState.IsValid)
         {
-            _first.Bruker.Add(obj);
+            _first.Forslag.Update(obj);
             _first.SaveChanges();
-            TempData["suksess"] = "Opprettingen av brukeren var vellykket";
+            TempData["suksess"] = "Oppdateringen av brukeren var vellykket";
             return RedirectToAction("Index");
         }
         return View(obj);
     }
 
-    
+    //GET
+    public IActionResult Slett(int? Forslag_ID)
+    {
+        {
+            if (Forslag_ID == null || Forslag_ID == 0)
+                return NotFound();
+        }
+        var forslagFromFirst = _first.Bruker.Find(Forslag_ID);
+        //var brukerFromFirstFirst = _first.Bruker.FirstOrDefault(u => u.id == id);
+        //var brukerFromFirstSingle = _first.Bruker.SingleOrDefault(u => u.id == id);
+
+        if (forslagFromFirst == null)
+        {
+            return NotFound();
+        }
+
+        return View(forslagFromFirst);
+    }
+
+    //POST
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+
+    public IActionResult SlettPOST(int? Forslag_ID)
+    {
+        var obj = _first.Forslag.Find(Forslag_ID);
+        if (obj == null)
+        {
+            return NotFound();
+        }
+
+        _first.Forslag.Remove(obj);
+        _first.SaveChanges();
+        TempData["suksess"] = "Slettingen av brukeren var vellykket";
+        return RedirectToAction("Index");
+    } 
+
+
+
 
 }
 

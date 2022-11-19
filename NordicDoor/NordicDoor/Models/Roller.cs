@@ -13,7 +13,14 @@ namespace NordicDoor.Models
         public int Bruker_ID { get; set; }
 
         [Required]
-        public string Ansvar { get; set; }
+        public string Rolle { get; set; }
 
+    }
+
+    public enum Rolletype
+    {
+        Administrator,
+        Teamleder,
+        Bruker
     }
 }

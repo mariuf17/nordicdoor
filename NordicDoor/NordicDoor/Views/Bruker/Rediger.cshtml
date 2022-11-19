@@ -6,7 +6,7 @@
             <h2 class="text-primary">Rediger Bruker</h2>
             <hr />
         </div>
-        <div asp-validation-summary="All"></div>
+        @*@<div asp-validation-summary="All"></div>*@
         <div class="mb-3">
             <label asp-for="Navn"></label>
             <input asp-for="Navn" class="form-control" />
@@ -14,22 +14,22 @@
         </div>
         <div class="mb-3">
             <label asp-for="Bruker_ID"></label>
-            <input asp-for="Bruker_ID" class="form-control" />
+            <input asp-for="Bruker_ID" inputmode="numeric" class="form-control" />
             <span asp-validation-for="Bruker_ID" class="text-danger"></span>
         </div>
         <div class="mb-3">
             <label asp-for="Epost"></label>
-            <input asp-for="Epost" class="form-control" />
+            <input asp-for="Epost" inputmode="email" class="form-control" />
             <span asp-validation-for="Epost" class="text-danger"></span>
         </div>
         <div class="mb-3">
             <label asp-for="Telefon"></label>
-            <input asp-for="Telefon" class="form-control" />
+            <input asp-for="Telefon" inputmode="tel" class="form-control" />
             <span asp-validation-for="Telefon" class="text-danger"></span>
         </div>
         <div class="mb-3">
             <label asp-for="Postnummer"></label>
-            <input asp-for="Postnummer" class="form-control" />
+            <input asp-for="Postnummer" inputmode="numeric" class="form-control" />
             <span asp-validation-for="Postnummer" class="text-danger"></span>
         </div>
         <button type="submit" class="btn btn-primary" style="width:150px">Oppdater Bruker</button>
