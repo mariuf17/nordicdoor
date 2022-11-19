@@ -13,5 +13,9 @@ namespace NordicDoor.Models
         [Required]
         public int Bruker_ID { get; set; }
 
+
+        [Required]
+        public int AnsattStatus { get; set; }
+
     }
 }
