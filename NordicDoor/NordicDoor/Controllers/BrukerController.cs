@@ -101,7 +101,7 @@ public class BrukerController : Controller
     public IActionResult Rediger(int? Bruker_ID)
     {
         {
-            if (Bruker_ID==null || Bruker_ID==0)
+            if (Bruker_ID== null || Bruker_ID==0)
                 return NotFound();
         }
         var brukerFromFirst = _first.Bruker.Find(Bruker_ID);

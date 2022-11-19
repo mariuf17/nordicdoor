@@ -10,16 +10,16 @@
         <div asp-validation-summary="All"></div>
         <div class="mb-3">
             <label asp-for="Rolle_ID"></label>
-            <input asp-for="Rolle_ID" disabled class="form-control" />
+            <input asp-for="Rolle_ID" inputmode="numeric" disabled class="form-control" />
         </div>
         <div class="mb-3">
             <label asp-for="Bruker_ID"></label>
-            <input asp-for="Bruker_ID" disabled class="form-control" />
-        <div class="mb-3">
-            <label asp-for="Ansvar"></label>
-            <input asp-for="Ansvar" class="form-control" />
-            <span asp-validation-for="Ansvar" disabled class="text-danger"></span>
-        </div>
+            <input asp-for="Bruker_ID" inputmode="numeric" disabled class="form-control" />
+            <div class="mb-3">
+                <label asp-for="Rolle"></label>
+                @Html.DropDownListFor(r => r.Rolle, new SelectList(Enum.GetValues(typeof(Rolletype))), "Velg Rolle")
+                <span asp-validation-for="Rolle" disabled class="text-danger"></span>
+            </div>
         <button type="submit" class="btn btn-danger" style="width:150px">Slett Rolle</button>
         <a asp-controller="Roller" asp-action="Index" class="btn btn-secondary" style="width:160px">
             Tilbake til oversikt
