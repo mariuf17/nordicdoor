@@ -16,8 +16,7 @@ namespace NordicDoor.Models
         public string Rolle { get; set; }
 
 
-        public string Ansvar { get; set; }
-
+        
     }
 
 
