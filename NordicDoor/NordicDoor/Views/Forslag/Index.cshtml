@@ -25,31 +25,31 @@
             <thead>
                 <tr style="background-color:#2B476C">
                     <th>
-                        Nr
+                        @Html.ActionLink("Forslag_ID", "Index", new { sortOrder = ViewBag.ForslagIDSortParm })
                     </th>
                     <th>
-                        Ansattnummer
+                        @Html.ActionLink("Bruker_ID", "Index", new { sortOrder = ViewBag.BrukerIDSortParm })
                     </th>
                     <th>
-                        @Html.ActionLink("Team_ID","Index", new {sortOrder = ViewBag.NameSortParm})
+                        @Html.ActionLink("Team_ID","Index", new {sortOrder = ViewBag.TeamIDSortParm})
                     </th>
                     <th>
-                        Kategorinummer
+                        @Html.ActionLink("Kategori_ID", "Index", new { sortOrder = ViewBag.KategoriIDSortParm })
                     </th>
                     <th>
-                        Startdato
+                        @Html.ActionLink("Start_Tid", "Index", new { sortOrder = ViewBag.StartSortParm })
                     </th>
                     <th>
-                        @Html.ActionLink("Frist", "Index", new { sortOrder = ViewBag.DateSortParm})
+                        @Html.ActionLink("Frist", "Index", new { sortOrder = ViewBag.FristSortParm})
                     </th>
                     <th>
-                        Tittel
+                        @Html.ActionLink("Tittel", "Index", new { sortOrder = ViewBag.TittelSortParm })
                     </th>
                     <th>
                         Beskrivelse
                     </th>
                     <th>
-                        Ansvarlig Teamleder
+                        @Html.ActionLink("Ansvarlig", "Index", new { sortOrder = ViewBag.AnsvarligSortParm })
                     </th>
                 </tr>
             </thead>

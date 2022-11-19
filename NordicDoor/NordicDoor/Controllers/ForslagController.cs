@@ -16,23 +16,76 @@ public class ForslagController : Controller
     }
     public ActionResult Index(string sortOrder)
     {
-        ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "Team_ID_desc" : "";
-        ViewBag.DateSortParm = sortOrder == "Frist" ? "frist_desc" : "Frist";
+        ViewBag.ForslagIDSortParm = String.IsNullOrEmpty(sortOrder) ? "Forslag_ID_desc" : "";
+        ViewBag.BrukerIDSortParm = sortOrder == "Bruker_ID" ? "Bruker_ID_desc" : "Bruker_ID";
+        ViewBag.TeamIDSortParm = sortOrder == "Team_ID" ? "Team_ID_desc" : "Team_ID";
+        ViewBag.KategoriIDSortParm = sortOrder == "Kategori_ID" ? "Kategori_ID_desc" : "Kategori_ID";
+        ViewBag.StartSortParm = sortOrder == "Start_Tid" ? "Start_Tid_desc" : "Start_Tid";
+        ViewBag.FristSortParm = sortOrder == "Frist" ? "Frist_desc" : "Frist";
+        ViewBag.TittelSortParm = sortOrder == "Tittel" ? "Tittel_desc" : "Tittel";
+        ViewBag.AnsvarligSortParm = sortOrder == "Ansvarlig" ? "Ansvarlig_desc" : "Ansvarlig";
         var Forslag = from s in _first.Forslag
                       select s;
         switch (sortOrder)
         {
-            case "Team_ID_desc":
-                Forslag = Forslag.OrderByDescending(s => s.Team_ID);
+            case "Forslag_ID_desc":
+                Forslag = Forslag.OrderByDescending(s => s.Forslag_ID);
                 break;
+
+            case "Bruker_ID":
+                Forslag = Forslag.OrderBy(s => s.Bruker_ID);
+                break;
+
+            case "Team_ID":
+                Forslag = Forslag.OrderBy(s => s.Team_ID);
+                break;
+
+            case "Kategori_ID":
+                Forslag = Forslag.OrderBy(s => s.Kategori_ID);
+                break;
+
+            case "Start_Tid":
+                Forslag = Forslag.OrderBy(s => s.Start_Tid);
+                break;
+
             case "Frist":
                 Forslag = Forslag.OrderBy(s => s.Frist);
                 break;
+
+            case "Tittel":
+                Forslag = Forslag.OrderBy(s => s.Tittel);
+                break;
+
+            case "Ansvarlig":
+                Forslag = Forslag.OrderBy(s => s.Ansvarlig);
+                break;
+
+            case "Bruker_ID_desc":
+                Forslag = Forslag.OrderByDescending(s => s.Bruker_ID);
+                break;
+
+            case "Team_ID_desc":
+                Forslag = Forslag.OrderByDescending(s => s.Team_ID);
+                break;
+
+            case "Kategori_ID_desc":
+                Forslag = Forslag.OrderByDescending(s => s.Kategori_ID);
+                break;
+
+            case "Start_Tid_desc":
+                Forslag = Forslag.OrderByDescending(s => s.Start_Tid);
+                break;
+
+            case "ansvarlig_desc":
+                Forslag = Forslag.OrderByDescending(s => s.Ansvarlig);
+                break;
+
             case "frist_desc":
                 Forslag = Forslag.OrderByDescending(s => s.Frist);
                 break;
+
             default:
-                Forslag = Forslag.OrderBy(s => s.Team_ID);
+                Forslag = Forslag.OrderBy(s => s.Forslag_ID);
                 break;
         }
         return View(Forslag.ToList());
