@@ -22,15 +22,12 @@
         <thead>
             <tr style="background-color:#2B476C">
                 <th>
-                    Teamnummer
+                    @Html.ActionLink("Bruker_ID", "Index", new { sortOrder = ViewBag.Bruker_ID_SortParm })
                 </th>
                 <th>
-                    Ansattnummer
+                    @Html.ActionLink("Team_ID", "Index", new { sortOrder = ViewBag.Team_ID_SortParm })
                 </th>
 
-
-                <th>
-                </th>
             </tr>
         </thead>
         <tbody>
