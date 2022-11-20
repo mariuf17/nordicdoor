@@ -16,6 +16,6 @@ namespace NordicDoor.Models
         [Required]
         public string Teamnavn { get; set; }
 
-        public string AntallTeams { get; set; }
+        
     }
 }
