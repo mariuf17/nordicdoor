@@ -115,6 +115,14 @@ CREATE OR REPLACE TABLE Bruker_Status (
     PRIMARY KEY (Bruker_Status_ID)
 );
 
+CREATE TABLE FileModel
+    (
+        Id INT NOT NULL AUTO_INCREMENT,
+        FileName VARCHAR(40),
+        Content LONGBLOB,
+        PRIMARY KEY (Id)
+    );
+
 ALTER TABLE Bruker_Status
 ADD FOREIGN KEY (Bruker_ID) REFERENCES Bruker(Bruker_ID);
 
