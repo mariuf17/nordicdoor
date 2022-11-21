@@ -31,7 +31,8 @@
     <None Remove="Microsoft.EntityFrameworkCore.Relational" />
     <None Remove="Microsoft.Extensions.Logging" />
     <None Remove="Microsoft.AspNetCore.Identity.EntityFrameworkCore" />
-    <None Remove="Views\Forslag Status\" />
+    <None Remove="Contracts\" />
+    <None Remove="UploadedFiles\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\Data\" />
@@ -39,7 +40,8 @@
     <Folder Include="Repositories\" />
     <Folder Include="Entities\" />
     <Folder Include="Models\Users\" />
-    <Folder Include="Views\Forslag Status\" />
+    <Folder Include="Contracts\" />
+    <Folder Include="UploadedFiles\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="MySqlConnector" Version="2.2.0" />

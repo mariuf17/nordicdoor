@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Google.Protobuf.WellKnownTypes;
 using Microsoft.Extensions.Hosting;
 using Dapper;
-
+using NordicDoor.Contracts;
 
 public class Program
 {
@@ -24,6 +24,7 @@ public class Program
         // Add services to the container.
         builder.Services.AddControllersWithViews();
         builder.Services.AddTransient<ISqlConnector, SqlConnector>();
+        builder.Services.AddScoped<IFileRepository, FileRepository>();
 
         builder.Services.AddDbContext<ApplicationDbContext>(options =>
         {
