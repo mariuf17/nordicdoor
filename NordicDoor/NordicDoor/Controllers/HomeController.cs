@@ -21,24 +21,24 @@ public class HomeController : Controller
         _fileRepository = fileRepository;
     }
 
-    //https://localhost:7156/home/Index
+    //https://localhost:5001/home/Index
     public IActionResult Index()
     {
         return View();
     }
 
-    //https://localhost:7156/home/Privacy
+    //https://localhost:5001/home/Privacy
     public IActionResult Privacy()
     {
         return View();
     }
-    //https://localhost:7156/home/FileUpload
+    //https://localhost:5001/home/FileUpload
     public IActionResult FileUpload()
     {
         return View();
     }
 
-    //https://localhost:7156/home/FileUploadImages
+    //https://localhost:5001/home/FileUploadImages
     public IActionResult FileUploadImages()
     {
         return View();

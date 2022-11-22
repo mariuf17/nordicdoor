@@ -1,10 +1,14 @@
-﻿using System;
-using Dapper;
+﻿using Dapper;
+using Microsoft.Extensions.Logging;
 using System.Data;
+using System.Data.SqlClient;
 using System.IO;
+using System.IO.Pipes;
+using System.Xml.Linq;
 using NordicDoor.Contracts;
+using NordicDoor.Controllers;
+using NordicDoor.Context;
 using NordicDoor.Models;
-using NordicDoor.Controllers.Data;
 
 namespace NordicDoor.Repositories
 {
@@ -30,16 +34,17 @@ namespace NordicDoor.Repositories
             }
         }
 
-        public async Task<FileModel> GetFileInfoById(int Id)
+        public async Task<byte[]> GetFileInfoById(int Id)
         {
-            var query = "SELECT * FROM filemodel WHERE Id = @Id";
+            var query = "SELECT Content FROM filemodel WHERE Id = @Id";
 
             using (var connection = _context.CreateConnection())
             {
-                var file = await connection.QuerySingleOrDefaultAsync<FileModel>(query, new { Id });
-                return file;
+                byte[] tmp = await connection.QuerySingleOrDefaultAsync<byte[]>(query, new { Id });
+                return tmp;
             }
         }
+    
 
         public async void InsertFile(string name, string content)
         {
