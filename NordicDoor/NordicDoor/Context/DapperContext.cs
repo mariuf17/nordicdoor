@@ -2,7 +2,7 @@
 using MySqlConnector;
 using System.Data;
 
-namespace NordicDoor
+namespace NordicDoor.Context
 {
         public class DapperContext
         {

@@ -13,6 +13,8 @@ using Google.Protobuf.WellKnownTypes;
 using Microsoft.Extensions.Hosting;
 using Dapper;
 using NordicDoor.Contracts;
+using NordicDoor;
+using NordicDoor.Context;
 
 public class Program
 {
@@ -21,10 +23,15 @@ public class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
+        builder.Services.AddSingleton<DapperContext>();
+        builder.Services.AddScoped<IFileRepository, FileRepository>();
+
+
         // Add services to the container.
         builder.Services.AddControllersWithViews();
         builder.Services.AddTransient<ISqlConnector, SqlConnector>();
-        builder.Services.AddScoped<IFileRepository, FileRepository>();
+
+        builder.Services.AddEndpointsApiExplorer();
 
         builder.Services.AddDbContext<ApplicationDbContext>(options =>
         {
