@@ -25,6 +25,7 @@ public class Program
 
         builder.Services.AddSingleton<DapperContext>();
         builder.Services.AddScoped<IFileRepository, FileRepository>();
+        builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 
         // Add services to the container.
@@ -38,7 +39,6 @@ public class Program
             options.UseMySql(builder.Configuration.GetConnectionString("DefaultConnection"), ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("DefaultConnection")));
         });
         //builder.Services.AddSingleton<IUserRepository, InMemoryUserRepository>();
-        builder.Services.AddScoped<IUserRepository, EFUserRepository>();
         //builder.Services.AddSingleton<IUserRepository, SqlUserRepository>();
         //builder.Services.AddSingleton<IUserRepository, DapperUserRepository>();
 

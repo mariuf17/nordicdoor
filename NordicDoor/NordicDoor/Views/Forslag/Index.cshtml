@@ -22,19 +22,19 @@
             <thead>
                 <tr style="background-color:#2B476C">
                     <th>
-                        @Html.ActionLink("Forslag_ID", "Index", new { sortOrder = ViewBag.ForslagIDSortParm })
+                        @Html.ActionLink("Nr", "Index", new { sortOrder = ViewBag.ForslagIDSortParm })
                     </th>
                     <th>
-                        @Html.ActionLink("Bruker_ID", "Index", new { sortOrder = ViewBag.BrukerIDSortParm })
+                        @Html.ActionLink("Forslag fra (Ansattnummer)", "Index", new { sortOrder = ViewBag.BrukerIDSortParm })
                     </th>
                     <th>
-                        @Html.ActionLink("Team_ID","Index", new {sortOrder = ViewBag.TeamIDSortParm})
+                        @Html.ActionLink("Teamnummer","Index", new {sortOrder = ViewBag.TeamIDSortParm})
                     </th>
                     <th>
-                        @Html.ActionLink("Kategori_ID", "Index", new { sortOrder = ViewBag.KategoriIDSortParm })
+                        @Html.ActionLink("Kategorinummer", "Index", new { sortOrder = ViewBag.KategoriIDSortParm })
                     </th>
                     <th>
-                        @Html.ActionLink("Start_Tid", "Index", new { sortOrder = ViewBag.StartSortParm })
+                        @Html.ActionLink("Starter", "Index", new { sortOrder = ViewBag.StartSortParm })
                     </th>
                     <th>
                         @Html.ActionLink("Frist", "Index", new { sortOrder = ViewBag.FristSortParm})
@@ -42,11 +42,14 @@
                     <th>
                         @Html.ActionLink("Tittel", "Index", new { sortOrder = ViewBag.TittelSortParm })
                     </th>
-                    <th>
+                    <th style="text-align:center">
                         Beskrivelse
                     </th>
                     <th>
-                        @Html.ActionLink("Ansvarlig", "Index", new { sortOrder = ViewBag.AnsvarligSortParm })
+                        @Html.ActionLink("Ansvarlig for gjennomføring", "Index", new { sortOrder = ViewBag.AnsvarligSortParm })
+                    </th>
+                    <th>
+                        Status
                     </th>
                 </tr>
             </thead>
@@ -81,6 +84,9 @@
                         </td>
                         <td width:"30%">
                             @obj.Ansvarlig
+                        </td>
+                        <td>
+                            <input type="checkbox" checked="Aktiv">
                         </td>
                     </tr>
                 }

@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="text-center">
+    Login
+    <form action="/Validate" method="post" asp-antiforgery="true">
+        <br>
+        Brukernavn<input name="Brukernavn" type="text">
+        <br>
+        <br>
+        Enter Password<input name="Passord" type="password">
+        <br>
+        <br>
+        Enter Rolle<input name="Rolle" type="text">
+        <br>
+        <br>
+        Enter Epost<input name="Epost" type="text">
+        <input type="submit" value="Submit">
+    </form>
+</div>
+
+<br>
+<br>
+<br>

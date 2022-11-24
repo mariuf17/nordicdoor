@@ -22,10 +22,10 @@
         <thead>
             <tr style="background-color:#2B476C">
                 <th>
-                    @Html.ActionLink("Bruker_ID", "Index", new { sortOrder = ViewBag.Bruker_ID_SortParm })
+                    @Html.ActionLink("Ansattnummer", "Index", new { sortOrder = ViewBag.Bruker_ID_SortParm })
                 </th>
                 <th>
-                    @Html.ActionLink("Team_ID", "Index", new { sortOrder = ViewBag.Team_ID_SortParm })
+                    @Html.ActionLink("Teamnummer", "Index", new { sortOrder = ViewBag.Team_ID_SortParm })
                 </th>
                 <th>
                 </th>
@@ -37,11 +37,11 @@
             {
                 <tr>
                     <td width:"50%">
-                        @obj.Team_ID
+                        @obj.Bruker_ID
                     </td>
 
                     <td width:"30%">
-                        @obj.Bruker_ID
+                        @obj.Team_ID
                     </td>
 
                 </tr>

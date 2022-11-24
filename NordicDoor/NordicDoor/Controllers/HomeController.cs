@@ -21,6 +21,11 @@ public class HomeController : Controller
         _fileRepository = fileRepository;
     }
 
+    public IActionResult Login()
+    {
+        return View();
+    }
+
     //https://localhost:5001/home/Index
     public IActionResult Index()
     {

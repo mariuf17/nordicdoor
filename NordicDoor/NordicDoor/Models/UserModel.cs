@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace NordicDoor.Models.Users
 {
-	public class Login
+	public class UserModel
 	{
 		[Key]
 		[Required]
@@ -17,6 +17,9 @@ namespace NordicDoor.Models.Users
 
 		[Required]
 		public string Passord { get; set; }
+
+		[Required]
+		public string Rolle { get; set; }
 	}
 }
 

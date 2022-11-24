@@ -1,0 +1,31 @@
+﻿@using WebMatrix.Data;
+@using NordicDoor.Controllers.Data;
+
+@{
+    ViewData["Title"] = "Index";
+
+    var db = Database.Open("_first");
+    var selectQueryString = "SELECT Forslag_ID, FStatus FROM Forslag_Status";
+}
+
+<html>
+<body>
+    <h1>Status</h1>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Product</th>
+            <th>Description</th>
+            <th>Price</th>
+        </tr>
+        @foreach (var row in db.Query(selectQueryString))
+        {
+            <tr>
+                <td>@row.Forslag_ID</td>
+                <td>@row.FStatus</td>
+            </tr>
+
+        }
+    </table>
+</body>
+</html>

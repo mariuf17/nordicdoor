@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using NordicDoor.Controllers.Data;
 using NordicDoor.Models;
 
