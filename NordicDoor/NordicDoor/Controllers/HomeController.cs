@@ -11,10 +11,12 @@ namespace NordicDoor.Controllers;
 
 public class HomeController : Controller
 {
+    //Creates a logger
     private readonly ILogger<HomeController> _logger;
+    //Creates a Filerepository Interface
     private readonly IFileRepository _fileRepository;
 
-    //private Microsoft.AspNetCore.Hosting.IHostingEnvironment _environment;
+    //Implements the Repository Interface and the logger
 
     public HomeController(ILogger<HomeController> logger, IFileRepository fileRepository)
     {
@@ -22,33 +24,31 @@ public class HomeController : Controller
         _fileRepository = fileRepository;
     }
 
-    public IActionResult Login()
-    {
-        return View();
-    }
 
-    //https://localhost:5001/home/Index
+    //Returns the homepage
     public IActionResult Index()
     {
         return View();
     }
 
-    //https://localhost:5001/home/Privacy
+    //Enables the user to access the "About us" page
     public IActionResult Privacy()
     {
         return View();
     }
-    //https://localhost:5001/home/FileUpload
+    //Returns the uploaded file
     public IActionResult FileUpload()
     {
         return View();
     }
 
-    //https://localhost:5001/home/FileUploadImages
+    //Returns the uploaded image
     public IActionResult FileUploadImages()
     {
         return View();
     }
+
+    //Enables the user to upload a file, and checks whether the upload was a success
 
     [HttpPost("/fileUpload")]
     public ActionResult FileUpload(IFormFile file)
@@ -72,6 +72,7 @@ public class HomeController : Controller
         return View();
     }
 
+    //Enables the user to upload an image, and checks whether the upload was a success
     [HttpPost("/fileUploadImages")]
     public async Task<ActionResult> FileUploadImages(IFormFile file)
     {
@@ -132,6 +133,8 @@ public class HomeController : Controller
         return View(files);
     }
 
+    //Enables users to download uploaded images
+
     public async Task<FileResult> DownloadFileImage(int Id, String fileName)
     {
         _logger.LogInformation(Id.ToString());
@@ -147,6 +150,8 @@ public class HomeController : Controller
         return File(bytes, "application/octet-stream", fileName);
     }
 
+    //Enables users to download uploaded files
+
     public FileResult DownloadFile(string fileName)
     {
         //Build the File Path.
@@ -159,23 +164,7 @@ public class HomeController : Controller
         return File(bytes, "application/octet-stream", fileName);
     }
 
-    //https://localhost:5001/home/MycontrollerTest
-    public string MycontrollerTest()
-    {
-        return "Hi, I am a controller";
-    }
-
-    //https://localhost:5001/home/Mycontroller
-    public IActionResult Mycontroller()
-    {
-        return View("Views/Home/Index.cshtml");
-    }
-
-    //https://localhost:5100/home/Insert
-    public IActionResult Insert()
-    {
-        return View();
-    }
+    //Reduces the amount of requests the client makes to the server
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()

@@ -9,24 +9,28 @@ using Microsoft.AspNetCore.Mvc;
 using NordicDoor.Models.Users;
 using NordicDoor.Repositories;
 
-// For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace NordicDoor.Controllers
+
+    //Routes the request to the controller, and automatically checks the model state
 {
     [ApiController]
     [Route("[controller]")]
     public class LoginController : Controller
+
+    //Implements the logger and userrepository
     {
         private readonly ILogger<LoginController> _logger;
         private readonly IUserRepository _userRepository;
 
-
+        
         public LoginController(ILogger<LoginController> logger, IUserRepository userRepository)
         {
             _logger = logger;
             _userRepository = userRepository;
         }
 
+        //Returns the login view
 
         public ActionResult Index()
         {
@@ -34,28 +38,7 @@ namespace NordicDoor.Controllers
         }
 
 
-        //https://localhost:5100/Registration
-        [HttpPost("/Registration")]
-        public async Task<IActionResult> Registration([FromForm] UserModel userModel)
-        {
-            try
-            {
-                _logger.LogInformation(userModel.Passord);
-                _logger.LogInformation(userModel.Brukernavn);
-
-                await _userRepository.createUserModel(userModel);
-
-                return Ok("Inserted........");
-            }
-            catch (Exception ex)
-            {
-                //log error
-                _logger.LogInformation(ex.Message);
-                return StatusCode(500, ex.Message);
-            }
-        }
-
-        //https://localhost:5100/Registration
+        //Redirects the user to the homepage if the login is successfull 
         [HttpPost("/Validate")]
         public async Task<IActionResult> Validation([FromForm] UserModel userModel)
         {
