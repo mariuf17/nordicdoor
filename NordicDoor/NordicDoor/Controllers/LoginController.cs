@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using NordicDoor.Models.Users;
 using NordicDoor.Repositories;
@@ -23,9 +26,9 @@ namespace NordicDoor.Controllers
             _logger = logger;
             _userRepository = userRepository;
         }
-        
-        //https://localhost:5100/Login
-        public IActionResult Index()
+
+
+        public ActionResult Index()
         {
             return View();
         }
@@ -37,7 +40,7 @@ namespace NordicDoor.Controllers
         {
             try
             {
-                _logger.LogInformation(userModel.Epost);
+                _logger.LogInformation(userModel.Passord);
                 _logger.LogInformation(userModel.Brukernavn);
 
                 await _userRepository.createUserModel(userModel);
@@ -58,13 +61,13 @@ namespace NordicDoor.Controllers
         {
             try
             {
-                _logger.LogInformation(userModel.Epost);
                 _logger.LogInformation(userModel.Brukernavn);
+                _logger.LogInformation(userModel.Passord);
 
                 var flag = await _userRepository.validateUser(userModel);
                 if (flag == true)
                 {
-                    return Ok("Validate........");
+                    return RedirectToAction("Index", "Home");
                 }
                 else
                 {
@@ -79,7 +82,6 @@ namespace NordicDoor.Controllers
                 return StatusCode(500, ex.Message);
             }
         }
-
     }
 }
 

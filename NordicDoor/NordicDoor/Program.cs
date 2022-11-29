@@ -1,5 +1,4 @@
 ﻿using NordicDoor.Controllers.Data;
-using NordicDoor.Entities;
 using NordicDoor.Repositories;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
@@ -56,21 +55,12 @@ public class Program
             options.User.RequireUniqueEmail = true;
         });
 
-        builder.Services
-            .AddIdentityCore<IdentityUser>()
-            .AddRoles<IdentityRole>()
-            .AddEntityFrameworkStores<ApplicationDbContext>()
-            .AddSignInManager()
-            .AddDefaultTokenProviders();
-
         builder.Services.AddAuthentication(o =>
         {
             o.DefaultScheme = IdentityConstants.ApplicationScheme;
             o.DefaultSignInScheme = IdentityConstants.ExternalScheme;
 
         }).AddIdentityCookies(o => { });
-
-        builder.Services.AddTransient<IEmailSender, AuthMessageSender>();
 
         var app = builder.Build();
 
@@ -87,26 +77,14 @@ public class Program
         app.UseRouting();
 
         app.UseAuthentication();
+
         app.UseAuthorization();
 
         app.MapControllerRoute(name: "default", pattern: "{controller=Home}/{action=Index}/{id?}");
-        app.MapControllers();
 
+        app.MapControllers();
 
         app.Run();
 
-
-
-    }
-
-    public class AuthMessageSender : IEmailSender
-    {
-        public Task SendEmailAsync(string email, string subject, string htmlMessage)
-        {
-            Console.WriteLine(email);
-            Console.WriteLine(subject);
-            Console.WriteLine(htmlMessage);
-            return Task.CompletedTask;
-        }
     }
 }

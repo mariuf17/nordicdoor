@@ -2,7 +2,6 @@
 using NordicDoor.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using NordicDoor.Entities;
 
 
 namespace NordicDoor.Controllers.Data;
@@ -13,14 +12,6 @@ public class ApplicationDbContext : DbContext
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
     {
     }
-
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
-    {
-        modelBuilder.Entity<UserEntity>().HasKey(x => x.Id);
-        base.OnModelCreating(modelBuilder);
-    }
-
-    public DbSet<UserEntity> Users { get; set; }
 
     public DbSet<Bruker> Bruker { get; set; }
 
