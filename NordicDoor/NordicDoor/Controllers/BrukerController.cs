@@ -8,12 +8,16 @@ namespace NordicDoor.Controllers;
 
 public class BrukerController : Controller
 {
+    //Links the the database server to the data model classes
+
     private readonly ApplicationDbContext _first;
 
     public BrukerController(ApplicationDbContext first)
     {
         _first = first;
     }
+
+    // Returns a list of all users, and adds a sorting function by transfering temporary data from the viewbag
 
     public IActionResult Index(string sortOrder)
     {
@@ -70,15 +74,15 @@ public class BrukerController : Controller
         return View(Bruker.ToList());
     }
 
-    //GET
+    //GET - Enables the user to view the data, but not change the state
     public IActionResult Opprett()
     {
         return View();
     }
 
-    //POST
+    //POST - Enables the user to change the data and add a new user
     [HttpPost]
-    [ValidateAntiForgeryToken]
+    [ValidateAntiForgeryToken] // Prevents cross site request forgeries
     public IActionResult Opprett(Bruker obj)
     {
         if (obj.Navn == obj.Bruker_ID.ToString())
@@ -97,7 +101,7 @@ public class BrukerController : Controller
     }
 
 
-    //GET
+    //GET - Enables the user to view the data, but not change the state
     public IActionResult Rediger(int? Bruker_ID)
     {
         {
@@ -117,7 +121,7 @@ public class BrukerController : Controller
         return View(brukerFromFirst);
     }
 
-    //POST
+    //POST - Enables the user to change the data and edit an existing user
     [HttpPost]
     [ValidateAntiForgeryToken]
     public IActionResult Rediger(Bruker obj)
@@ -137,7 +141,7 @@ public class BrukerController : Controller
         return View(obj);
     }
 
-    //GET
+    //GET - Enables the user to view the data, but not change the state
     public IActionResult Slett(int? Bruker_ID)
     {
         {
@@ -156,7 +160,7 @@ public class BrukerController : Controller
         return View(brukerFromFirst);
     }
 
-    //POST
+    //POST - Enables the user to change the data and delete a user
     [HttpPost,ActionName("Slett")]
     [ValidateAntiForgeryToken]
 

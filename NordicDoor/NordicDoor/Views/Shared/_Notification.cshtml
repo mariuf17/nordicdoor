@@ -1,4 +1,6 @@
-﻿@if (TempData["suksess"] != null)
+﻿@* Returns a temporary message to the user if add, edit or delete was successfull*@
+
+@if (TempData["suksess"] != null)
 {
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
@@ -6,6 +8,7 @@
             toastr.success('@TempData["suksess"]');
     </script>
 }
+    @** Returns a temporary errormessage to the user if add, edit or delete fails *@ 
 
 @if (TempData["feilet"] != null)
 {

@@ -8,12 +8,17 @@ namespace NordicDoor.Controllers;
 
 public class ForslagController : Controller
 {
+    //Links the the database server to the data model classes
+
     private readonly ApplicationDbContext _first;
 
     public ForslagController(ApplicationDbContext first)
     {
         _first = first;
     }
+
+    // Returns a list of all users, and adds a sorting function by transfering temporary data from the viewbag
+
     public ActionResult Index(string sortOrder)
     {
         ViewBag.ForslagIDSortParm = String.IsNullOrEmpty(sortOrder) ? "Forslag_ID_desc" : "";
@@ -91,14 +96,16 @@ public class ForslagController : Controller
         return View(Forslag.ToList());
     }
 
-    //GET
+    //GET - Enables the user to view the data, but not change the state
     public IActionResult Opprett()
     {
         return View();
     }
 
+    //POST - Enables the user to change the data and add a new suggestion
+
     [HttpPost]
-    [ValidateAntiForgeryToken]
+    [ValidateAntiForgeryToken] // Prevents cross site request forgeries
     public IActionResult Opprett(Forslag obj)
     {
         if (obj.Ansvarlig == obj.Forslag_ID.ToString())

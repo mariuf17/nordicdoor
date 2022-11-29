@@ -7,6 +7,8 @@ using NordicDoor.Models;
 namespace NordicDoor.Controllers;
 
 public class Team_MedlemmerController : Controller
+
+    //Enables database connection
 {
     private readonly ApplicationDbContext _first;
 
@@ -15,6 +17,7 @@ public class Team_MedlemmerController : Controller
         _first = first;
     }
 
+    //Returns a view of all the team members, including a function that allows the user to sort the team members in descending or ascending order
     public ActionResult Index(string sortOrder)
     {
         ViewBag.Bruker_ID_SortParm = String.IsNullOrEmpty(sortOrder) ? "Team_ID_desc" : "";
@@ -41,14 +44,14 @@ public class Team_MedlemmerController : Controller
         return View(Team_Medlemmer.ToList());
     }
       
-        //GET
+        //GET - Returns an updated view after creation of a new team member
         public IActionResult Opprett()
         {
             return View();
         }
 
-
-        [HttpPost]
+        //POST - Allows the user to add a new team member
+        [HttpPost] 
         [ValidateAntiForgeryToken]
         public IActionResult Opprett(Team_Medlemmer obj)
         {
@@ -63,61 +66,5 @@ public class Team_MedlemmerController : Controller
             return View(obj);
         }
 
-        //GET
-        public IActionResult Rediger(int? Team_ID)
-        {
-            {
-                if (Team_ID == null || Team_ID == 0)
-                    return NotFound();
-            }
-            var team_medlemmerFromFirst = _first.Team_Medlemmer.Find(Team_ID);
-            //var team_medlemmerFromFirstFirst = _first.Team_Medlemmer.FirstOrDefault(u => u.id == id);
-            //var team_medlemmerFromFirstSingle = _first.Team_Medlemmer.SingleOrDefault(u => u.id == id);
-
-            if (team_medlemmerFromFirst == null)
-            {
-                return NotFound();
-            }
-
-
-            return View(team_medlemmerFromFirst);
-        }
-
-        //GET
-        public IActionResult Slett(int? Ansatt_ID)
-        {
-            {
-                if (Ansatt_ID == null || Ansatt_ID == 0)
-                    return NotFound();
-            }
-            var team_medlemmerFromFirst = _first.Team_Medlemmer.Find(Ansatt_ID);
-            //var team_medlemmerFromFirstFirst = _first.Team_Medlemmer.FirstOrDefault(u => u.id == id);
-            //var team_medlemmerFromFirstSingle = _first.Team_Medlemmer.SingleOrDefault(u => u.id == id);
-
-            if (team_medlemmerFromFirst == null)
-            {
-                return NotFound();
-            }
-
-            return View(team_medlemmerFromFirst);
-        }
-
-        //POST
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-
-        public IActionResult SlettPOST(int? Ansatt_ID)
-        {
-            var obj = _first.Team_Medlemmer.Find(Ansatt_ID);
-            if (obj == null)
-            {
-                return NotFound();
-            }
-
-            _first.Team_Medlemmer.Remove(obj);
-            _first.SaveChanges();
-            TempData["suksess"] = "Slettingen av brukeren var vellykket";
-            return RedirectToAction("Index");
-        }
     }
 

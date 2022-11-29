@@ -7,6 +7,8 @@ using NordicDoor.Models;
 namespace NordicDoor.Controllers;
 
 public class TeamController : Controller
+
+    //Enables database connection
 {
     private readonly ApplicationDbContext _first;
 
@@ -15,19 +17,20 @@ public class TeamController : Controller
         _first = first;
     }
 
+    //Returns a list of all the teams
     public IActionResult Index()
     {
         IEnumerable<Team> objTeamList = _first.Team;
         return View(objTeamList);
     }
 
-    //GET
+    //GET - Returns an updated view of the teams after addition of a new team
     public IActionResult Opprett()
     {
         return View();
     }
 
-    //GET
+    //GET - Returns an updated view after editing a team
     public IActionResult Rediger(int? Avdeling_ID)
     {
         {
@@ -47,7 +50,7 @@ public class TeamController : Controller
         return View(teamFromFirst);
     }
 
-    //POST
+    //POST - Allows the user to edit an existing team
     [HttpPost]
     [ValidateAntiForgeryToken]
     public IActionResult Rediger(Team obj)
@@ -67,7 +70,7 @@ public class TeamController : Controller
         return View(obj);
     }
 
-    //GET
+    //GET - Returns an updated view of the teams after removal of one
     public IActionResult Slett(int? Avdeling_ID)
     {
         {
@@ -86,7 +89,7 @@ public class TeamController : Controller
         return View(teamFromFirst);
     }
 
-    //POST
+    //POST - Allows the user to delete a team
     [HttpPost]
     [ValidateAntiForgeryToken]
 

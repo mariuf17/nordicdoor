@@ -7,6 +7,8 @@ using NordicDoor.Models;
 namespace NordicDoor.Controllers;
 
 public class RollerController : Controller
+
+    //Database connection
 {
     private readonly ApplicationDbContext _first;
 
@@ -14,18 +16,21 @@ public class RollerController : Controller
     {
         _first = first;
     }
+
+    //Returns a list of all roles through an IEnumerable
     public IActionResult Index()
     {
         IEnumerable<Roller> objRollerList = _first.Roller;
         return View(objRollerList);
     }
-
-    //GET
+    
+    //GET - Enables a user to view the roles that are created
     public IActionResult Opprett()
     {
         return View();
     }
 
+    //POST - Enables a user to create a new role
     [HttpPost]
     [ValidateAntiForgeryToken]
     public IActionResult Opprett(Roller obj)
@@ -45,7 +50,7 @@ public class RollerController : Controller
         return View(obj);
     }
 
-    //GET
+    //GET - Enables a user to view the edited roles
     public IActionResult Rediger(int? Rolle_ID)
     {
         {
@@ -65,7 +70,7 @@ public class RollerController : Controller
         return View(rollerFromFirst);
     }
 
-    //POST
+    //POST - Enables the user to edit a role
     [HttpPost]
     [ValidateAntiForgeryToken]
     public IActionResult Rediger(Roller obj)
@@ -85,7 +90,7 @@ public class RollerController : Controller
         return View(obj);
     }
 
-    //GET
+    //GET - Enables the user to view the updated role table
     public IActionResult Slett(int? Rolle_ID)
     {
         {
@@ -104,7 +109,7 @@ public class RollerController : Controller
         return View(rollerFromFirst);
     }
 
-    //POST
+    //POST - Enables the user to delete a user
     [HttpPost]
     [ValidateAntiForgeryToken]
 
