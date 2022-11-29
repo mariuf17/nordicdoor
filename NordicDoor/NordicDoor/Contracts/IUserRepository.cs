@@ -1,5 +1,4 @@
 ﻿using System;
-using NordicDoor.Entities;
 using NordicDoor.Models.Users;
 
 namespace NordicDoor.Repositories

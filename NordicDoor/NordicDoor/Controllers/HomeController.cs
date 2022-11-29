@@ -4,6 +4,8 @@ using NordicDoor.Models;
 using NordicDoor.Contracts;
 using Microsoft.AspNetCore.Hosting;
 using System.Text;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authentication;
 
 namespace NordicDoor.Controllers;
 
@@ -13,7 +15,6 @@ public class HomeController : Controller
     private readonly IFileRepository _fileRepository;
 
     //private Microsoft.AspNetCore.Hosting.IHostingEnvironment _environment;
-
 
     public HomeController(ILogger<HomeController> logger, IFileRepository fileRepository)
     {
@@ -158,19 +159,19 @@ public class HomeController : Controller
         return File(bytes, "application/octet-stream", fileName);
     }
 
-    //https://localhost:7156/home/MycontrollerTest
+    //https://localhost:5001/home/MycontrollerTest
     public string MycontrollerTest()
     {
         return "Hi, I am a controller";
     }
 
-    //https://localhost:7156/home/Mycontroller
+    //https://localhost:5001/home/Mycontroller
     public IActionResult Mycontroller()
     {
         return View("Views/Home/Index.cshtml");
     }
 
-    //https://localhost:7156/home/Insert
+    //https://localhost:5100/home/Insert
     public IActionResult Insert()
     {
         return View();

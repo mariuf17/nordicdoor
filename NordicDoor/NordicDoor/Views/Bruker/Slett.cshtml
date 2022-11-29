@@ -7,27 +7,26 @@
             <h2 class="text-primary">Slett Bruker</h2>
             <hr />
         </div>
-        <div asp-validation-summary="All"></div>
         <div class="mb-3">
             <label asp-for="Navn"></label>
             <input asp-for="Navn" disabled class="form-control" />
         </div>
         <div class="mb-3">
             <label asp-for="Bruker_ID"></label>
-            <input asp-for="Bruker_ID" inputmode="numeric" disabled class="form-control" />
+            <input asp-for="Bruker_ID" disabled class="form-control" />
         <div class="mb-3">
             <label asp-for="Epost"></label>
-            <input asp-for="Epost" inputmode="email" class="form-control" />
+            <input asp-for="Epost" class="form-control" />
             <span asp-validation-for="Epost" disabled class="text-danger"></span>
         </div>
         <div class="mb-3">
             <label asp-for="Telefon"></label>
-            <input asp-for="Telefon" inputmode="tel" class="form-control" />
+            <input asp-for="Telefon" class="form-control" />
             <span asp-validation-for="Telefon" disabled class="text-danger"></span>
         </div>
         <div class="mb-3">
             <label asp-for="Postnummer"></label>
-            <input asp-for="Postnummer" inputmode="numeric" class="form-control" />
+            <input asp-for="Postnummer" class="form-control" />
             <span asp-validation-for="Postnummer" disabled class="text-danger"></span>
         </div>
         <button type="submit" class="btn btn-danger" style="width:150px">Slett Bruker</button>
@@ -35,7 +34,7 @@
             Tilbake til oversikt
         </a>
     </div>
-        </div>
+        
 </form>
 
 @section Scripts{

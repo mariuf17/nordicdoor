@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "New User Registration";
+}
+
+<div class="text-center">
+    The use of Post method:
+    <form action="/Registration" method="post" asp-antiforgery="true">
+        <br>
+        Enter Name<input name="Navn" type="text"> </input>
+        <br>
+        <br>
+        Enter Email<input name="Epost" type="text"> </input>
+        <br>
+        <br>
+        Enter Password<input name="Passord" type="password"> </input>
+        <br>
+        <br>
+        Enter Role<input name="Rolle" type="text"> </input>
+        <br>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+</div>
+
+<br>
+<br>
+<br>

@@ -9,10 +9,8 @@ namespace NordicDoor.Models.Users
 		[Required]
 		public string Brukernavn { get; set; }
 
-		[Required]
 		public int Bruker_ID { get; set; }
 
-		[Required]
 		public string Epost { get; set; }
 
 		[Required]

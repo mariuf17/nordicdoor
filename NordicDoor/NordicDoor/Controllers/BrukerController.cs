@@ -15,7 +15,7 @@ public class BrukerController : Controller
         _first = first;
     }
 
-    public ActionResult Index(string sortOrder)
+    public IActionResult Index(string sortOrder)
     {
         ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "navn_desc" : "";
         ViewBag.EmployeeSortParm = sortOrder == "Bruker_ID" ? "Bruker_ID_desc" : "Bruker_ID";
@@ -101,7 +101,7 @@ public class BrukerController : Controller
     public IActionResult Rediger(int? Bruker_ID)
     {
         {
-            if (Bruker_ID== null || Bruker_ID==0)
+            if (Bruker_ID == null || Bruker_ID == 0)
                 return NotFound();
         }
         var brukerFromFirst = _first.Bruker.Find(Bruker_ID);
@@ -157,7 +157,7 @@ public class BrukerController : Controller
     }
 
     //POST
-    [HttpPost]
+    [HttpPost,ActionName("Slett")]
     [ValidateAntiForgeryToken]
 
     public IActionResult SlettPOST(int? Bruker_ID)

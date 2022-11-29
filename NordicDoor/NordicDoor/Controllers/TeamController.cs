@@ -28,13 +28,13 @@ public class TeamController : Controller
     }
 
     //GET
-    public IActionResult Rediger(int? Ansatt_ID)
+    public IActionResult Rediger(int? Avdeling_ID)
     {
         {
-            if (Ansatt_ID == null || Ansatt_ID == 0)
+            if (Avdeling_ID == null || Avdeling_ID == 0)
                 return NotFound();
         }
-        var teamFromFirst = _first.Team.Find(Ansatt_ID);
+        var teamFromFirst = _first.Team.Find(Avdeling_ID);
         //var teamFromFirstFirst = _first.Team.FirstOrDefault(u => u.id == id);
         //var teamFromFirstSingle = _first.Team.SingleOrDefault(u => u.id == id);
 
@@ -52,7 +52,7 @@ public class TeamController : Controller
     [ValidateAntiForgeryToken]
     public IActionResult Rediger(Team obj)
     {
-        if (obj.Teamnavn == obj.Team_ID.ToString())
+        if (obj.Teamnavn == obj.Avdeling_ID.ToString())
         {
             ModelState.AddModelError("CustomError", "Teamnavn og Team_ID kan ikke inneholde like verdier");
         }
@@ -68,13 +68,13 @@ public class TeamController : Controller
     }
 
     //GET
-    public IActionResult Slett(int? Ansatt_ID)
+    public IActionResult Slett(int? Avdeling_ID)
     {
         {
-            if (Ansatt_ID == null || Ansatt_ID == 0)
+            if (Avdeling_ID == null || Avdeling_ID == 0)
                 return NotFound();
         }
-        var teamFromFirst = _first.Team.Find(Ansatt_ID);
+        var teamFromFirst = _first.Team.Find(Avdeling_ID);
         //var teamFromFirstFirst = _first.Team.FirstOrDefault(u => u.id == id);
         //var teamFromFirstSingle = _first.Team.SingleOrDefault(u => u.id == id);
 
@@ -90,9 +90,9 @@ public class TeamController : Controller
     [HttpPost]
     [ValidateAntiForgeryToken]
 
-    public IActionResult SlettPOST(int? Ansatt_ID)
+    public IActionResult SlettPOST(int? Avdeling_ID)
     {
-        var obj = _first.Team.Find(Ansatt_ID);
+        var obj = _first.Team.Find(Avdeling_ID);
         if (obj == null)
         {
             return NotFound();

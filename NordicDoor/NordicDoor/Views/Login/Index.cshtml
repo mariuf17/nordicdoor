@@ -2,21 +2,41 @@
     ViewData["Title"] = "Index";
 }
 
-<div class="text-center">
-    Login
+
+<div class="login">
     <form action="/Validate" method="post" asp-antiforgery="true">
-        <br>
-        Brukernavn<input name="Brukernavn" type="text">
-        <br>
-        <br>
-        Enter Password<input name="Passord" type="password">
-        <br>
-        <br>
-        Enter Rolle<input name="Rolle" type="text">
-        <br>
-        <br>
-        Enter Epost<input name="Epost" type="text">
-        <input type="submit" value="Submit">
+
+        <!--Brukernavn input-->
+        <div class="form-outline mb-4" style="width:50%">
+            <label class="form-label" for="form2Example1">Brukernavn</label>
+            <input name="Brukernavn" type="text" id="form2Example1" class="form-control" />
+        </div>
+        <!-- Epost input -->
+        <div class="form-outline mb-4" style="width:50%">
+            <label class="form-label" for="form2Example1">Epost</label>
+            <input name="Epost" type="email" id="form2Example1" class="form-control" />
+        </div>
+
+        <!-- Passord input -->
+        <div class="form-outline mb-4" style="width:50%">
+            <label class="form-label" for="form2Example2">Passord</label>
+            <input name="Passord" type="password" id="form2Example2" class="form-control" />
+        </div>
+
+        <!--Rolle input-->
+        <div class="form-outline mb-4" style="width:50%">
+            <label class="form-label" for="form2Example1">Rolle</label>
+            <input name="Rolle" type="text" id="form2Example1" class="form-control" />
+        </div>
+
+        <!-- 2 column grid layout for inline styling -->
+        <div class="row mb-4">
+            <div class="col d-flex justify-content-center">
+            </div>
+        </div>
+
+        <!-- Submit button -->
+        <button type="submit" class="btn btn-primary btn-block mb-4">Logg inn</button>
     </form>
 </div>
 
