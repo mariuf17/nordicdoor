@@ -4,11 +4,11 @@ create database if not exists first;
 USE first;
 
 CREATE OR REPLACE TABLE Bruker (
-    Bruker_ID int,
-    Postnummer varchar(4),
-    Navn varchar (100),
-    Epost varchar(100),
-    Telefon int,
+    Bruker_ID int NOT NULL,
+    Postnummer varchar(4) NOT NULL,
+    Navn varchar (100) NOT NULL,
+    Epost varchar(100) NOT NULL,
+    Telefon int NOT NULL,
     PRIMARY KEY (Bruker_ID)
 );
 
@@ -28,25 +28,6 @@ CREATE OR REPLACE TABLE UserModel (
     Foreign Key (Bruker_ID) REFERENCES Bruker (Bruker_ID)
 );
 
-ALTER TABLE Bruker
-ADD FOREIGN KEY (Postnummer) REFERENCES Post(Postnummer);
-
-
-ALTER TABLE Bruker
-  MODIFY Bruker_ID int NOT NULL;
-
-ALTER TABLE Bruker
-  MODIFY Postnummer varchar(4) NOT NULL;
-
-ALTER TABLE Bruker
-  MODIFY Navn varchar(100) NOT NULL;
-
-ALTER TABLE Bruker
-  MODIFY Epost varchar(100) NOT NULL;
-
-ALTER TABLE Bruker
-  MODIFY Telefon int NOT NULL;
-
 CREATE OR REPLACE TABLE Avdeling (
     Avdeling_ID int,
     Avdeling varchar(100),
@@ -60,7 +41,6 @@ CREATE OR REPLACE TABLE Team (
     PRIMARY KEY (Team_ID),
     FOREIGN KEY (Avdeling_ID) REFERENCES Avdeling(Avdeling_ID)
 );
-
 
 CREATE OR REPLACE TABLE Team_Medlemmer (
     Team_ID int,
@@ -86,12 +66,9 @@ CREATE OR REPLACE TABLE Forslag (
     Frist date,
     Tittel varchar(100),
     Beskrivelse varchar (500),
+    Ansvarlig varchar(100),
     PRIMARY KEY (Forslag_ID)
 );
-
-ALTER TABLE Forslag
-ADD Ansvarlig varchar(100);
-
 
 CREATE OR REPLACE TABLE Kategori (
     Kategori_ID varchar(100),
@@ -124,20 +101,35 @@ CREATE TABLE FileModel
         PRIMARY KEY (Id)
     );
 
+ALTER TABLE Bruker
+ADD FOREIGN KEY (Postnummer) REFERENCES Post(Postnummer)
+ON DELETE CASCADE
+ON UPDATE CASCADE;
+
 ALTER TABLE Bruker_Status
-ADD FOREIGN KEY (Bruker_ID) REFERENCES Bruker(Bruker_ID);
+ADD FOREIGN KEY (Bruker_ID) REFERENCES Bruker(Bruker_ID)
+ON DELETE CASCADE
+ON UPDATE CASCADE;
 
 ALTER TABLE Forslag
-ADD FOREIGN KEY (Bruker_ID) REFERENCES Bruker(Bruker_ID);
+ADD FOREIGN KEY (Bruker_ID) REFERENCES Bruker(Bruker_ID)
+ON DELETE CASCADE
+ON UPDATE CASCADE;
 
 ALTER TABLE Forslag
-ADD FOREIGN KEY (Team_ID) REFERENCES Team(Team_ID);
+ADD FOREIGN KEY (Team_ID) REFERENCES Team(Team_ID)
+ON DELETE CASCADE
+ON UPDATE CASCADE;
 
 ALTER TABLE Forslag
-ADD FOREIGN KEY (Kategori_ID) REFERENCES Kategori(Kategori_ID);
+ADD FOREIGN KEY (Kategori_ID) REFERENCES Kategori(Kategori_ID)
+ON DELETE CASCADE
+ON UPDATE CASCADE;
 
 ALTER TABLE Forslag_Status
-ADD FOREIGN KEY (Forslag_ID) REFERENCES Forslag(Forslag_ID);
+ADD FOREIGN KEY (Forslag_ID) REFERENCES Forslag(Forslag_ID)
+ON DELETE CASCADE
+ON UPDATE CASCADE;
 
 INSERT INTO Post (Postnummer, Adresse)
 VALUES ('4700','Grimstunet'),
@@ -276,6 +268,21 @@ VALUES (10,1,'2022-09-01','2022-09-03','Godkjent','Plan'),
        (130,13,'2022-09-09','2022-11-11','Venter','N/A'),
        (140,14,'2022-11-17','2022-11-23','Godkjent','Do');
 
+/* View som viser alle innsendte forslag */
+
+CREATE OR REPLACE VIEW InnsendteForslag (Navn, Ansatt_ID, Forslag_ID, Tittel) AS
+SELECT Navn, Bruker.Bruker_ID, Forslag_ID, Tittel
+FROM Bruker, Forslag
+WHERE Bruker.Bruker_ID = Forslag.Bruker_ID
+ORDER BY Bruker_ID;
+
+/*View som viser de ansattes adresser*/
+
+CREATE OR REPLACE VIEW Bosted (Navn, Adresse, Postnummer) AS
+SELECT Navn, Adresse, Post.Postnummer
+FROM Bruker, Post
+WHERE Post.Postnummer = Bruker.Postnummer;
+
 /* Spørring som teller antall ansatte i bedriften */
 
 SELECT COUNT(*) AS 'Antall ansatte'
@@ -295,20 +302,6 @@ From Forslag
 GROUP BY Team_ID
 ORDER BY 'Antall forslag per team' DESC, Team_ID;
 
-/*View som viser de ansattes adresser*/
-
-CREATE OR REPLACE VIEW Bosted (Navn, Adresse, Postnummer) AS
-SELECT Navn, Adresse, Post.Postnummer
-FROM Bruker, Post
-WHERE Post.Postnummer = Bruker.Postnummer;
-
-/* View som viser alle innsendte forslag */
-
-CREATE OR REPLACE VIEW InnsendteForslag (Navn, Ansatt_ID, Forslag_ID, Tittel) AS
-SELECT Navn, Bruker.Bruker_ID, Forslag_ID, Tittel
-FROM Bruker, Forslag
-WHERE Bruker.Bruker_ID = Forslag.Bruker_ID
-ORDER BY Bruker_ID;
 
 /* Spørring som teller forslag per ansatt, sortert etter flest forslag */
 
@@ -427,7 +420,7 @@ WHERE Avsluttet_Dato > current_date;
 SELECT Team_Medlemmer.Team_ID, Team_Medlemmer.Bruker_ID, Bruker.Navn AS TeamMedlemmer
 FROM Team_Medlemmer
 LEFT JOIN Bruker ON Team_Medlemmer.Bruker_ID = Bruker.Bruker_ID
-ORDER BY Team_ID ASC;
+ORDER BY Team_ID;
 
 SELECT 'Ansatte' AS Ansatt_ID, COUNT(*) FROM Bruker
 UNION
@@ -494,4 +487,5 @@ ORDER BY COUNT(*);
 /* Status på forslag */
 Select Forslag_ID, FStatus
 From Forslag_Status;
+
 
