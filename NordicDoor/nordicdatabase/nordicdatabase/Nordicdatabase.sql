@@ -491,8 +491,8 @@ B.Navn,
 B.Bruker_ID AS Ansattnr,
 Count(FStatus) AS 'Antall Fullførte Forbedringer'
 FROM Forslag_Status
-INNER JOIN Forslag F on Forslag_Status.Forslag_ID = F.Forslag_ID
-INNER JOIN Bruker B on F.Bruker_ID = B.Bruker_ID
+INNER JOIN Forslag F ON Forslag_Status.Forslag_ID = F.Forslag_ID
+INNER JOIN Bruker B ON F.Bruker_ID = B.Bruker_ID
 WHERE Fstatus = 'Godkjent'
 GROUP BY B.Navn
 ORDER BY COUNT(*);
@@ -502,8 +502,8 @@ SELECT DISTINCT
 Team_ID,
 Count(FStatus) AS 'Antall Fullførte Forbedringer'
 FROM Forslag_Status
-INNER JOIN Forslag F on Forslag_Status.Forslag_ID = F.Forslag_ID
-INNER JOIN Bruker B on F.Bruker_ID = B.Bruker_ID
+INNER JOIN Forslag F ON Forslag_Status.Forslag_ID = F.Forslag_ID
+INNER JOIN Bruker B ON F.Bruker_ID = B.Bruker_ID
 WHERE Fstatus = 'Godkjent'
 GROUP BY B.Navn
 ORDER BY COUNT(*);
@@ -523,3 +523,7 @@ ON Forslag (Forslag_ID, Tittel, Start_Tid);
 
 CREATE INDEX Idx_AnsvarligForForslag
 ON Forslag (Forslag_ID, Tittel, Ansvarlig);
+
+/*Forslag med både ansvarlig og den som lagde forslag*/
+SELECT Forslag.Bruker_ID, Bruker.Navn, Forslag.Tittel, Forslag.Ansvarlig FROM Forslag
+LEFT JOIN Bruker ON Forslag.Bruker_ID  = Bruker.Bruker_ID;
