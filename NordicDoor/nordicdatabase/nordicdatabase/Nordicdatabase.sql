@@ -27,7 +27,7 @@ CREATE OR REPLACE TABLE UserModel (
     Passord VARCHAR (50) NOT NULL,
     Rolle VARCHAR(50) NOT NULL,
     PRIMARY KEY (Brukernavn),
-    Foreign Key (Bruker_ID) REFERENCES Bruker (Bruker_ID)
+    FOREIGN KEY (Bruker_ID) REFERENCES Bruker (Bruker_ID)
 );
 
 
@@ -510,7 +510,19 @@ ORDER BY COUNT(*);
 
 /* Status på forslag */
 Select Forslag_ID, FStatus
-FROM Forslag_Status;
+From Forslag_Status;
+
+CREATE INDEX Idx_Ansattnr
+ON Bruker (Navn, Bruker_ID);
+
+CREATE INDEX Idx_Forslagfrist
+ON Forslag (Forslag_ID, Tittel, Frist);
+
+CREATE INDEX Idx_Forslagstart
+ON Forslag (Forslag_ID, Tittel, Start_Tid);
+
+CREATE INDEX Idx_AnsvarligForForslag
+ON Forslag (Forslag_ID, Tittel, Ansvarlig);
 
 /*Forslag med både ansvarlig og den som lagde forslag*/
 SELECT Forslag.Bruker_ID, Bruker.Navn, Forslag.Tittel, Forslag.Ansvarlig FROM Forslag
