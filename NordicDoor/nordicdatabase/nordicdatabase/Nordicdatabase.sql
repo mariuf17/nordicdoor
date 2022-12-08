@@ -460,7 +460,7 @@ Bruker.Bruker_ID AS Ansattnr,
 Forslag.Forslag_ID AS Forslagnr,
 Kategori.Kategori,
 Forslag_Status.FStatus
-main
+Status
 
 FROM Bruker
 INNER JOIN Forslag ON Bruker.Bruker_ID = Forslag.Bruker_ID
@@ -527,3 +527,4 @@ ON Forslag (Forslag_ID, Tittel, Ansvarlig);
 /*Forslag med både ansvarlig og den som lagde forslag*/
 SELECT Forslag.Bruker_ID, Bruker.Navn, Forslag.Tittel, Forslag.Ansvarlig FROM Forslag
 LEFT JOIN Bruker ON Forslag.Bruker_ID  = Bruker.Bruker_ID;
+
