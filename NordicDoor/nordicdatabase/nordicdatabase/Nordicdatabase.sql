@@ -41,19 +41,19 @@ ALTER TABLE Bruker
 ADD FOREIGN KEY (Postnummer) REFERENCES Post(Postnummer);
 
 ALTER TABLE Bruker
-  MODIFY Bruker_ID int NOT NULL;
+  MODIFY Bruker_ID INT NOT NULL;
 
 ALTER TABLE Bruker
-  MODIFY Postnummer varchar(4) NOT NULL;
+  MODIFY Postnummer VARCHAR(4) NOT NULL;
 
 ALTER TABLE Bruker
-  MODIFY Navn varchar(100) NOT NULL;
+  MODIFY Navn VARCHAR(100) NOT NULL;
 
 ALTER TABLE Bruker
-  MODIFY Epost varchar(100) NOT NULL;
+  MODIFY Epost VARCHAR(100) NOT NULL;
 
 ALTER TABLE Bruker
-  MODIFY Telefon int NOT NULL;
+  MODIFY Telefon INT NOT NULL;
 
 
 CREATE OR REPLACE TABLE Avdeling (
@@ -100,21 +100,6 @@ CREATE OR REPLACE TABLE Forslag (
 
 ALTER TABLE Forslag
 ADD Ansvarlig VARCHAR(100);
-
-
-
-    Forslag_ID int auto_increment,
-    Bruker_ID int,
-    Team_ID int,
-    Kategori_ID varchar(100),
-    Start_Tid date,
-    Frist date,
-    Tittel varchar(100),
-    Beskrivelse varchar (500),
-    Ansvarlig varchar(100),
-    PRIMARY KEY (Forslag_ID)
-);
-
 
 CREATE OR REPLACE TABLE Kategori (
     Kategori_ID VARCHAR(100) UNIQUE,
@@ -172,7 +157,7 @@ ON DELETE CASCADE
 ON UPDATE CASCADE;
 
 ALTER TABLE Forslag_Status
-ADD FOREIGN KEY (Forslag_ID) REFERENCES Forslag(Forslag_ID)
+ADD FOREIGN KEY (Forslag_ID) REFERENCES Forslag (Forslag_ID)
 ON DELETE CASCADE
 ON UPDATE CASCADE;
 
@@ -255,7 +240,7 @@ VALUES (1,112),
 
 
 INSERT INTO Bruker_Status (Bruker_Status_ID, Bruker_ID, Ansatt_Status)
-Values (2,114,1),
+VALUES (2,114,1),
        (3,113,1),
        (4,112,1),
        (5,111,1),
@@ -343,7 +328,7 @@ ORDER BY Team_ID DESC;
 /* Spørring som teller forslag per team, sortert etter flest forslag */
 
 SELECT Team_ID, COUNT(*) AS 'Antall forslag per team'
-From Forslag
+FROM Forslag
 GROUP BY Team_ID
 ORDER BY 'Antall forslag per team' DESC, Team_ID;
 
@@ -449,7 +434,7 @@ WHERE Fstatus = 'Avvist';
 
 /* Her finner du lederen for teams */
 SELECT Bruker.Navn, Roller.Bruker_ID AS Ansattnr, Roller.Rolle
-From Roller
+FROM Roller
 INNER JOIN Bruker ON Bruker.Bruker_ID = Roller.Bruker_ID
 WHERE Roller.Rolle = 'Teamleder';
 
