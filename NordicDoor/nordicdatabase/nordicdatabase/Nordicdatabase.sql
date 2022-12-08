@@ -5,17 +5,11 @@ USE first;
 
 CREATE OR REPLACE TABLE Bruker (
 
-    Bruker_ID INT UNIQUE ,
+    Bruker_ID INT UNIQUE,
     Postnummer VARCHAR(4),
     Navn VARCHAR (100),
     Epost VARCHAR (100) UNIQUE,
     Telefon INT UNIQUE,
-
-    Bruker_ID int NOT NULL,
-    Postnummer varchar(4) NOT NULL,
-    Navn varchar (100) NOT NULL,
-    Epost varchar(100) NOT NULL,
-    Telefon int NOT NULL,
 
     PRIMARY KEY (Bruker_ID)
 );
