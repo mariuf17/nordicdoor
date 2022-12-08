@@ -4,60 +4,105 @@ create database if not exists first;
 USE first;
 
 CREATE OR REPLACE TABLE Bruker (
+
+    Bruker_ID INT UNIQUE ,
+    Postnummer VARCHAR(4),
+    Navn VARCHAR (100),
+    Epost VARCHAR (100) UNIQUE,
+    Telefon INT UNIQUE,
+
     Bruker_ID int NOT NULL,
     Postnummer varchar(4) NOT NULL,
     Navn varchar (100) NOT NULL,
     Epost varchar(100) NOT NULL,
     Telefon int NOT NULL,
+
     PRIMARY KEY (Bruker_ID)
 );
 
 CREATE OR REPLACE TABLE Post (
-    Postnummer varchar(4),
-    Adresse varchar (100),
+    Postnummer VARCHAR(4),
+    Adresse VARCHAR (100),
     PRIMARY KEY (Postnummer)
 );
 
 CREATE OR REPLACE TABLE UserModel (
-    Brukernavn varchar(20) NOT NULL ,
-    Bruker_ID int NOT NULL,
-    Epost varchar (100) NOT NULL,
-    Passord varchar(50) NOT NULL,
-    Rolle varchar(50) NOT NULL,
+    Brukernavn VARCHAR (20) NOT NULL UNIQUE,
+    Bruker_ID INT NOT NULL UNIQUE,
+    Epost VARCHAR (100) NOT NULL UNIQUE,
+    Passord VARCHAR (50) NOT NULL,
+    Rolle VARCHAR(50) NOT NULL,
     PRIMARY KEY (Brukernavn),
     Foreign Key (Bruker_ID) REFERENCES Bruker (Bruker_ID)
 );
 
+
+ALTER TABLE Bruker
+ADD FOREIGN KEY (Postnummer) REFERENCES Post(Postnummer);
+
+ALTER TABLE Bruker
+  MODIFY Bruker_ID int NOT NULL;
+
+ALTER TABLE Bruker
+  MODIFY Postnummer varchar(4) NOT NULL;
+
+ALTER TABLE Bruker
+  MODIFY Navn varchar(100) NOT NULL;
+
+ALTER TABLE Bruker
+  MODIFY Epost varchar(100) NOT NULL;
+
+ALTER TABLE Bruker
+  MODIFY Telefon int NOT NULL;
+
+
 CREATE OR REPLACE TABLE Avdeling (
-    Avdeling_ID int,
-    Avdeling varchar(100),
+    Avdeling_ID INT,
+    Avdeling VARCHAR(100),
     PRIMARY KEY (Avdeling_ID)
 );
 
 CREATE OR REPLACE TABLE Team (
-    Team_ID int,
-    Avdeling_ID int,
-    Teamnavn varchar(100),
+    Team_ID INT UNIQUE,
+    Avdeling_ID INT,
+    Teamnavn VARCHAR(100) UNIQUE,
     PRIMARY KEY (Team_ID),
     FOREIGN KEY (Avdeling_ID) REFERENCES Avdeling(Avdeling_ID)
 );
 
 CREATE OR REPLACE TABLE Team_Medlemmer (
-    Team_ID int,
-    Bruker_ID int,
+    Team_ID INT,
+    Bruker_ID INT,
     FOREIGN KEY (Team_ID) REFERENCES Team(Team_ID),
     FOREIGN KEY (Bruker_ID) REFERENCES Bruker(Bruker_ID)
 );
 
 CREATE OR REPLACE TABLE Roller (
-    Rolle_ID int,
-    Bruker_ID int,
-    Rolle varchar(100),
+    Rolle_ID INT,
+    Bruker_ID INT,
+    Rolle VARCHAR(100),
     PRIMARY KEY (Rolle_ID),
     FOREIGN KEY (Bruker_ID) REFERENCES Bruker(Bruker_ID)
 );
 
 CREATE OR REPLACE TABLE Forslag (
+
+    Forslag_ID INT AUTO_INCREMENT UNIQUE,
+    Bruker_ID INT,
+    Team_ID INT,
+    Kategori_ID VARCHAR(100),
+    Start_Tid DATE,
+    Frist DATE,
+    Tittel VARCHAR(100),
+    Beskrivelse VARCHAR(500),
+    PRIMARY KEY (Forslag_ID)
+);
+
+ALTER TABLE Forslag
+ADD Ansvarlig VARCHAR(100);
+
+
+
     Forslag_ID int auto_increment,
     Bruker_ID int,
     Team_ID int,
@@ -70,36 +115,36 @@ CREATE OR REPLACE TABLE Forslag (
     PRIMARY KEY (Forslag_ID)
 );
 
+
 CREATE OR REPLACE TABLE Kategori (
-    Kategori_ID varchar(100),
-    Kategori varchar(100),
+    Kategori_ID VARCHAR(100) UNIQUE,
+    Kategori VARCHAR(100),
     PRIMARY KEY (Kategori_ID)
 );
 
 CREATE OR REPLACE TABLE Forslag_Status (
-   Forslag_Status_ID int,
-   Forslag_ID int,
-   Innsendt_Dato date,
-   Avsluttet_Dato date,
-   FStatus varchar(100),
-   Fase varchar(100),
+   Forslag_Status_ID INT UNIQUE,
+   Forslag_ID INT UNIQUE,
+   Innsendt_Dato DATE,
+   Avsluttet_Dato DATE,
+   FStatus VARCHAR(100),
+   Fase VARCHAR(100),
    PRIMARY KEY (Forslag_Status_ID)
 );
 
 CREATE OR REPLACE TABLE Bruker_Status (
-    Bruker_Status_ID int,
-    Bruker_ID int,
-    Ansatt_Status int,
+    Bruker_Status_ID INT UNIQUE,
+    Bruker_ID INT UNIQUE,
+    Ansatt_Status INT,
     PRIMARY KEY (Bruker_Status_ID)
 );
 
-CREATE TABLE FileModel
-    (
-        Id INT NOT NULL AUTO_INCREMENT,
-        FileName VARCHAR(40),
-        Content LONGBLOB,
-        PRIMARY KEY (Id)
-    );
+CREATE TABLE FileModel (
+    Id INT NOT NULL AUTO_INCREMENT,
+    FileName VARCHAR(40),
+    Content LONGBLOB,
+    PRIMARY KEY (Id)
+);
 
 ALTER TABLE Bruker
 ADD FOREIGN KEY (Postnummer) REFERENCES Post(Postnummer)
