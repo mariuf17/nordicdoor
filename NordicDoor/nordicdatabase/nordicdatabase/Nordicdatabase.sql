@@ -496,3 +496,9 @@ ORDER BY COUNT(*);
 Select Forslag_ID, FStatus
 From Forslag_Status;
 
+/* Ansatte som ikke har kommet med forslag */
+SELECT Bruker_ID, Navn
+FROM   Bruker
+WHERE  Bruker_ID NOT IN (SELECT Bruker_ID FROM Forslag);
+
+
