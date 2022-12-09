@@ -535,3 +535,7 @@ GROUP BY Bruker_ID
 ORDER BY COUNT(*) DESC
 LIMIT 1;
 
+/* Ansatte som ikke har kommet med forslag */
+SELECT Bruker_ID,Navn
+FROM Bruker
+WHERE Bruker_ID NOT IN (SELECT Bruker_ID FROM Forslag)
