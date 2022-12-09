@@ -4,13 +4,14 @@ create database if not exists first;
 USE first;
 
 CREATE OR REPLACE TABLE Bruker (
-    Bruker_ID int,
+    Bruker_ID smallint,
     Postnummer varchar(4),
     Navn varchar (100),
     Epost varchar(100),
     Telefon int,
     PRIMARY KEY (Bruker_ID)
 );
+
 
 CREATE OR REPLACE TABLE Post (
     Postnummer varchar(4),
@@ -20,7 +21,7 @@ CREATE OR REPLACE TABLE Post (
 
 CREATE OR REPLACE TABLE UserModel (
     Brukernavn varchar(20) NOT NULL ,
-    Bruker_ID int NOT NULL,
+    Bruker_ID smallint NOT NULL,
     Epost varchar (100) NOT NULL,
     Passord varchar(50) NOT NULL,
     Rolle varchar(50) NOT NULL,
@@ -33,7 +34,7 @@ ADD FOREIGN KEY (Postnummer) REFERENCES Post(Postnummer);
 
 
 ALTER TABLE Bruker
-  MODIFY Bruker_ID int NOT NULL;
+  MODIFY Bruker_ID smallint NOT NULL;
 
 ALTER TABLE Bruker
   MODIFY Postnummer varchar(4) NOT NULL;
@@ -48,14 +49,14 @@ ALTER TABLE Bruker
   MODIFY Telefon int NOT NULL;
 
 CREATE OR REPLACE TABLE Avdeling (
-    Avdeling_ID int,
+    Avdeling_ID smallint,
     Avdeling varchar(100),
     PRIMARY KEY (Avdeling_ID)
 );
 
 CREATE OR REPLACE TABLE Team (
-    Team_ID int,
-    Avdeling_ID int,
+    Team_ID smallint,
+    Avdeling_ID smallint,
     Teamnavn varchar(100),
     PRIMARY KEY (Team_ID),
     FOREIGN KEY (Avdeling_ID) REFERENCES Avdeling(Avdeling_ID)
@@ -63,24 +64,24 @@ CREATE OR REPLACE TABLE Team (
 
 
 CREATE OR REPLACE TABLE Team_Medlemmer (
-    Team_ID int,
-    Bruker_ID int,
+    Team_ID smallint,
+    Bruker_ID smallint,
     FOREIGN KEY (Team_ID) REFERENCES Team(Team_ID),
     FOREIGN KEY (Bruker_ID) REFERENCES Bruker(Bruker_ID)
 );
 
 CREATE OR REPLACE TABLE Roller (
-    Rolle_ID int,
-    Bruker_ID int,
+    Rolle_ID smallint,
+    Bruker_ID smallint,
     Rolle varchar(100),
     PRIMARY KEY (Rolle_ID),
     FOREIGN KEY (Bruker_ID) REFERENCES Bruker(Bruker_ID)
 );
 
 CREATE OR REPLACE TABLE Forslag (
-    Forslag_ID int auto_increment,
-    Bruker_ID int,
-    Team_ID int,
+    Forslag_ID smallint auto_increment,
+    Bruker_ID smallint,
+    Team_ID smallint,
     Kategori_ID varchar(100),
     Start_Tid date,
     Frist date,
@@ -100,8 +101,8 @@ CREATE OR REPLACE TABLE Kategori (
 );
 
 CREATE OR REPLACE TABLE Forslag_Status (
-   Forslag_Status_ID int,
-   Forslag_ID int,
+   Forslag_Status_ID smallint,
+   Forslag_ID smallint,
    Innsendt_Dato date,
    Avsluttet_Dato date,
    FStatus varchar(100),
@@ -110,15 +111,15 @@ CREATE OR REPLACE TABLE Forslag_Status (
 );
 
 CREATE OR REPLACE TABLE Bruker_Status (
-    Bruker_Status_ID int,
-    Bruker_ID int,
-    Ansatt_Status int,
+    Bruker_Status_ID smallint,
+    Bruker_ID smallint,
+    Ansatt_Status smallint,
     PRIMARY KEY (Bruker_Status_ID)
 );
 
 CREATE TABLE FileModel
     (
-        Id INT NOT NULL AUTO_INCREMENT,
+        Id smallINT NOT NULL AUTO_INCREMENT,
         FileName VARCHAR(40),
         Content LONGBLOB,
         PRIMARY KEY (Id)
