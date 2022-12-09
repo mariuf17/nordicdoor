@@ -5,7 +5,7 @@ USE first;
 
 CREATE OR REPLACE TABLE Bruker (
 
-    Bruker_ID INT UNIQUE,
+    Bruker_ID SMALLINT UNIQUE,
     Postnummer VARCHAR(4),
     Navn VARCHAR (100),
     Epost VARCHAR (100) UNIQUE,
@@ -22,7 +22,7 @@ CREATE OR REPLACE TABLE Post (
 
 CREATE OR REPLACE TABLE UserModel (
     Brukernavn VARCHAR (20) NOT NULL UNIQUE,
-    Bruker_ID INT NOT NULL UNIQUE,
+    Bruker_ID SMALLINT NOT NULL UNIQUE,
     Epost VARCHAR (100) NOT NULL UNIQUE,
     Passord VARCHAR (50) NOT NULL,
     Rolle VARCHAR(50) NOT NULL,
@@ -35,7 +35,7 @@ ALTER TABLE Bruker
 ADD CONSTRAINT Bruker FOREIGN KEY (Postnummer) REFERENCES Post(Postnummer);
 
 ALTER TABLE Bruker
-  MODIFY Bruker_ID INT NOT NULL;
+  MODIFY Bruker_ID SMALLINT NOT NULL;
 
 ALTER TABLE Bruker
   MODIFY Postnummer VARCHAR(4) NOT NULL;
@@ -51,29 +51,29 @@ ALTER TABLE Bruker
 
 
 CREATE OR REPLACE TABLE Avdeling (
-    Avdeling_ID INT,
+    Avdeling_ID SMALLINT,
     Avdeling VARCHAR(100),
     PRIMARY KEY (Avdeling_ID)
 );
 
 CREATE OR REPLACE TABLE Team (
-    Team_ID INT UNIQUE,
-    Avdeling_ID INT,
+    Team_ID SMALLINT UNIQUE,
+    Avdeling_ID SMALLINT,
     Teamnavn VARCHAR(100) UNIQUE,
     PRIMARY KEY (Team_ID),
     CONSTRAINT Team FOREIGN KEY (Avdeling_ID) REFERENCES Avdeling(Avdeling_ID)
 );
 
 CREATE OR REPLACE TABLE Team_Medlemmer (
-    Team_ID INT,
-    Bruker_ID INT,
+    Team_ID SMALLINT,
+    Bruker_ID SMALLINT,
     FOREIGN KEY (Team_ID) REFERENCES Team(Team_ID),
     FOREIGN KEY (Bruker_ID) REFERENCES Bruker(Bruker_ID)
 );
 
 CREATE OR REPLACE TABLE Roller (
-    Rolle_ID INT,
-    Bruker_ID INT,
+    Rolle_ID SMALLINT,
+    Bruker_ID SMALLINT,
     Rolle VARCHAR(100),
     PRIMARY KEY (Rolle_ID),
     CONSTRAINT Roller FOREIGN KEY (Bruker_ID) REFERENCES Bruker(Bruker_ID)
@@ -81,9 +81,9 @@ CREATE OR REPLACE TABLE Roller (
 
 CREATE OR REPLACE TABLE Forslag (
 
-    Forslag_ID INT AUTO_INCREMENT UNIQUE,
-    Bruker_ID INT,
-    Team_ID INT,
+    Forslag_ID SMALLINT AUTO_INCREMENT UNIQUE,
+    Bruker_ID SMALLINT,
+    Team_ID SMALLINT,
     Kategori_ID VARCHAR(100),
     Start_Tid DATE,
     Frist DATE,
@@ -102,8 +102,8 @@ CREATE OR REPLACE TABLE Kategori (
 );
 
 CREATE OR REPLACE TABLE Forslag_Status (
-   Forslag_Status_ID INT UNIQUE,
-   Forslag_ID INT UNIQUE,
+   Forslag_Status_ID SMALLINT UNIQUE,
+   Forslag_ID SMALLINT UNIQUE,
    Innsendt_Dato DATE,
    Avsluttet_Dato DATE,
    FStatus VARCHAR(100),
@@ -112,9 +112,9 @@ CREATE OR REPLACE TABLE Forslag_Status (
 );
 
 CREATE OR REPLACE TABLE Bruker_Status (
-    Bruker_Status_ID INT UNIQUE,
-    Bruker_ID INT UNIQUE,
-    Ansatt_Status INT,
+    Bruker_Status_ID SMALLINT UNIQUE,
+    Bruker_ID SMALLINT UNIQUE,
+    Ansatt_Status SMALLINT,
     PRIMARY KEY (Bruker_Status_ID)
 );
 
@@ -527,4 +527,11 @@ ON Forslag (Forslag_ID, Tittel, Ansvarlig);
 /*Forslag med både ansvarlig og den som lagde forslag*/
 SELECT Forslag.Bruker_ID, Bruker.Navn, Forslag.Tittel, Forslag.Ansvarlig FROM Forslag
 LEFT JOIN Bruker ON Forslag.Bruker_ID  = Bruker.Bruker_ID;
+
+/* Ansatte med flest forslag*/
+SELECT Bruker_ID, COUNT(*) AS Antall_Forslag
+FROM Forslag
+GROUP BY Bruker_ID
+ORDER BY COUNT(*) DESC
+LIMIT 1;
 
