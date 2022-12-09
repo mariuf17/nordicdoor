@@ -501,4 +501,13 @@ SELECT Bruker_ID, Navn
 FROM   Bruker
 WHERE  Bruker_ID NOT IN (SELECT Bruker_ID FROM Forslag);
 
+/* Ansatte med flest forslag*/
+SELECT Bruker_ID, COUNT(*) AS Antall_Forslag
+FROM Forslag
+GROUP BY Bruker_ID
+ORDER BY COUNT(*) DESC
+LIMIT 1;
+
+
+
 
